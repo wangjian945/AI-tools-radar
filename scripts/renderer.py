@@ -79,16 +79,15 @@ def render_detail_card(tool):
     # How to Use (步骤)
     steps_html = ""
     if how_to_use:
-        steps = [s.strip() for s in how_to_use.replace(". ", ".\n").split("\n") if s.strip()]
-        if len(steps) <= 1:
-            steps = [s.strip() for s in how_to_use.split(". ") if s.strip()]
+        import re
+        # 按 "数字. " 模式拆分步骤（如 "1. Do X. 2. Do Y."）
+        parts = re.split(r'\d+\.\s+', how_to_use)
+        steps = [s.strip().rstrip('.') for s in parts if s.strip()]
         for i, step_text in enumerate(steps[:5], 1):
-            clean = step_text.lstrip("0123456789. )")
-            if clean:
-                steps_html += f"""
+            steps_html += f"""
                 <div class="step">
                     <div class="step-num">{i}</div>
-                    <div class="step-text">{clean}</div>
+                    <div class="step-text">{step_text}</div>
                 </div>"""
     
     # Pricing
@@ -107,10 +106,14 @@ def render_detail_card(tool):
             # 提取价格数字
             price_display = "Free" if is_free and "free" in plan_name.lower() else plan_name.split("(")[0].strip()
             
+            # 清理显示：/mo → /month
+            display_name = plan_name.replace("/mo)", "/month)")
+            display_desc = desc
+            
             pricing_html += f"""
             <div class="{card_class}">
-                <div class="plan-name">{plan_name}</div>
-                <div class="plan-desc">{desc}</div>
+                <div class="plan-name">{display_name}</div>
+                <div class="plan-desc">{display_desc}</div>
             </div>"""
     
     # Pricing badge
