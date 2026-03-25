@@ -283,7 +283,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </main>
 
 <footer class="footer">
-    <p>Built with ❤️ for the Lab · Auto-updated daily · 
+    <p>Built with Jian for the Lab · Auto-updated daily · 
     <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
     <p style="margin-top:8px">Last build: {build_time}</p>
 </footer>
