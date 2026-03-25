@@ -59,33 +59,68 @@
             gap: 24px;
             font-size: 0.85rem;
             opacity: 0.8;
+            flex-wrap: wrap;
         }
         .header-meta span { display: flex; align-items: center; gap: 6px; }
 
-        /* ---- Nav / Filter ---- */
-        .filter-bar {
+        /* ---- Tab Switcher ---- */
+        .tab-bar {
             max-width: 1200px;
             margin: -20px auto 0;
             padding: 0 32px;
             position: relative;
             z-index: 10;
         }
-        .filter-inner {
+        .tab-inner {
             background: white;
             border-radius: var(--radius);
             box-shadow: var(--shadow-lg);
-            padding: 16px 24px;
+            padding: 12px 24px;
+            display: flex;
+            gap: 0;
+        }
+        .tab-btn {
+            padding: 10px 24px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { color: var(--primary); }
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ---- Filter Bar ---- */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 16px auto 0;
+            padding: 0 32px;
+        }
+        .filter-inner {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
         .filter-btn {
-            padding: 8px 18px;
+            padding: 6px 16px;
             border-radius: 20px;
             border: 1px solid var(--border);
             background: white;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
             color: var(--text-secondary);
             transition: all 0.2s;
@@ -96,26 +131,67 @@
             border-color: var(--primary);
         }
 
+        /* ---- Search ---- */
+        .search-box {
+            max-width: 1200px;
+            margin: 16px auto 0;
+            padding: 0 32px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.92rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
         /* ---- Main Content ---- */
         .main {
             max-width: 1200px;
-            margin: 32px auto;
+            margin: 24px auto 32px;
             padding: 0 32px;
         }
+
+        .view { display: none; }
+        .view.active { display: block; }
 
         .section-title {
             font-size: 1.15rem;
             font-weight: 600;
             color: var(--primary-dark);
-            margin: 32px 0 16px;
+            margin: 28px 0 16px;
             padding-left: 12px;
             border-left: 3px solid var(--primary);
+        }
+
+        /* ---- Today Banner ---- */
+        .today-banner {
+            background: linear-gradient(135deg, #E8F4FD 0%, #FFF3E0 100%);
+            border: 1px solid var(--primary-light);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+        .today-banner h3 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .today-banner p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
         }
 
         /* ---- Tool Card ---- */
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
         }
 
@@ -133,6 +209,22 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
+        .tool-card.new-today {
+            border-top-color: var(--accent);
+        }
+        .tool-card.new-today::after {
+            content: "🆕 NEW";
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .tool-card { position: relative; }
 
         .tool-card .card-header {
             display: flex;
@@ -163,22 +255,11 @@
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
-        .badge-category {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-        .badge-source {
-            background: #FFF3E0;
-            color: #E65100;
-        }
-        .badge-free {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-        .badge-paid {
-            background: #FBE9E7;
-            color: #BF360C;
-        }
+        .badge-category { background: var(--primary-light); color: var(--primary); }
+        .badge-source { background: #FFF3E0; color: #E65100; }
+        .badge-free { background: #E8F5E9; color: #2E7D32; }
+        .badge-paid { background: #FBE9E7; color: #BF360C; }
+        .badge-date { background: #F3F4F6; color: #6B7280; }
 
         .tool-card .one-liner {
             color: var(--text-secondary);
@@ -213,6 +294,10 @@
         .tool-card .card-footer .meta {
             font-size: 0.78rem;
             color: var(--text-secondary);
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .tool-card .card-footer a {
             font-size: 0.82rem;
@@ -220,11 +305,48 @@
             text-decoration: none;
             font-weight: 600;
         }
-        .tool-card .card-footer a:hover {
-            text-decoration: underline;
-        }
+        .tool-card .card-footer a:hover { text-decoration: underline; }
 
         .stars { color: #F59E0B; font-size: 0.82rem; }
+
+        /* ---- Timeline ---- */
+        .timeline-date {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 28px 0 12px;
+            padding: 8px 16px;
+            background: var(--primary-light);
+            border-radius: var(--radius);
+            display: inline-block;
+        }
+
+        /* ---- Empty State ---- */
+        .empty-state {
+            text-align: center;
+            padding: 48px;
+            color: var(--text-secondary);
+        }
+
+        /* ---- Stats ---- */
+        .stats-bar {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
 
         /* ---- Footer ---- */
         .footer {
@@ -240,6 +362,7 @@
             .header h1 { font-size: 1.5rem; }
             .tools-grid { grid-template-columns: 1fr; }
             .header-meta { flex-direction: column; gap: 8px; }
+            .tab-btn { padding: 8px 14px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -251,64 +374,55 @@
         <p>AI-Powered Research Tools — Daily Intelligence for the Lab</p>
         <div class="header-meta">
             <span>📅 Updated: 2026-03-25</span>
-<<<<<<< HEAD
-            <span>📊 12 Tools Tracked</span>
-=======
-            <span>📊 0 Tools Tracked</span>
->>>>>>> d9795c7b45c010db63073aa71592dc8e676fc120
-            <span>🔄 Auto-updated daily via GitHub Actions</span>
+            <span>📊 12 Tools in Database</span>
+            <span>🆕 12 New Today</span>
+            <span>📁 1 Days Tracked</span>
         </div>
     </div>
 </header>
 
+<div class="tab-bar">
+    <div class="tab-inner">
+        <button class="tab-btn active" onclick="switchTab('database')">📚 Tools Database</button>
+        <button class="tab-btn" onclick="switchTab('today')">🆕 Today's Discoveries</button>
+        <button class="tab-btn" onclick="switchTab('timeline')">📅 Timeline</button>
+    </div>
+</div>
+
+<div class="search-box">
+    <input type="text" class="search-input" placeholder="🔍 Search tools by name, category, or feature..." oninput="searchTools(this.value)">
+</div>
+
 <div class="filter-bar">
     <div class="filter-inner">
+        <span class="filter-label">Filter:</span>
         <button class="filter-btn active" onclick="filterTools('all')">All</button>
-<<<<<<< HEAD
-        <button class="filter-btn" onclick="filterTools('Literature Review')">📚 Literature Review (7)</button>
+        <button class="filter-btn" onclick="filterTools('Literature Review')">📚 Literature Review (8)</button>
         <button class="filter-btn" onclick="filterTools('Writing & Drafting')">✍️ Writing & Drafting (4)</button>
-        <button class="filter-btn" onclick="filterTools('Data Analysis')">📊 Data Analysis (1)</button>
-=======
         
->>>>>>> d9795c7b45c010db63073aa71592dc8e676fc120
     </div>
 </div>
 
 <main class="main">
-    
-<<<<<<< HEAD
-    <div class="category-section" data-section="Data Analysis">
-        <h2 class="section-title">📊 Data Analysis</h2>
-        <div class="tools-grid">
+    <!-- Tab 1: Full Database -->
+    <div id="view-database" class="view active">
+        <div class="stats-bar">
             
+        <div class="stat-item">
+            <div class="stat-num">8</div>
+            <div class="stat-label">📚 Literature Review</div>
         </div>
-    </div>
-    
+        <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label">✍️ Writing & Drafting</div>
+        </div>
+        </div>
+        
     <div class="category-section" data-section="Literature Review">
         <h2 class="section-title">📚 Literature Review</h2>
         <div class="tools-grid">
             
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-header">
-        <h3><a href="https://elicit.com" target="_blank">Elicit</a></h3>
-        <span class="badge badge-category">Literature Review</span>
-    </div>
-    <p class="one-liner">AI research assistant that helps find and summarize relevant papers.</p>
-    <ul class="features">
-        <li>Search 200M+ papers with natural language</li>
-        <li>Auto-extract key claims and methods</li>
-        <li>Generate literature review matrices</li>
-    </ul>
-    <div class="card-footer">
-        <div class="meta">
-            <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
-            
-        </div>
-        <a href="https://elicit.com" target="_blank">Explore →</a>
-    </div>
-</div>
-<div class="tool-card" data-category="Literature Review">
+<div class="tool-card new-today" data-category="Literature Review">
     <div class="card-header">
         <h3><a href="https://consensus.app" target="_blank">Consensus</a></h3>
         <span class="badge badge-category">Literature Review</span>
@@ -322,13 +436,103 @@
     <div class="card-footer">
         <div class="meta">
             <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
             
+            <span class="badge badge-date">2026-03-25</span>
         </div>
         <a href="https://consensus.app" target="_blank">Explore →</a>
     </div>
 </div>
-<div class="tool-card" data-category="Literature Review">
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://elicit.com" target="_blank">Elicit</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI research assistant that helps find and summarize relevant papers.</p>
+    <ul class="features">
+        <li>Search 200M+ papers with natural language</li>
+        <li>Auto-extract key claims and methods</li>
+        <li>Generate literature review matrices</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://elicit.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://connectedpapers.com" target="_blank">Connected Papers</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Visual tool to explore connections between academic papers.</p>
+    <ul class="features">
+        <li>Generate visual paper graphs</li>
+        <li>Find related papers instantly</li>
+        <li>Track citation networks</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-free">Free</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://connectedpapers.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://researchrabbit.ai" target="_blank">ResearchRabbit</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Spotify for research papers - discover and organize academic literature.</p>
+    <ul class="features">
+        <li>Visual paper collections</li>
+        <li>AI-powered recommendations</li>
+        <li>Collaborative collections</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-free">Free</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://researchrabbit.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scispace.com" target="_blank">Scispace</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI copilot for understanding and explaining research papers.</p>
+    <ul class="features">
+        <li>Explain complex text in simple terms</li>
+        <li>Chat with PDFs</li>
+        <li>Find related papers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scispace.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
     <div class="card-header">
         <h3><a href="https://scite.ai" target="_blank">Scite</a></h3>
         <span class="badge badge-category">Literature Review</span>
@@ -344,10 +548,477 @@
             <span class="badge badge-source">Manual</span>
             <span class="badge badge-paid">Paid</span>
             
+            <span class="badge badge-date">2026-03-25</span>
         </div>
         <a href="https://scite.ai" target="_blank">Explore →</a>
     </div>
 </div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scholarcy.com" target="_blank">Scholarcy</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI summarizer that creates flashcards from research papers.</p>
+    <ul class="features">
+        <li>Auto-generate summary flashcards</li>
+        <li>Extract key claims and contributions</li>
+        <li>Compare multiple papers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scholarcy.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://explainpaper.com" target="_blank">Explainpaper</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Upload a paper and get confusing parts explained by AI.</p>
+    <ul class="features">
+        <li>Highlight confusing text for explanation</li>
+        <li>Simple language explanations</li>
+        <li>Context-aware answers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-free">Free</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://explainpaper.com" target="_blank">Explore →</a>
+    </div>
+</div>
+        </div>
+    </div>
+    <div class="category-section" data-section="Writing & Drafting">
+        <h2 class="section-title">✍️ Writing & Drafting</h2>
+        <div class="tools-grid">
+            
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://chatpdf.com" target="_blank">ChatPDF</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">Chat with any PDF document using AI.</p>
+    <ul class="features">
+        <li>Upload and chat with PDFs</li>
+        <li>Extract key insights instantly</li>
+        <li>Summarize long documents</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://chatpdf.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://jenni.ai" target="_blank">Jenni AI</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI writing assistant for academic papers with citation support.</p>
+    <ul class="features">
+        <li>AI autocomplete for academic writing</li>
+        <li>Auto-cite sources</li>
+        <li>Plagiarism checker</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://jenni.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://paperpal.com" target="_blank">Paperpal</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI writing assistant trained on academic manuscripts.</p>
+    <ul class="features">
+        <li>Academic grammar and style checks</li>
+        <li>Journal-specific suggestions</li>
+        <li>Plagiarism detection</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://paperpal.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://typeset.io" target="_blank">Typeset.io</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI-powered scientific writing and formatting platform.</p>
+    <ul class="features">
+        <li>Auto-format to 40K+ journal templates</li>
+        <li>AI writing suggestions</li>
+        <li>Reference management</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://typeset.io" target="_blank">Explore →</a>
+    </div>
+</div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Tab 2: Today's New -->
+    <div id="view-today" class="view">
+        
+        <div class="today-banner">
+            <h3>🆕 12 New Tools Discovered Today</h3>
+            <p>These tools were found during today's automated scan.</p>
+        </div>
+        <div class="tools-grid">
+            
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://elicit.com" target="_blank">Elicit</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI research assistant that helps find and summarize relevant papers.</p>
+    <ul class="features">
+        <li>Search 200M+ papers with natural language</li>
+        <li>Auto-extract key claims and methods</li>
+        <li>Generate literature review matrices</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://elicit.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://consensus.app" target="_blank">Consensus</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI search engine for scientific research with evidence-based answers.</p>
+    <ul class="features">
+        <li>Search 200M+ scientific papers</li>
+        <li>AI-generated consensus summaries</li>
+        <li>Citation extraction and analysis</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://consensus.app" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scite.ai" target="_blank">Scite</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Smart citations that show how papers support or contradict each other.</p>
+    <ul class="features">
+        <li>Smart citation classification</li>
+        <li>Supporting/contrasting citation badges</li>
+        <li>Citation context analysis</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-paid">Paid</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scite.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://connectedpapers.com" target="_blank">Connected Papers</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Visual tool to explore connections between academic papers.</p>
+    <ul class="features">
+        <li>Generate visual paper graphs</li>
+        <li>Find related papers instantly</li>
+        <li>Track citation networks</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-free">Free</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://connectedpapers.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://researchrabbit.ai" target="_blank">ResearchRabbit</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Spotify for research papers - discover and organize academic literature.</p>
+    <ul class="features">
+        <li>Visual paper collections</li>
+        <li>AI-powered recommendations</li>
+        <li>Collaborative collections</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-free">Free</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://researchrabbit.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://chatpdf.com" target="_blank">ChatPDF</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">Chat with any PDF document using AI.</p>
+    <ul class="features">
+        <li>Upload and chat with PDFs</li>
+        <li>Extract key insights instantly</li>
+        <li>Summarize long documents</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://chatpdf.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scholarcy.com" target="_blank">Scholarcy</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI summarizer that creates flashcards from research papers.</p>
+    <ul class="features">
+        <li>Auto-generate summary flashcards</li>
+        <li>Extract key claims and contributions</li>
+        <li>Compare multiple papers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scholarcy.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://paperpal.com" target="_blank">Paperpal</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI writing assistant trained on academic manuscripts.</p>
+    <ul class="features">
+        <li>Academic grammar and style checks</li>
+        <li>Journal-specific suggestions</li>
+        <li>Plagiarism detection</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://paperpal.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://typeset.io" target="_blank">Typeset.io</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI-powered scientific writing and formatting platform.</p>
+    <ul class="features">
+        <li>Auto-format to 40K+ journal templates</li>
+        <li>AI writing suggestions</li>
+        <li>Reference management</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://typeset.io" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scispace.com" target="_blank">Scispace</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI copilot for understanding and explaining research papers.</p>
+    <ul class="features">
+        <li>Explain complex text in simple terms</li>
+        <li>Chat with PDFs</li>
+        <li>Find related papers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scispace.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://jenni.ai" target="_blank">Jenni AI</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI writing assistant for academic papers with citation support.</p>
+    <ul class="features">
+        <li>AI autocomplete for academic writing</li>
+        <li>Auto-cite sources</li>
+        <li>Plagiarism checker</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://jenni.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card new-today" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://explainpaper.com" target="_blank">Explainpaper</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Upload a paper and get confusing parts explained by AI.</p>
+    <ul class="features">
+        <li>Highlight confusing text for explanation</li>
+        <li>Simple language explanations</li>
+        <li>Context-aware answers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-free">Free</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://explainpaper.com" target="_blank">Explore →</a>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <!-- Tab 3: Timeline -->
+    <div id="view-timeline" class="view">
+        
+        <div class="timeline-date">📅 2026-03-25 — 12 tool(s)</div>
+        <div class="tools-grid">
+            
+<div class="tool-card" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://consensus.app" target="_blank">Consensus</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI search engine for scientific research with evidence-based answers.</p>
+    <ul class="features">
+        <li>Search 200M+ scientific papers</li>
+        <li>AI-generated consensus summaries</li>
+        <li>Citation extraction and analysis</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://consensus.app" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://elicit.com" target="_blank">Elicit</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI research assistant that helps find and summarize relevant papers.</p>
+    <ul class="features">
+        <li>Search 200M+ papers with natural language</li>
+        <li>Auto-extract key claims and methods</li>
+        <li>Generate literature review matrices</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://elicit.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
 <div class="tool-card" data-category="Literature Review">
     <div class="card-header">
         <h3><a href="https://connectedpapers.com" target="_blank">Connected Papers</a></h3>
@@ -364,10 +1035,12 @@
             <span class="badge badge-source">Manual</span>
             <span class="badge badge-free">Free</span>
             
+            <span class="badge badge-date">2026-03-25</span>
         </div>
         <a href="https://connectedpapers.com" target="_blank">Explore →</a>
     </div>
 </div>
+
 <div class="tool-card" data-category="Literature Review">
     <div class="card-header">
         <h3><a href="https://researchrabbit.ai" target="_blank">ResearchRabbit</a></h3>
@@ -384,30 +1057,12 @@
             <span class="badge badge-source">Manual</span>
             <span class="badge badge-free">Free</span>
             
+            <span class="badge badge-date">2026-03-25</span>
         </div>
         <a href="https://researchrabbit.ai" target="_blank">Explore →</a>
     </div>
 </div>
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-header">
-        <h3><a href="https://scholarcy.com" target="_blank">Scholarcy</a></h3>
-        <span class="badge badge-category">Literature Review</span>
-    </div>
-    <p class="one-liner">AI summarizer that creates flashcards from research papers.</p>
-    <ul class="features">
-        <li>Auto-generate summary flashcards</li>
-        <li>Extract key claims and contributions</li>
-        <li>Compare multiple papers</li>
-    </ul>
-    <div class="card-footer">
-        <div class="meta">
-            <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
-            
-        </div>
-        <a href="https://scholarcy.com" target="_blank">Explore →</a>
-    </div>
-</div>
+
 <div class="tool-card" data-category="Literature Review">
     <div class="card-header">
         <h3><a href="https://scispace.com" target="_blank">Scispace</a></h3>
@@ -422,12 +1077,146 @@
     <div class="card-footer">
         <div class="meta">
             <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
             
+            <span class="badge badge-date">2026-03-25</span>
         </div>
         <a href="https://scispace.com" target="_blank">Explore →</a>
     </div>
 </div>
+
+<div class="tool-card" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scite.ai" target="_blank">Scite</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">Smart citations that show how papers support or contradict each other.</p>
+    <ul class="features">
+        <li>Smart citation classification</li>
+        <li>Supporting/contrasting citation badges</li>
+        <li>Citation context analysis</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge badge-paid">Paid</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scite.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://chatpdf.com" target="_blank">ChatPDF</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">Chat with any PDF document using AI.</p>
+    <ul class="features">
+        <li>Upload and chat with PDFs</li>
+        <li>Extract key insights instantly</li>
+        <li>Summarize long documents</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://chatpdf.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://jenni.ai" target="_blank">Jenni AI</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI writing assistant for academic papers with citation support.</p>
+    <ul class="features">
+        <li>AI autocomplete for academic writing</li>
+        <li>Auto-cite sources</li>
+        <li>Plagiarism checker</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://jenni.ai" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://paperpal.com" target="_blank">Paperpal</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI writing assistant trained on academic manuscripts.</p>
+    <ul class="features">
+        <li>Academic grammar and style checks</li>
+        <li>Journal-specific suggestions</li>
+        <li>Plagiarism detection</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://paperpal.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card" data-category="Literature Review">
+    <div class="card-header">
+        <h3><a href="https://scholarcy.com" target="_blank">Scholarcy</a></h3>
+        <span class="badge badge-category">Literature Review</span>
+    </div>
+    <p class="one-liner">AI summarizer that creates flashcards from research papers.</p>
+    <ul class="features">
+        <li>Auto-generate summary flashcards</li>
+        <li>Extract key claims and contributions</li>
+        <li>Compare multiple papers</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://scholarcy.com" target="_blank">Explore →</a>
+    </div>
+</div>
+
+<div class="tool-card" data-category="Writing & Drafting">
+    <div class="card-header">
+        <h3><a href="https://typeset.io" target="_blank">Typeset.io</a></h3>
+        <span class="badge badge-category">Writing & Drafting</span>
+    </div>
+    <p class="one-liner">AI-powered scientific writing and formatting platform.</p>
+    <ul class="features">
+        <li>Auto-format to 40K+ journal templates</li>
+        <li>AI writing suggestions</li>
+        <li>Reference management</li>
+    </ul>
+    <div class="card-footer">
+        <div class="meta">
+            <span class="badge badge-source">Manual</span>
+            <span class="badge" style="background:#F3F4F6;color:#6B7280">Freemium</span>
+            
+            <span class="badge badge-date">2026-03-25</span>
+        </div>
+        <a href="https://typeset.io" target="_blank">Explore →</a>
+    </div>
+</div>
+
 <div class="tool-card" data-category="Literature Review">
     <div class="card-header">
         <h3><a href="https://explainpaper.com" target="_blank">Explainpaper</a></h3>
@@ -444,119 +1233,29 @@
             <span class="badge badge-source">Manual</span>
             <span class="badge badge-free">Free</span>
             
+            <span class="badge badge-date">2026-03-25</span>
         </div>
         <a href="https://explainpaper.com" target="_blank">Explore →</a>
     </div>
 </div>
-
         </div>
     </div>
-    
-    <div class="category-section" data-section="Writing & Drafting">
-        <h2 class="section-title">✍️ Writing & Drafting</h2>
-        <div class="tools-grid">
-            
-<div class="tool-card" data-category="Writing & Drafting">
-    <div class="card-header">
-        <h3><a href="https://chatpdf.com" target="_blank">ChatPDF</a></h3>
-        <span class="badge badge-category">Writing & Drafting</span>
-    </div>
-    <p class="one-liner">Chat with any PDF document using AI.</p>
-    <ul class="features">
-        <li>Upload and chat with PDFs</li>
-        <li>Extract key insights instantly</li>
-        <li>Summarize long documents</li>
-    </ul>
-    <div class="card-footer">
-        <div class="meta">
-            <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
-            
-        </div>
-        <a href="https://chatpdf.com" target="_blank">Explore →</a>
-    </div>
-</div>
-<div class="tool-card" data-category="Writing & Drafting">
-    <div class="card-header">
-        <h3><a href="https://paperpal.com" target="_blank">Paperpal</a></h3>
-        <span class="badge badge-category">Writing & Drafting</span>
-    </div>
-    <p class="one-liner">AI writing assistant trained on academic manuscripts.</p>
-    <ul class="features">
-        <li>Academic grammar and style checks</li>
-        <li>Journal-specific suggestions</li>
-        <li>Plagiarism detection</li>
-    </ul>
-    <div class="card-footer">
-        <div class="meta">
-            <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
-            
-        </div>
-        <a href="https://paperpal.com" target="_blank">Explore →</a>
-    </div>
-</div>
-<div class="tool-card" data-category="Writing & Drafting">
-    <div class="card-header">
-        <h3><a href="https://typeset.io" target="_blank">Typeset.io</a></h3>
-        <span class="badge badge-category">Writing & Drafting</span>
-    </div>
-    <p class="one-liner">AI-powered scientific writing and formatting platform.</p>
-    <ul class="features">
-        <li>Auto-format to 40K+ journal templates</li>
-        <li>AI writing suggestions</li>
-        <li>Reference management</li>
-    </ul>
-    <div class="card-footer">
-        <div class="meta">
-            <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
-            
-        </div>
-        <a href="https://typeset.io" target="_blank">Explore →</a>
-    </div>
-</div>
-<div class="tool-card" data-category="Writing & Drafting">
-    <div class="card-header">
-        <h3><a href="https://jenni.ai" target="_blank">Jenni AI</a></h3>
-        <span class="badge badge-category">Writing & Drafting</span>
-    </div>
-    <p class="one-liner">AI writing assistant for academic papers with citation support.</p>
-    <ul class="features">
-        <li>AI autocomplete for academic writing</li>
-        <li>Auto-cite sources</li>
-        <li>Plagiarism checker</li>
-    </ul>
-    <div class="card-footer">
-        <div class="meta">
-            <span class="badge badge-source">Manual</span>
-            <span class="badge badge-paid">Freemium</span>
-            
-        </div>
-        <a href="https://jenni.ai" target="_blank">Explore →</a>
-    </div>
-</div>
-
-        </div>
-    </div>
-    
 </main>
 
 <footer class="footer">
     <p>Built with Jian for the Lab · Auto-updated daily · 
     <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
-    <p style="margin-top:8px">Last build: 2026-03-25 16:00 UTC</p>
-=======
-</main>
-
-<footer class="footer">
-    <p>Built with ❤️ for the Lab · Auto-updated daily · 
-    <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
-    <p style="margin-top:8px">Last build: 2026-03-25 09:17 UTC</p>
->>>>>>> d9795c7b45c010db63073aa71592dc8e676fc120
+    <p style="margin-top:8px">Last build: 2026-03-25 09:38 UTC</p>
 </footer>
 
 <script>
+function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + tab).classList.add('active');
+}
+
 function filterTools(category) {
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
@@ -573,9 +1272,23 @@ function filterTools(category) {
         if (category === 'all') {
             section.style.display = '';
         } else {
-            const hasVisible = section.querySelectorAll(`.tool-card[data-category="${category}"]`).length > 0;
+            const cards = section.querySelectorAll('.tool-card');
+            const hasVisible = Array.from(cards).some(c => c.style.display !== 'none');
             section.style.display = hasVisible ? '' : 'none';
         }
+    });
+}
+
+function searchTools(query) {
+    query = query.toLowerCase().trim();
+    document.querySelectorAll('.tool-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = (!query || text.includes(query)) ? '' : 'none';
+    });
+    document.querySelectorAll('.category-section').forEach(section => {
+        const cards = section.querySelectorAll('.tool-card');
+        const hasVisible = Array.from(cards).some(c => c.style.display !== 'none');
+        section.style.display = hasVisible ? '' : 'none';
     });
 }
 </script>
