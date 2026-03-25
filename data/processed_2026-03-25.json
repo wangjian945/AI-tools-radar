@@ -1,225 +1,59 @@
 {
   "date": "2026-03-25",
   "processed_at": "2026-03-25T16:00:00",
-  "total_collected": 15,
-  "total_processed": 15,
-  "total_qualified": 12,
+  "total_collected": 1,
+  "total_processed": 1,
+  "total_qualified": 1,
   "tools": [
     {
       "name": "Elicit",
       "category": "Literature Review",
-      "one_liner": "AI research assistant that helps find and summarize relevant papers.",
+      "one_liner": "AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers.",
       "key_features": [
-        "Search 200M+ papers with natural language",
-        "Auto-extract key claims and methods",
-        "Generate literature review matrices"
+        "Search 138M+ papers and 545K clinical trials with natural language queries",
+        "Auto-extract structured data (sample size, methods, outcomes) into comparison tables",
+        "Generate comprehensive research reports with sentence-level citations",
+        "Systematic review workflow: screen up to 5,000 papers automatically",
+        "Real-time research alerts for new publications matching your interests",
+        "Chat with full-text papers and get AI-explained answers"
       ],
-      "use_case": "Quickly find and synthesize papers for your literature review section.",
+      "use_case": "Ideal for conducting systematic reviews, building evidence matrices, and synthesizing findings across dozens of papers — tasks that traditionally take weeks can be completed in hours.",
+      "how_to_use": "1. Enter a research question in natural language (e.g., 'What are the effects of theanine on cognitive function?'). 2. Elicit searches and ranks relevant papers. 3. Add columns to extract specific data points (sample size, methodology, outcomes). 4. Generate an automated research report with citations. 5. Export to RIS, CSV, BIB, or DOCX for your reference manager.",
       "pricing": "Freemium",
-      "quality_score": 9,
+      "pricing_details": {
+        "Basic (Free)": "2 reports/month, unlimited search & summaries, chat with papers, Zotero import",
+        "Plus ($7/mo billed yearly)": "4 reports/month, export to RIS/CSV/BIB/PDF/DOCX, clinical trials search, 5 table columns",
+        "Pro ($29/mo billed yearly)": "Systematic review workflow (5,000 papers), 12 reports/month, API access, 20 table columns, 10 research alerts",
+        "Scale ($49/mo billed yearly)": "Team collaboration, figure extraction, 20 reports/month, 200 data sources per report, admin panel",
+        "Enterprise (Custom)": "SSO/SAML, unlimited API, 40,000 paper screening, custom data sources, dedicated support"
+      },
+      "quality_score": 10,
       "is_research_relevant": true,
       "url": "https://elicit.com",
       "source": "Manual",
       "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Consensus",
-      "category": "Literature Review",
-      "one_liner": "AI search engine for scientific research with evidence-based answers.",
-      "key_features": [
-        "Search 200M+ scientific papers",
-        "AI-generated consensus summaries",
-        "Citation extraction and analysis"
+      "collected_date": "2026-03-25",
+      "logo_url": "https://elicit.com/favicon.ico",
+      "screenshots": [
+        {
+          "url": "https://framerusercontent.com/images/jTEYkzaYq8QhnYC5uAKesGrObeQ.png",
+          "caption": "Research question interface with AI-suggested refinement tags"
+        },
+        {
+          "url": "https://framerusercontent.com/images/HWjzdbSRG0wlQesU2KMjp1h1og.png",
+          "caption": "Screening recommendation with extracted supporting quotes"
+        },
+        {
+          "url": "https://framerusercontent.com/images/ZNDicg9Nowy7BkFvOhUGNc5hJg.png",
+          "caption": "Library: organize sources with collections and tags"
+        },
+        {
+          "url": "https://framerusercontent.com/images/qZvwkRC39ccOv5q9zMsteQMR78.png",
+          "caption": "Research Alerts: stay updated with new relevant findings"
+        }
       ],
-      "use_case": "Get quick, evidence-based answers to research questions.",
-      "pricing": "Freemium",
-      "quality_score": 9,
-      "is_research_relevant": true,
-      "url": "https://consensus.app",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Scite",
-      "category": "Literature Review",
-      "one_liner": "Smart citations that show how papers support or contradict each other.",
-      "key_features": [
-        "Smart citation classification",
-        "Supporting/contrasting citation badges",
-        "Citation context analysis"
-      ],
-      "use_case": "Understand how papers relate to each other before citing.",
-      "pricing": "Paid",
-      "quality_score": 8,
-      "is_research_relevant": true,
-      "url": "https://scite.ai",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Connected Papers",
-      "category": "Literature Review",
-      "one_liner": "Visual tool to explore connections between academic papers.",
-      "key_features": [
-        "Generate visual paper graphs",
-        "Find related papers instantly",
-        "Track citation networks"
-      ],
-      "use_case": "Discover related work and understand paper relationships visually.",
-      "pricing": "Free",
-      "quality_score": 8,
-      "is_research_relevant": true,
-      "url": "https://connectedpapers.com",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "ResearchRabbit",
-      "category": "Literature Review",
-      "one_liner": "Spotify for research papers - discover and organize academic literature.",
-      "key_features": [
-        "Visual paper collections",
-        "AI-powered recommendations",
-        "Collaborative collections"
-      ],
-      "use_case": "Build and share paper collections with your research team.",
-      "pricing": "Free",
-      "quality_score": 8,
-      "is_research_relevant": true,
-      "url": "https://researchrabbit.ai",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "ChatPDF",
-      "category": "Writing & Drafting",
-      "one_liner": "Chat with any PDF document using AI.",
-      "key_features": [
-        "Upload and chat with PDFs",
-        "Extract key insights instantly",
-        "Summarize long documents"
-      ],
-      "use_case": "Quickly understand and extract information from research papers.",
-      "pricing": "Freemium",
-      "quality_score": 7,
-      "is_research_relevant": true,
-      "url": "https://chatpdf.com",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Scholarcy",
-      "category": "Literature Review",
-      "one_liner": "AI summarizer that creates flashcards from research papers.",
-      "key_features": [
-        "Auto-generate summary flashcards",
-        "Extract key claims and contributions",
-        "Compare multiple papers"
-      ],
-      "use_case": "Rapidly digest and compare multiple research papers.",
-      "pricing": "Freemium",
-      "quality_score": 7,
-      "is_research_relevant": true,
-      "url": "https://scholarcy.com",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Paperpal",
-      "category": "Writing & Drafting",
-      "one_liner": "AI writing assistant trained on academic manuscripts.",
-      "key_features": [
-        "Academic grammar and style checks",
-        "Journal-specific suggestions",
-        "Plagiarism detection"
-      ],
-      "use_case": "Polish your manuscript before submission.",
-      "pricing": "Freemium",
-      "quality_score": 7,
-      "is_research_relevant": true,
-      "url": "https://paperpal.com",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Typeset.io",
-      "category": "Writing & Drafting",
-      "one_liner": "AI-powered scientific writing and formatting platform.",
-      "key_features": [
-        "Auto-format to 40K+ journal templates",
-        "AI writing suggestions",
-        "Reference management"
-      ],
-      "use_case": "Format your paper to any journal's requirements instantly.",
-      "pricing": "Freemium",
-      "quality_score": 7,
-      "is_research_relevant": true,
-      "url": "https://typeset.io",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Scispace",
-      "category": "Literature Review",
-      "one_liner": "AI copilot for understanding and explaining research papers.",
-      "key_features": [
-        "Explain complex text in simple terms",
-        "Chat with PDFs",
-        "Find related papers"
-      ],
-      "use_case": "Understand difficult papers faster with AI explanations.",
-      "pricing": "Freemium",
-      "quality_score": 8,
-      "is_research_relevant": true,
-      "url": "https://scispace.com",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Jenni AI",
-      "category": "Writing & Drafting",
-      "one_liner": "AI writing assistant for academic papers with citation support.",
-      "key_features": [
-        "AI autocomplete for academic writing",
-        "Auto-cite sources",
-        "Plagiarism checker"
-      ],
-      "use_case": "Write research papers faster with AI assistance and proper citations.",
-      "pricing": "Freemium",
-      "quality_score": 7,
-      "is_research_relevant": true,
-      "url": "https://jenni.ai",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
-    },
-    {
-      "name": "Explainpaper",
-      "category": "Literature Review",
-      "one_liner": "Upload a paper and get confusing parts explained by AI.",
-      "key_features": [
-        "Highlight confusing text for explanation",
-        "Simple language explanations",
-        "Context-aware answers"
-      ],
-      "use_case": "Get quick explanations for difficult sections in papers.",
-      "pricing": "Free",
-      "quality_score": 6,
-      "is_research_relevant": true,
-      "url": "https://explainpaper.com",
-      "source": "Manual",
-      "stars": 0,
-      "collected_date": "2026-03-25"
+      "trusted_by": "Used by 5M+ researchers including teams at top universities and pharmaceutical companies",
+      "industries": ["Academia", "Pharmaceuticals", "Medical Devices", "Policy & Government", "Consumer Goods"]
     }
   ]
 }
