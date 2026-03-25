@@ -1,7 +1,7 @@
 """
 AI Tools Processor
 使用 LLM 对采集的工具进行分类、摘要、生成结构化数据
-支持 EasyClaw 内置 API 或 OpenAI API
+支持 Gemini API、EasyClaw 或 OpenAI API
 """
 
 import json
@@ -10,30 +10,67 @@ import sys
 import time
 from datetime import datetime
 
-# ============================================================
-# LLM 调用层 - 优先 EasyClaw，备选 OpenAI
-# ============================================================
 
 def call_llm(prompt, system_prompt="You are a helpful assistant.", max_retries=3):
     """
     统一 LLM 调用接口
-    优先使用 EasyClaw 内置 API
+    优先使用 Gemini API（云端友好），备选 EasyClaw/OpenAI
     """
-    # 方式1: EasyClaw API (通过本地端口)
+    # 方式 1: Gemini API (Google) - 云端运行首选
+    gemini_key = os.environ.get("GEMINI_API_KEY", "")
+    if gemini_key:
+        return _call_gemini(prompt, system_prompt, gemini_key, max_retries)
+    
+    # 方式 2: EasyClaw API (通过本地端口)
     easyclaw_port = os.environ.get("EASYCLAW_PORT", "3457")
     easyclaw_token = os.environ.get("EASYCLAW_TOKEN", "")
     
     if easyclaw_token:
         return _call_easyclaw(prompt, system_prompt, easyclaw_port, easyclaw_token, max_retries)
     
-    # 方式2: OpenAI API
+    # 方式 3: OpenAI API
     openai_key = os.environ.get("OPENAI_API_KEY", "")
     if openai_key:
         return _call_openai(prompt, system_prompt, openai_key, max_retries)
     
-    # 方式3: 无 LLM 可用，用简单规则处理
+    # 方式 4: 无 LLM 可用，用简单规则处理
     print("  [WARN] No LLM available, using rule-based processing")
     return _rule_based_process(prompt)
+
+
+def _call_gemini(prompt, system_prompt, api_key, max_retries=3):
+    """通过 Google Gemini API 调用"""
+    try:
+        import httpx
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+        headers = {"Content-Type": "application/json"}
+        payload = {
+            "contents": [{
+                "parts": [{"text": f"{system_prompt}\n\n{prompt}"}]
+            }],
+            "generationConfig": {
+                "temperature": 0.3,
+                "maxOutputTokens": 2048
+            }
+        }
+        
+        for attempt in range(max_retries):
+            try:
+                with httpx.Client(timeout=60) as client:
+                    resp = client.post(url, json=payload, headers=headers)
+                    if resp.status_code == 429:
+                        time.sleep(2 ** attempt)
+                        continue
+                    resp.raise_for_status()
+                    data = resp.json()
+                    return data["candidates"][0]["content"]["parts"][0]["text"]
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                raise e
+    except ImportError:
+        raise RuntimeError("httpx is required. Run: pip install httpx")
 
 
 def _call_easyclaw(prompt, system_prompt, port, token, max_retries=3):
