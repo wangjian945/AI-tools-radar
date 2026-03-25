@@ -5,54 +5,24 @@ on:
   schedule:
     - cron: '0 0 * * *'
   
-  # 也支持手动触发（方便测试）
+  # 也支持手动触发
   workflow_dispatch:
 
-# 授权 GitHub Actions 推送代码和部署 Pages
+# 授权
 permissions:
   contents: write
   pages: write
   id-token: write
 
 jobs:
-  update-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
-      # 1. 拉取代码
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. 配置 Python
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      # 3. 安装依赖
-      - name: Install dependencies
-        run: pip install httpx
-
-      # 4. 运行完整流水线（采集 → LLM处理 → 渲染HTML）
-      - name: Run pipeline
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 如果用 OpenAI，取消注释下一行并在仓库 Secrets 中设置
-          # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          cd ${{ github.workspace }}
-          python scripts/pipeline.py
-
-      # 5. 提交数据更新
-      - name: Commit updated data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ site/
-          git diff --staged --quiet || git commit -m "🤖 Daily update: $(date -u +'%Y-%m-%d')"
-          git push
-
-      # 6. 部署到 GitHub Pages
+      # 直接部署 site/ 目录到 GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
