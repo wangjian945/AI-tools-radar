@@ -1,31 +1,30 @@
 {
   "date": "2026-03-25",
-  "processed_at": "2026-03-25T16:00:00",
-  "total_collected": 1,
-  "total_processed": 1,
-  "total_qualified": 1,
+  "processed_at": "2026-03-25T20:00:00",
+  "total_collected": 2,
+  "total_processed": 2,
+  "total_qualified": 2,
   "tools": [
     {
       "name": "Elicit",
       "category": "Literature Review",
-      "one_liner": "AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers.",
+      "one_liner": "AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.",
       "key_features": [
         "Search 138M+ papers and 545K clinical trials with natural language queries",
-        "Auto-extract structured data (sample size, methods, outcomes) into comparison tables",
+        "Auto-extract structured data into comparison tables",
         "Generate comprehensive research reports with sentence-level citations",
         "Systematic review workflow: screen up to 5,000 papers automatically",
-        "Real-time research alerts for new publications matching your interests",
+        "Real-time research alerts for new publications",
         "Chat with full-text papers and get AI-explained answers"
       ],
-      "use_case": "Ideal for conducting systematic reviews, building evidence matrices, and synthesizing findings across dozens of papers — tasks that traditionally take weeks can be completed in hours.",
-      "how_to_use": "1. Enter a research question in natural language (e.g., 'What are the effects of theanine on cognitive function?'). 2. Elicit searches and ranks relevant papers. 3. Add columns to extract specific data points (sample size, methodology, outcomes). 4. Generate an automated research report with citations. 5. Export to RIS, CSV, BIB, or DOCX for your reference manager.",
+      "use_case": "Ideal for conducting systematic reviews, building evidence matrices, and synthesizing findings across dozens of papers.",
+      "how_to_use": "1. Enter a research question. 2. Review AI-ranked results. 3. Extract structured data. 4. Generate research report. 5. Export to reference manager.",
       "pricing": "Freemium",
       "pricing_details": {
-        "Basic (Free)": "2 reports/month, unlimited search & summaries, chat with papers, Zotero import",
-        "Plus ($7/mo billed yearly)": "4 reports/month, export to RIS/CSV/BIB/PDF/DOCX, clinical trials search, 5 table columns",
-        "Pro ($29/mo billed yearly)": "Systematic review workflow (5,000 papers), 12 reports/month, API access, 20 table columns, 10 research alerts",
-        "Scale ($49/mo billed yearly)": "Team collaboration, figure extraction, 20 reports/month, 200 data sources per report, admin panel",
-        "Enterprise (Custom)": "SSO/SAML, unlimited API, 40,000 paper screening, custom data sources, dedicated support"
+        "Basic (Free)": "2 reports/month, unlimited search & summaries",
+        "Plus ($7/mo)": "4 reports/month, export to RIS/CSV/BIB/PDF/DOCX",
+        "Pro ($29/mo)": "Systematic review workflow, 12 reports/month, API access",
+        "Scale ($49/mo)": "Team collaboration, figure extraction, 20 reports/month"
       },
       "quality_score": 10,
       "is_research_relevant": true,
@@ -33,27 +32,35 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-25",
-      "logo_url": "https://elicit.com/favicon.ico",
-      "screenshots": [
-        {
-          "url": "https://framerusercontent.com/images/jTEYkzaYq8QhnYC5uAKesGrObeQ.png",
-          "caption": "Research question interface with AI-suggested refinement tags"
-        },
-        {
-          "url": "https://framerusercontent.com/images/HWjzdbSRG0wlQesU2KMjp1h1og.png",
-          "caption": "Screening recommendation with extracted supporting quotes"
-        },
-        {
-          "url": "https://framerusercontent.com/images/ZNDicg9Nowy7BkFvOhUGNc5hJg.png",
-          "caption": "Library: organize sources with collections and tags"
-        },
-        {
-          "url": "https://framerusercontent.com/images/qZvwkRC39ccOv5q9zMsteQMR78.png",
-          "caption": "Research Alerts: stay updated with new relevant findings"
-        }
+      "featured": true
+    },
+    {
+      "name": "Consensus",
+      "category": "Literature Review",
+      "one_liner": "AI-powered search engine that finds answers in scientific papers with evidence-based consensus scores.",
+      "key_features": [
+        "Search 200M+ scientific papers with natural language",
+        "Consensus Meter shows agreement/disagreement across studies",
+        "AI-generated summaries with inline citations",
+        "Extract key findings, methods, and outcomes",
+        "Filter by study type (RCT, meta-analysis, etc.)",
+        "Save and organize papers in personal library"
       ],
-      "trusted_by": "Used by 5M+ researchers including teams at top universities and pharmaceutical companies",
-      "industries": ["Academia", "Pharmaceuticals", "Medical Devices", "Policy & Government", "Consumer Goods"]
+      "use_case": "Perfect for quick evidence-based answers to binary questions (e.g., 'Does X cause Y?') and understanding the weight of scientific consensus on a topic.",
+      "how_to_use": "1. Ask a yes/no or comparative question. 2. View the Consensus Meter showing agreement distribution. 3. Read AI summary with citations. 4. Explore individual papers. 5. Save to library for later.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Basic (Free)": "Unlimited search, 5 Consensus answers/month, basic filters",
+        "Pro ($15/mo)": "Unlimited Consensus answers, advanced filters, citations export",
+        "Team (Custom)": "Collaborative workspace, API access, priority support"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://consensus.app",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-25",
+      "featured": true
     }
   ]
 }
