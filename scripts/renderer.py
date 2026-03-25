@@ -1,7 +1,6 @@
 """
 AI Tools Radar - HTML Renderer
-按 Monash University 风格生成静态 HTML 页面
-核心设计：累积式信息库 + 每日新发现 + 分类导航
+Monash University 风格 · 累积式信息库 · 分类导航 · 详细工具卡片
 """
 
 import json
@@ -10,19 +9,11 @@ import sys
 import glob
 from datetime import datetime
 
-# ============================================================
-# 数据加载：合并所有历史数据，去重
-# ============================================================
 
 def load_all_tools(data_dir="data"):
-    """
-    加载所有历史 processed 文件，合并去重
-    返回：(all_tools, today_new_tools, featured_tools, all_dates)
-    """
-    all_tools = {}  # 用 URL 去重
+    all_tools = {}
     all_dates = set()
     
-    # 按时间顺序加载所有 processed 文件
     pattern = os.path.join(data_dir, "processed_*.json")
     files = sorted(glob.glob(pattern))
     
@@ -30,48 +21,171 @@ def load_all_tools(data_dir="data"):
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-            
             date = data.get("date", "")
             all_dates.add(date)
-            
             for tool in data.get("tools", []):
                 url = tool.get("url", "")
                 if not url:
                     continue
-                
-                # 如果工具已存在，保留质量分更高的版本
                 if url in all_tools:
-                    existing_score = all_tools[url].get("quality_score", 0)
-                    new_score = tool.get("quality_score", 0)
-                    if new_score > existing_score:
+                    if tool.get("quality_score", 0) > all_tools[url].get("quality_score", 0):
                         all_tools[url] = tool
                 else:
                     all_tools[url] = tool
         except Exception as e:
             print(f"  [WARN] Error loading {filepath}: {e}")
     
-    # 确定今天的日期
-    today = datetime.utcnow().strftime('%Y-%m-%d')
-    
-    # 筛选：今日新增 & 精选
-    today_new = []
-    featured = []
-    
-    for tool in all_tools.values():
-        if tool.get("collected_date", "") == today:
-            today_new.append(tool)
-        if tool.get("featured", False) or tool.get("quality_score", 0) >= 9:
-            featured.append(tool)
-    
     tools_list = list(all_tools.values())
     tools_list.sort(key=lambda x: (-x.get("quality_score", 0), x.get("name", "")))
+    return tools_list, sorted(all_dates, reverse=True)
+
+
+CATEGORY_ICONS = {
+    "Literature Review": "📚",
+    "Data Analysis": "📊",
+    "Writing & Drafting": "✍️",
+    "Visualization": "📈",
+    "Peer Review": "💬",
+    "Coding & Dev": "💻",
+    "Experiment Design": "🧪",
+    "Other": "🔧"
+}
+
+
+def render_detail_card(tool):
+    """渲染详细工具卡片（含 Key Features, Use Cases, How to Use, Pricing）"""
+    name = tool.get("name", "Unknown")
+    category = tool.get("category", "Other")
+    icon = CATEGORY_ICONS.get(category, "🔧")
+    one_liner = tool.get("one_liner", "")
+    url = tool.get("url", "#")
+    pricing = tool.get("pricing", "Unknown")
+    use_case = tool.get("use_case", "")
+    how_to_use = tool.get("how_to_use", "")
+    collected_date = tool.get("collected_date", "")
     
-    return tools_list, today_new, featured, sorted(all_dates, reverse=True)
+    # Key Features
+    features = tool.get("key_features", [])
+    features_html = ""
+    feature_icons = ["🔍", "📊", "📝", "🔬", "🔔", "💬", "📋", "⚡"]
+    for i, f in enumerate(features[:6]):
+        fi = feature_icons[i % len(feature_icons)]
+        features_html += f"""
+            <div class="feature-item">
+                <div class="feature-icon">{fi}</div>
+                <div class="feature-text">{f}</div>
+            </div>"""
+    
+    # How to Use (步骤)
+    steps_html = ""
+    if how_to_use:
+        steps = [s.strip() for s in how_to_use.replace(". ", ".\n").split("\n") if s.strip()]
+        if len(steps) <= 1:
+            steps = [s.strip() for s in how_to_use.split(". ") if s.strip()]
+        for i, step_text in enumerate(steps[:5], 1):
+            clean = step_text.lstrip("0123456789. )")
+            if clean:
+                steps_html += f"""
+                <div class="step">
+                    <div class="step-num">{i}</div>
+                    <div class="step-text">{clean}</div>
+                </div>"""
+    
+    # Pricing
+    pricing_details = tool.get("pricing_details", {})
+    pricing_html = ""
+    if pricing_details:
+        for plan_name, desc in pricing_details.items():
+            # 解析价格
+            is_free = "free" in plan_name.lower() or "free" in str(desc).lower()
+            is_recommended = "plus" in plan_name.lower() or "pro" in plan_name.lower()
+            
+            card_class = "pricing-card"
+            if is_recommended:
+                card_class += " recommended"
+            
+            # 提取价格数字
+            price_display = "Free" if is_free and "free" in plan_name.lower() else plan_name.split("(")[0].strip()
+            
+            pricing_html += f"""
+            <div class="{card_class}">
+                <div class="plan-name">{plan_name}</div>
+                <div class="plan-desc">{desc}</div>
+            </div>"""
+    
+    # Pricing badge
+    if pricing in ("Free", "Open Source"):
+        pricing_badge = '<span class="badge badge-free">Free</span>'
+    elif pricing == "Paid":
+        pricing_badge = '<span class="badge badge-paid">Paid</span>'
+    else:
+        pricing_badge = f'<span class="badge badge-freemium">{pricing}</span>'
+    
+    html = f"""
+    <div class="tool-detail-card" data-category="{category}" id="tool-{name.lower().replace(' ', '-')}">
+        <div class="tool-header">
+            <div class="tool-header-info">
+                <h2 class="tool-name"><a href="{url}" target="_blank">{name}</a></h2>
+                <p class="tool-tagline">{one_liner}</p>
+                <div class="tool-badges">
+                    <span class="badge badge-cat">{icon} {category}</span>
+                    {pricing_badge}
+                    <span class="badge badge-date">📅 {collected_date}</span>
+                </div>
+            </div>
+            <div class="tool-cta">
+                <a href="{url}" target="_blank" class="btn-primary">🔗 Try {name} →</a>
+            </div>
+        </div>
 
+        <div class="tool-body">"""
+    
+    # Key Features section
+    if features_html:
+        html += f"""
+            <div class="detail-section">
+                <h3>🔑 Key Features</h3>
+                <div class="features-grid">
+                    {features_html}
+                </div>
+            </div>"""
+    
+    # Use Case section
+    if use_case:
+        html += f"""
+            <div class="detail-section">
+                <h3>🎯 Best Use Cases</h3>
+                <div class="usecase-box">
+                    <p>{use_case}</p>
+                </div>
+            </div>"""
+    
+    # How to Use section
+    if steps_html:
+        html += f"""
+            <div class="detail-section">
+                <h3>📖 How to Get Started</h3>
+                <div class="steps-list">
+                    {steps_html}
+                </div>
+            </div>"""
+    
+    # Pricing section
+    if pricing_html:
+        html += f"""
+            <div class="detail-section">
+                <h3>💰 Pricing</h3>
+                <div class="pricing-grid">
+                    {pricing_html}
+                </div>
+            </div>"""
+    
+    html += """
+        </div>
+    </div>"""
+    
+    return html
 
-# ============================================================
-# Monash 风格 HTML 模板
-# ============================================================
 
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
@@ -87,7 +201,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             --primary-dark: #004B87;
             --primary-light: #E8F4FD;
             --accent: #D93F00;
-            --accent-light: #FFF3E0;
+            --success: #2E7D32;
+            --success-light: #E8F5E9;
             --bg: #FFFFFF;
             --bg-alt: #F5F7FA;
             --text: #1A1A2E;
@@ -96,210 +211,282 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             --shadow: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-lg: 0 4px 14px rgba(0,0,0,0.1);
             --radius: 8px;
+            --radius-lg: 12px;
         }}
-
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-
         body {{
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg-alt);
             color: var(--text);
             line-height: 1.6;
-            padding-bottom: 60px;
         }}
 
-        /* ---- Header ---- */
+        /* Header */
         .header {{
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 40px 0 80px; /* Extra padding for overlap */
+            padding: 40px 0 32px;
         }}
         .header-inner {{
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 32px;
         }}
-        .header h1 {{ font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; }}
-        .header-meta {{ margin-top: 16px; opacity: 0.9; font-size: 0.9rem; }}
+        .header h1 {{ font-size: 2rem; font-weight: 800; }}
+        .header-meta {{ margin-top: 12px; opacity: 0.9; font-size: 0.88rem; }}
 
-        /* ---- Sticky Nav ---- */
-        .sticky-nav {{
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            margin-top: -40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }}
-        .nav-inner {{
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none;
-        }}
-        .nav-btn {{
-            padding: 16px 0;
-            border: none;
-            background: none;
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-        }}
-        .nav-btn:hover, .nav-btn.active {{ color: var(--primary); border-bottom-color: var(--primary); }}
-
-        /* ---- Main Layout ---- */
-        .container {{
+        /* Layout: Sidebar + Content */
+        .page-layout {{
             max-width: 1200px;
             margin: 32px auto;
             padding: 0 32px;
             display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 40px;
+            grid-template-columns: 220px 1fr;
+            gap: 32px;
         }}
 
-        /* Sidebar (Category Filter) */
+        /* Sidebar */
         .sidebar {{
             position: sticky;
-            top: 80px;
+            top: 24px;
             height: fit-content;
         }}
         .sidebar-title {{
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: var(--text-secondary);
             font-weight: 700;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }}
-        .cat-btn {{
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 8px 12px;
+        .cat-link {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
             margin-bottom: 4px;
             border-radius: var(--radius);
             border: none;
             background: none;
             color: var(--text);
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.2s;
+            font-size: 0.88rem;
+            width: 100%;
+            text-align: left;
+            transition: all 0.15s;
         }}
-        .cat-btn:hover {{ background: var(--bg); color: var(--primary); }}
-        .cat-btn.active {{ background: var(--primary-light); color: var(--primary); font-weight: 600; }}
-
-        /* Content Area */
-        .content {{ min-height: 80vh; }}
-
-        /* ---- Section: Featured / Today ---- */
-        .hero-section {{
-            margin-bottom: 40px;
+        .cat-link:hover {{ background: var(--bg); color: var(--primary); }}
+        .cat-link.active {{ background: var(--primary-light); color: var(--primary); font-weight: 600; }}
+        .cat-count {{
+            margin-left: auto;
+            font-size: 0.72rem;
+            background: var(--bg-alt);
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: var(--text-secondary);
         }}
-        .section-header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+
+        /* Content */
+        .content {{ min-width: 0; }}
+        
+        .content-header {{
+            margin-bottom: 24px;
+            padding-bottom: 16px;
             border-bottom: 2px solid var(--border);
         }}
-        .section-title {{
-            font-size: 1.4rem;
+        .content-header h2 {{
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        }}
+        .content-header p {{
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
         }}
 
-        /* Tool Cards */
-        .tool-card {{
+        .show-more {{
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 20px;
             background: white;
+            border: 2px dashed var(--border);
             border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }}
+        .show-more:hover {{ background: var(--primary-light); border-color: var(--primary); }}
+
+        /* Tool Detail Card */
+        .tool-detail-card {{
+            background: white;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 28px;
             border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            gap: 24px;
+            transition: box-shadow 0.2s;
         }}
-        .tool-card:hover {{
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }}
+        .tool-detail-card:hover {{ box-shadow: var(--shadow-lg); }}
         
-        .card-main {{ flex: 1; }}
-        
-        .card-header {{
+        .tool-header {{
+            background: linear-gradient(135deg, #E8F4FD, #D4E8F7);
+            padding: 28px 32px;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-        }}
-        .tool-name {{
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }}
-        .tool-cat {{
-            font-size: 0.75rem;
-            background: var(--bg-alt);
-            padding: 4px 10px;
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }}
-
-        .one-liner {{ font-size: 1rem; color: var(--text); margin-bottom: 12px; line-height: 1.5; }}
-        
-        .features {{
-            display: flex;
-            gap: 12px;
+            align-items: flex-start;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
         }}
-        .feature-tag {{
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            background: #F1F5F9;
-            padding: 4px 10px;
-            border-radius: 4px;
+        .tool-name {{ font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }}
+        .tool-name a {{ color: inherit; text-decoration: none; }}
+        .tool-name a:hover {{ color: var(--primary); }}
+        .tool-tagline {{ font-size: 0.95rem; color: var(--text-secondary); max-width: 650px; }}
+        .tool-badges {{ display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }}
+        
+        .badge {{
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 14px;
+            font-size: 0.72rem;
+            font-weight: 600;
         }}
+        .badge-cat {{ background: var(--primary-light); color: var(--primary); }}
+        .badge-free {{ background: var(--success-light); color: var(--success); }}
+        .badge-paid {{ background: #FBE9E7; color: #BF360C; }}
+        .badge-freemium {{ background: #FFF3E0; color: #E65100; }}
+        .badge-date {{ background: #F3F4F6; color: #6B7280; }}
 
-        .card-meta {{
-            display: flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            align-items: center;
-        }}
-        .btn-visit {{
-            margin-left: auto;
+        .tool-cta {{ flex-shrink: 0; }}
+        .btn-primary {{
+            display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 10px 22px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.88rem;
+        }}
+        .btn-primary:hover {{ background: var(--primary-dark); }}
+
+        .tool-body {{ padding: 0 32px 32px; }}
+
+        .detail-section {{ margin-top: 28px; }}
+        .detail-section h3 {{
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary-light);
+        }}
+
+        /* Features Grid */
+        .features-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+        }}
+        .feature-item {{
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            border-left: 3px solid var(--primary);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }}
+        .feature-icon {{ font-size: 1.2rem; flex-shrink: 0; }}
+        .feature-text {{ font-size: 0.85rem; color: var(--text-secondary); }}
+
+        /* Use Case */
+        .usecase-box {{
+            background: linear-gradient(135deg, var(--primary-light), #F0F7FF);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            border-left: 4px solid var(--primary);
+        }}
+        .usecase-box p {{ font-size: 0.9rem; color: var(--text); }}
+
+        /* Steps */
+        .steps-list {{ display: flex; flex-direction: column; gap: 12px; }}
+        .step {{
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }}
+        .step-num {{
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
             font-size: 0.85rem;
         }}
+        .step-text {{ font-size: 0.88rem; color: var(--text-secondary); padding-top: 4px; }}
+
+        /* Pricing */
+        .pricing-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }}
+        .pricing-card {{
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 1px solid var(--border);
+        }}
+        .pricing-card.recommended {{
+            border-color: var(--primary);
+            border-width: 2px;
+            background: white;
+            position: relative;
+        }}
+        .pricing-card.recommended::before {{
+            content: "★";
+            position: absolute;
+            top: -8px;
+            right: 12px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 8px;
+        }}
+        .plan-name {{ font-weight: 700; color: var(--primary-dark); font-size: 0.88rem; margin-bottom: 4px; }}
+        .plan-desc {{ font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }}
+
+        /* Footer */
+        .footer {{
+            text-align: center;
+            padding: 40px 32px;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }}
+        .footer a {{ color: var(--primary); text-decoration: none; }}
 
         /* Responsive */
         @media (max-width: 768px) {{
-            .container {{ grid-template-columns: 1fr; }}
-            .sidebar {{ display: none; }} /* Mobile hide sidebar for now */
-            .tool-card {{ flex-direction: column; gap: 16px; }}
+            .page-layout {{ grid-template-columns: 1fr; }}
+            .sidebar {{ position: static; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }}
+            .sidebar-title {{ display: none; }}
+            .cat-link {{ white-space: nowrap; padding: 8px 14px; }}
+            .tool-header {{ flex-direction: column; padding: 20px; }}
+            .tool-body {{ padding: 0 20px 20px; }}
+            .features-grid {{ grid-template-columns: 1fr; }}
+            .pricing-grid {{ grid-template-columns: 1fr; }}
         }}
     </style>
 </head>
@@ -309,85 +496,58 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <div class="header-inner">
         <h1>🔬 AI Tools Radar</h1>
         <div class="header-meta">
-            <span>📅 {date}</span> · 
-            <span>📊 {total_tools} Tools</span> · 
-            <span>🆕 {today_new_count} New Today</span>
+            📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
         </div>
     </div>
 </header>
 
-<div class="sticky-nav">
-    <div class="nav-inner">
-        <button class="nav-btn active" onclick="showView('all')">📚 All Tools</button>
-        <button class="nav-btn" onclick="showView('today')">🆕 Today's New</button>
-        <button class="nav-btn" onclick="showView('featured')">⭐ Featured</button>
-        <button class="nav-btn" onclick="showView('timeline')">📅 Timeline</button>
-    </div>
-</div>
-
-<div class="container">
+<div class="page-layout">
     <aside class="sidebar">
         <div class="sidebar-title">Categories</div>
-        <button class="cat-btn active" onclick="filterCat('all')">All Categories</button>
+        <button class="cat-link active" onclick="filterCat('all', this)">
+            📋 All Tools <span class="cat-count">{total_tools}</span>
+        </button>
         {category_nav}
     </aside>
 
     <main class="content">
-        <!-- View: All Tools (Default) -->
-        <div id="view-all" class="view active">
-            {all_sections_html}
+        <div class="content-header">
+            <h2>⭐ Featured Tools</h2>
+            <p>Curated AI-powered research tools for the lab — updated daily</p>
         </div>
 
-        <!-- View: Today -->
-        <div id="view-today" class="view">
-            <div class="section-header">
-                <div class="section-title">🆕 Discovered Today ({date})</div>
-            </div>
-            {today_html}
-        </div>
+        {tools_html}
 
-        <!-- View: Featured -->
-        <div id="view-featured" class="view">
-            <div class="section-header">
-                <div class="section-title">⭐ Featured Tools</div>
-            </div>
-            {featured_html}
-        </div>
+        {show_more_html}
     </main>
 </div>
 
-<script>
-function showView(viewName) {{
-    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
-    document.getElementById('view-' + viewName).classList.add('active');
-    
-    document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    window.scrollTo(0, 0);
-}}
+<footer class="footer">
+    <p>Built with Jian for the Lab · Auto-updated daily · 
+    <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
+    <p style="margin-top:8px">Last build: {build_time}</p>
+</footer>
 
-function filterCat(category) {{
-    document.querySelectorAll('.cat-btn').forEach(el => el.classList.remove('active'));
-    event.target.classList.add('active');
+<script>
+function filterCat(category, btn) {{
+    document.querySelectorAll('.cat-link').forEach(el => el.classList.remove('active'));
+    btn.classList.add('active');
     
-    // Hide/Show tool cards based on category
-    document.querySelectorAll('.tool-card').forEach(card => {{
+    document.querySelectorAll('.tool-detail-card').forEach(card => {{
         if (category === 'all' || card.dataset.category === category) {{
-            card.style.display = 'flex';
+            card.style.display = 'block';
         }} else {{
             card.style.display = 'none';
         }}
     }});
     
-    // Hide empty sections
-    document.querySelectorAll('.category-group').forEach(group => {{
-        if (category === 'all' || group.dataset.category === category) {{
-            group.style.display = 'block';
-        }} else {{
-            group.style.display = 'none';
-        }}
-    }});
+    // Update header
+    const header = document.querySelector('.content-header h2');
+    if (category === 'all') {{
+        header.textContent = '⭐ Featured Tools';
+    }} else {{
+        header.textContent = category;
+    }}
 }}
 </script>
 
@@ -395,101 +555,44 @@ function filterCat(category) {{
 </html>"""
 
 
-CARD_TEMPLATE = """
-<div class="tool-card" data-category="{category}">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="{url}" target="_blank" class="tool-name">{name}</a>
-            <span class="tool-cat">{category}</span>
-        </div>
-        <div class="one-liner">{one_liner}</div>
-        <div class="features">
-            {features_html}
-        </div>
-        <div class="card-meta">
-            <span>{pricing}</span>
-            <span>{source}</span>
-            {date_badge}
-            <a href="{url}" target="_blank" class="btn-visit">Visit Site →</a>
-        </div>
-    </div>
-</div>"""
-
-
-CATEGORY_ICONS = {
-    "Literature Review": "📚",
-    "Data Analysis": "📊",
-    "Writing & Drafting": "✍️",
-    "Visualization": "📈",
-    "Peer Review": "💬",
-    "Coding & Dev": "💻",
-    "Experiment Design": "🧪",
-    "Other": "🔧"
-}
-
-
-def render_tool_card(tool):
-    features = tool.get("key_features", [])[:3]
-    features_html = "".join(f'<span class="feature-tag">{f}</span>' for f in features)
-    
-    date_str = tool.get("collected_date", "")
-    date_badge = f'<span>📅 {date_str}</span>' if date_str else ""
-    
-    return CARD_TEMPLATE.format(
-        name=tool.get("name", "Unknown"),
-        category=tool.get("category", "Other"),
-        one_liner=tool.get("one_liner", ""),
-        features_html=features_html,
-        pricing=tool.get("pricing", "Unknown"),
-        source=tool.get("source", "Unknown"),
-        date_badge=date_badge,
-        url=tool.get("url", "#")
-    )
-
-
 def render_page(data_dir="data", output_dir="site"):
-    all_tools, today_new, featured, all_dates = load_all_tools(data_dir)
+    all_tools, all_dates = load_all_tools(data_dir)
     today = datetime.utcnow().strftime('%Y-%m-%d')
     
-    # 侧边栏导航
+    # 分类统计
     categories = {}
     for tool in all_tools:
         cat = tool.get("category", "Other")
         categories.setdefault(cat, []).append(tool)
-        
-    cat_nav_html = ""
+    
+    # 侧边栏
+    cat_nav = ""
     for cat in sorted(categories.keys()):
         icon = CATEGORY_ICONS.get(cat, "🔧")
-        cat_nav_html += f'<button class="cat-btn" onclick="filterCat(\'{cat}\')">{icon} {cat}</button>\n'
+        count = len(categories[cat])
+        cat_nav += f'        <button class="cat-link" onclick="filterCat(\'{cat}\', this)">{icon} {cat} <span class="cat-count">{count}</span></button>\n'
     
-    # 全部工具列表（按分类分组）
-    all_sections_html = ""
-    for cat in sorted(categories.keys()):
-        tools = categories[cat]
-        cards = "\n".join(render_tool_card(t) for t in tools)
-        icon = CATEGORY_ICONS.get(cat, "🔧")
-        all_sections_html += f"""
-        <div class="category-group" data-category="{cat}">
-            <div class="section-header">
-                <div class="section-title">{icon} {cat}</div>
-            </div>
-            {cards}
-        </div>"""
-        
-    # 今日新增
-    today_html = "\n".join(render_tool_card(t) for t in today_new) if today_new else "<p>No new tools discovered today.</p>"
+    # 首页最多显示 10 个工具（详细卡片）
+    MAX_HOMEPAGE = 10
+    homepage_tools = all_tools[:MAX_HOMEPAGE]
+    remaining = len(all_tools) - MAX_HOMEPAGE
     
-    # 精选
-    featured_html = "\n".join(render_tool_card(t) for t in featured) if featured else "<p>No featured tools yet.</p>"
+    tools_html = "\n".join(render_detail_card(t) for t in homepage_tools)
+    
+    # Show more button
+    if remaining > 0:
+        show_more_html = f'<button class="show-more" onclick="filterCat(\'all\', document.querySelector(\'.cat-link\'))">📚 View {remaining} more tools in categories →</button>'
+    else:
+        show_more_html = ""
     
     html = HTML_TEMPLATE.format(
         date=today,
         total_tools=len(all_tools),
-        today_new_count=len(today_new),
-        category_nav=cat_nav_html,
-        all_sections_html=all_sections_html,
-        today_html=today_html,
-        featured_html=featured_html
+        total_dates=len(all_dates) if all_dates else 1,
+        category_nav=cat_nav,
+        tools_html=tools_html,
+        show_more_html=show_more_html,
+        build_time=datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
     )
     
     os.makedirs(output_dir, exist_ok=True)
@@ -497,11 +600,9 @@ def render_page(data_dir="data", output_dir="site"):
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
     
-    print(f"🎨 Page rendered: {output_path}")
+    print(f"🎨 Page rendered: {output_path} ({len(all_tools)} tools)")
 
 
 if __name__ == "__main__":
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    data_dir = os.path.join(root_dir, "data")
-    output_dir = os.path.join(root_dir, "site")
-    render_page(data_dir, output_dir)
+    render_page(os.path.join(root_dir, "data"), os.path.join(root_dir, "site"))

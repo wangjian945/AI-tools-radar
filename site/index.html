@@ -12,7 +12,8 @@
             --primary-dark: #004B87;
             --primary-light: #E8F4FD;
             --accent: #D93F00;
-            --accent-light: #FFF3E0;
+            --success: #2E7D32;
+            --success-light: #E8F5E9;
             --bg: #FFFFFF;
             --bg-alt: #F5F7FA;
             --text: #1A1A2E;
@@ -21,210 +22,282 @@
             --shadow: 0 1px 3px rgba(0,0,0,0.08);
             --shadow-lg: 0 4px 14px rgba(0,0,0,0.1);
             --radius: 8px;
+            --radius-lg: 12px;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg-alt);
             color: var(--text);
             line-height: 1.6;
-            padding-bottom: 60px;
         }
 
-        /* ---- Header ---- */
+        /* Header */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 40px 0 80px; /* Extra padding for overlap */
+            padding: 40px 0 32px;
         }
         .header-inner {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 32px;
         }
-        .header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; }
-        .header-meta { margin-top: 16px; opacity: 0.9; font-size: 0.9rem; }
+        .header h1 { font-size: 2rem; font-weight: 800; }
+        .header-meta { margin-top: 12px; opacity: 0.9; font-size: 0.88rem; }
 
-        /* ---- Sticky Nav ---- */
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            margin-top: -40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none;
-        }
-        .nav-btn {
-            padding: 16px 0;
-            border: none;
-            background: none;
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-        }
-        .nav-btn:hover, .nav-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-
-        /* ---- Main Layout ---- */
-        .container {
+        /* Layout: Sidebar + Content */
+        .page-layout {
             max-width: 1200px;
             margin: 32px auto;
             padding: 0 32px;
             display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 40px;
+            grid-template-columns: 220px 1fr;
+            gap: 32px;
         }
 
-        /* Sidebar (Category Filter) */
+        /* Sidebar */
         .sidebar {
             position: sticky;
-            top: 80px;
+            top: 24px;
             height: fit-content;
         }
         .sidebar-title {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: var(--text-secondary);
             font-weight: 700;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
-        .cat-btn {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 8px 12px;
+        .cat-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
             margin-bottom: 4px;
             border-radius: var(--radius);
             border: none;
             background: none;
             color: var(--text);
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.2s;
+            font-size: 0.88rem;
+            width: 100%;
+            text-align: left;
+            transition: all 0.15s;
         }
-        .cat-btn:hover { background: var(--bg); color: var(--primary); }
-        .cat-btn.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
-
-        /* Content Area */
-        .content { min-height: 80vh; }
-
-        /* ---- Section: Featured / Today ---- */
-        .hero-section {
-            margin-bottom: 40px;
+        .cat-link:hover { background: var(--bg); color: var(--primary); }
+        .cat-link.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
+        .cat-count {
+            margin-left: auto;
+            font-size: 0.72rem;
+            background: var(--bg-alt);
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: var(--text-secondary);
         }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+
+        /* Content */
+        .content { min-width: 0; }
+        
+        .content-header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
             border-bottom: 2px solid var(--border);
         }
-        .section-title {
-            font-size: 1.4rem;
+        .content-header h2 {
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        }
+        .content-header p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
         }
 
-        /* Tool Cards */
-        .tool-card {
+        .show-more {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 20px;
             background: white;
+            border: 2px dashed var(--border);
             border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .show-more:hover { background: var(--primary-light); border-color: var(--primary); }
+
+        /* Tool Detail Card */
+        .tool-detail-card {
+            background: white;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 28px;
             border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            gap: 24px;
+            transition: box-shadow 0.2s;
         }
-        .tool-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
+        .tool-detail-card:hover { box-shadow: var(--shadow-lg); }
         
-        .card-main { flex: 1; }
-        
-        .card-header {
+        .tool-header {
+            background: linear-gradient(135deg, #E8F4FD, #D4E8F7);
+            padding: 28px 32px;
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        .tool-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .tool-cat {
-            font-size: 0.75rem;
-            background: var(--bg-alt);
-            padding: 4px 10px;
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .one-liner { font-size: 1rem; color: var(--text); margin-bottom: 12px; line-height: 1.5; }
-        
-        .features {
-            display: flex;
-            gap: 12px;
+            align-items: flex-start;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
         }
-        .feature-tag {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            background: #F1F5F9;
-            padding: 4px 10px;
-            border-radius: 4px;
+        .tool-name { font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }
+        .tool-name a { color: inherit; text-decoration: none; }
+        .tool-name a:hover { color: var(--primary); }
+        .tool-tagline { font-size: 0.95rem; color: var(--text-secondary); max-width: 650px; }
+        .tool-badges { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 14px;
+            font-size: 0.72rem;
+            font-weight: 600;
         }
+        .badge-cat { background: var(--primary-light); color: var(--primary); }
+        .badge-free { background: var(--success-light); color: var(--success); }
+        .badge-paid { background: #FBE9E7; color: #BF360C; }
+        .badge-freemium { background: #FFF3E0; color: #E65100; }
+        .badge-date { background: #F3F4F6; color: #6B7280; }
 
-        .card-meta {
-            display: flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            align-items: center;
-        }
-        .btn-visit {
-            margin-left: auto;
+        .tool-cta { flex-shrink: 0; }
+        .btn-primary {
+            display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
+            padding: 10px 22px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.88rem;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+
+        .tool-body { padding: 0 32px 32px; }
+
+        .detail-section { margin-top: 28px; }
+        .detail-section h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+        }
+        .feature-item {
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            border-left: 3px solid var(--primary);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .feature-icon { font-size: 1.2rem; flex-shrink: 0; }
+        .feature-text { font-size: 0.85rem; color: var(--text-secondary); }
+
+        /* Use Case */
+        .usecase-box {
+            background: linear-gradient(135deg, var(--primary-light), #F0F7FF);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            border-left: 4px solid var(--primary);
+        }
+        .usecase-box p { font-size: 0.9rem; color: var(--text); }
+
+        /* Steps */
+        .steps-list { display: flex; flex-direction: column; gap: 12px; }
+        .step {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
             font-size: 0.85rem;
         }
+        .step-text { font-size: 0.88rem; color: var(--text-secondary); padding-top: 4px; }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .pricing-card {
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 1px solid var(--border);
+        }
+        .pricing-card.recommended {
+            border-color: var(--primary);
+            border-width: 2px;
+            background: white;
+            position: relative;
+        }
+        .pricing-card.recommended::before {
+            content: "★";
+            position: absolute;
+            top: -8px;
+            right: 12px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 8px;
+        }
+        .plan-name { font-weight: 700; color: var(--primary-dark); font-size: 0.88rem; margin-bottom: 4px; }
+        .plan-desc { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 32px;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+        }
+        .footer a { color: var(--primary); text-decoration: none; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; }
-            .sidebar { display: none; } /* Mobile hide sidebar for now */
-            .tool-card { flex-direction: column; gap: 16px; }
+            .page-layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }
+            .sidebar-title { display: none; }
+            .cat-link { white-space: nowrap; padding: 8px 14px; }
+            .tool-header { flex-direction: column; padding: 20px; }
+            .tool-body { padding: 0 20px 20px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -234,203 +307,238 @@
     <div class="header-inner">
         <h1>🔬 AI Tools Radar</h1>
         <div class="header-meta">
-            <span>📅 2026-03-25</span> · 
-            <span>📊 2 Tools</span> · 
-            <span>🆕 2 New Today</span>
+            📅 2026-03-25 · 📊 2 Tools in Database · 📁 1 Days Tracked
         </div>
     </div>
 </header>
 
-<div class="sticky-nav">
-    <div class="nav-inner">
-        <button class="nav-btn active" onclick="showView('all')">📚 All Tools</button>
-        <button class="nav-btn" onclick="showView('today')">🆕 Today's New</button>
-        <button class="nav-btn" onclick="showView('featured')">⭐ Featured</button>
-        <button class="nav-btn" onclick="showView('timeline')">📅 Timeline</button>
-    </div>
-</div>
-
-<div class="container">
+<div class="page-layout">
     <aside class="sidebar">
         <div class="sidebar-title">Categories</div>
-        <button class="cat-btn active" onclick="filterCat('all')">All Categories</button>
-        <button class="cat-btn" onclick="filterCat('Literature Review')">📚 Literature Review</button>
+        <button class="cat-link active" onclick="filterCat('all', this)">
+            📋 All Tools <span class="cat-count">2</span>
+        </button>
+                <button class="cat-link" onclick="filterCat('Literature Review', this)">📚 Literature Review <span class="cat-count">2</span></button>
 
     </aside>
 
     <main class="content">
-        <!-- View: All Tools (Default) -->
-        <div id="view-all" class="view active">
-            
-        <div class="category-group" data-category="Literature Review">
-            <div class="section-header">
-                <div class="section-title">📚 Literature Review</div>
+        <div class="content-header">
+            <h2>⭐ Featured Tools</h2>
+            <p>Curated AI-powered research tools for the lab — updated daily</p>
+        </div>
+
+        
+    <div class="tool-detail-card" data-category="Literature Review" id="tool-elicit">
+        <div class="tool-header">
+            <div class="tool-header-info">
+                <h2 class="tool-name"><a href="https://elicit.com" target="_blank">Elicit</a></h2>
+                <p class="tool-tagline">AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.</p>
+                <div class="tool-badges">
+                    <span class="badge badge-cat">📚 Literature Review</span>
+                    <span class="badge badge-freemium">Freemium</span>
+                    <span class="badge badge-date">📅 2026-03-25</span>
+                </div>
             </div>
-            
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="https://elicit.com" target="_blank" class="tool-name">Elicit</a>
-            <span class="tool-cat">Literature Review</span>
-        </div>
-        <div class="one-liner">AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.</div>
-        <div class="features">
-            <span class="feature-tag">Search 138M+ papers and 545K clinical trials with natural language queries</span><span class="feature-tag">Auto-extract structured data into comparison tables</span><span class="feature-tag">Generate comprehensive research reports with sentence-level citations</span>
-        </div>
-        <div class="card-meta">
-            <span>Freemium</span>
-            <span>Manual</span>
-            <span>📅 2026-03-25</span>
-            <a href="https://elicit.com" target="_blank" class="btn-visit">Visit Site →</a>
-        </div>
-    </div>
-</div>
-
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="https://consensus.app" target="_blank" class="tool-name">Consensus</a>
-            <span class="tool-cat">Literature Review</span>
-        </div>
-        <div class="one-liner">AI-powered search engine that finds answers in scientific papers with evidence-based consensus scores.</div>
-        <div class="features">
-            <span class="feature-tag">Search 200M+ scientific papers with natural language</span><span class="feature-tag">Consensus Meter shows agreement/disagreement across studies</span><span class="feature-tag">AI-generated summaries with inline citations</span>
-        </div>
-        <div class="card-meta">
-            <span>Freemium</span>
-            <span>Manual</span>
-            <span>📅 2026-03-25</span>
-            <a href="https://consensus.app" target="_blank" class="btn-visit">Visit Site →</a>
-        </div>
-    </div>
-</div>
-        </div>
-        </div>
-
-        <!-- View: Today -->
-        <div id="view-today" class="view">
-            <div class="section-header">
-                <div class="section-title">🆕 Discovered Today (2026-03-25)</div>
+            <div class="tool-cta">
+                <a href="https://elicit.com" target="_blank" class="btn-primary">🔗 Try Elicit →</a>
             </div>
-            
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="https://elicit.com" target="_blank" class="tool-name">Elicit</a>
-            <span class="tool-cat">Literature Review</span>
-        </div>
-        <div class="one-liner">AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.</div>
-        <div class="features">
-            <span class="feature-tag">Search 138M+ papers and 545K clinical trials with natural language queries</span><span class="feature-tag">Auto-extract structured data into comparison tables</span><span class="feature-tag">Generate comprehensive research reports with sentence-level citations</span>
-        </div>
-        <div class="card-meta">
-            <span>Freemium</span>
-            <span>Manual</span>
-            <span>📅 2026-03-25</span>
-            <a href="https://elicit.com" target="_blank" class="btn-visit">Visit Site →</a>
-        </div>
-    </div>
-</div>
-
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="https://consensus.app" target="_blank" class="tool-name">Consensus</a>
-            <span class="tool-cat">Literature Review</span>
-        </div>
-        <div class="one-liner">AI-powered search engine that finds answers in scientific papers with evidence-based consensus scores.</div>
-        <div class="features">
-            <span class="feature-tag">Search 200M+ scientific papers with natural language</span><span class="feature-tag">Consensus Meter shows agreement/disagreement across studies</span><span class="feature-tag">AI-generated summaries with inline citations</span>
-        </div>
-        <div class="card-meta">
-            <span>Freemium</span>
-            <span>Manual</span>
-            <span>📅 2026-03-25</span>
-            <a href="https://consensus.app" target="_blank" class="btn-visit">Visit Site →</a>
-        </div>
-    </div>
-</div>
         </div>
 
-        <!-- View: Featured -->
-        <div id="view-featured" class="view">
-            <div class="section-header">
-                <div class="section-title">⭐ Featured Tools</div>
+        <div class="tool-body">
+            <div class="detail-section">
+                <h3>🔑 Key Features</h3>
+                <div class="features-grid">
+                    
+            <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-text">Search 138M+ papers and 545K clinical trials with natural language queries</div>
             </div>
-            
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="https://elicit.com" target="_blank" class="tool-name">Elicit</a>
-            <span class="tool-cat">Literature Review</span>
-        </div>
-        <div class="one-liner">AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.</div>
-        <div class="features">
-            <span class="feature-tag">Search 138M+ papers and 545K clinical trials with natural language queries</span><span class="feature-tag">Auto-extract structured data into comparison tables</span><span class="feature-tag">Generate comprehensive research reports with sentence-level citations</span>
-        </div>
-        <div class="card-meta">
-            <span>Freemium</span>
-            <span>Manual</span>
-            <span>📅 2026-03-25</span>
-            <a href="https://elicit.com" target="_blank" class="btn-visit">Visit Site →</a>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">Auto-extract structured data into comparison tables</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📝</div>
+                <div class="feature-text">Generate comprehensive research reports with sentence-level citations</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔬</div>
+                <div class="feature-text">Systematic review workflow: screen up to 5,000 papers automatically</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔔</div>
+                <div class="feature-text">Real-time research alerts for new publications</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <div class="feature-text">Chat with full-text papers and get AI-explained answers</div>
+            </div>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>🎯 Best Use Cases</h3>
+                <div class="usecase-box">
+                    <p>Ideal for conducting systematic reviews, building evidence matrices, and synthesizing findings across dozens of papers.</p>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>📖 How to Get Started</h3>
+                <div class="steps-list">
+                    
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Enter a research question.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">Review AI-ranked results.</div>
+                </div>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>💰 Pricing</h3>
+                <div class="pricing-grid">
+                    
+            <div class="pricing-card">
+                <div class="plan-name">Basic (Free)</div>
+                <div class="plan-desc">2 reports/month, unlimited search & summaries</div>
+            </div>
+            <div class="pricing-card recommended">
+                <div class="plan-name">Plus ($7/mo)</div>
+                <div class="plan-desc">4 reports/month, export to RIS/CSV/BIB/PDF/DOCX</div>
+            </div>
+            <div class="pricing-card recommended">
+                <div class="plan-name">Pro ($29/mo)</div>
+                <div class="plan-desc">Systematic review workflow, 12 reports/month, API access</div>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Scale ($49/mo)</div>
+                <div class="plan-desc">Team collaboration, figure extraction, 20 reports/month</div>
+            </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="tool-card" data-category="Literature Review">
-    <div class="card-main">
-        <div class="card-header">
-            <a href="https://consensus.app" target="_blank" class="tool-name">Consensus</a>
-            <span class="tool-cat">Literature Review</span>
+    <div class="tool-detail-card" data-category="Literature Review" id="tool-consensus">
+        <div class="tool-header">
+            <div class="tool-header-info">
+                <h2 class="tool-name"><a href="https://consensus.app" target="_blank">Consensus</a></h2>
+                <p class="tool-tagline">AI-powered search engine that finds answers in scientific papers with evidence-based consensus scores.</p>
+                <div class="tool-badges">
+                    <span class="badge badge-cat">📚 Literature Review</span>
+                    <span class="badge badge-freemium">Freemium</span>
+                    <span class="badge badge-date">📅 2026-03-25</span>
+                </div>
+            </div>
+            <div class="tool-cta">
+                <a href="https://consensus.app" target="_blank" class="btn-primary">🔗 Try Consensus →</a>
+            </div>
         </div>
-        <div class="one-liner">AI-powered search engine that finds answers in scientific papers with evidence-based consensus scores.</div>
-        <div class="features">
-            <span class="feature-tag">Search 200M+ scientific papers with natural language</span><span class="feature-tag">Consensus Meter shows agreement/disagreement across studies</span><span class="feature-tag">AI-generated summaries with inline citations</span>
-        </div>
-        <div class="card-meta">
-            <span>Freemium</span>
-            <span>Manual</span>
-            <span>📅 2026-03-25</span>
-            <a href="https://consensus.app" target="_blank" class="btn-visit">Visit Site →</a>
+
+        <div class="tool-body">
+            <div class="detail-section">
+                <h3>🔑 Key Features</h3>
+                <div class="features-grid">
+                    
+            <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-text">Search 200M+ scientific papers with natural language</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">Consensus Meter shows agreement/disagreement across studies</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📝</div>
+                <div class="feature-text">AI-generated summaries with inline citations</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔬</div>
+                <div class="feature-text">Extract key findings, methods, and outcomes</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔔</div>
+                <div class="feature-text">Filter by study type (RCT, meta-analysis, etc.)</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <div class="feature-text">Save and organize papers in personal library</div>
+            </div>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>🎯 Best Use Cases</h3>
+                <div class="usecase-box">
+                    <p>Perfect for quick evidence-based answers to binary questions (e.g., 'Does X cause Y?') and understanding the weight of scientific consensus on a topic.</p>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>📖 How to Get Started</h3>
+                <div class="steps-list">
+                    
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Ask a yes/no or comparative question.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">View the Consensus Meter showing agreement distribution.</div>
+                </div>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>💰 Pricing</h3>
+                <div class="pricing-grid">
+                    
+            <div class="pricing-card">
+                <div class="plan-name">Basic (Free)</div>
+                <div class="plan-desc">Unlimited search, 5 Consensus answers/month, basic filters</div>
+            </div>
+            <div class="pricing-card recommended">
+                <div class="plan-name">Pro ($15/mo)</div>
+                <div class="plan-desc">Unlimited Consensus answers, advanced filters, citations export</div>
+            </div>
+            <div class="pricing-card">
+                <div class="plan-name">Team (Custom)</div>
+                <div class="plan-desc">Collaborative workspace, API access, priority support</div>
+            </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-        </div>
+
+        
     </main>
 </div>
 
-<script>
-function showView(viewName) {
-    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
-    document.getElementById('view-' + viewName).classList.add('active');
-    
-    document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    window.scrollTo(0, 0);
-}
+<footer class="footer">
+    <p>Built with Jian for the Lab · Auto-updated daily · 
+    <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
+    <p style="margin-top:8px">Last build: 2026-03-25 13:55 UTC</p>
+</footer>
 
-function filterCat(category) {
-    document.querySelectorAll('.cat-btn').forEach(el => el.classList.remove('active'));
-    event.target.classList.add('active');
+<script>
+function filterCat(category, btn) {
+    document.querySelectorAll('.cat-link').forEach(el => el.classList.remove('active'));
+    btn.classList.add('active');
     
-    // Hide/Show tool cards based on category
-    document.querySelectorAll('.tool-card').forEach(card => {
+    document.querySelectorAll('.tool-detail-card').forEach(card => {
         if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'flex';
+            card.style.display = 'block';
         } else {
             card.style.display = 'none';
         }
     });
     
-    // Hide empty sections
-    document.querySelectorAll('.category-group').forEach(group => {
-        if (category === 'all' || group.dataset.category === category) {
-            group.style.display = 'block';
-        } else {
-            group.style.display = 'none';
-        }
-    });
+    // Update header
+    const header = document.querySelector('.content-header h2');
+    if (category === 'all') {
+        header.textContent = '⭐ Featured Tools';
+    } else {
+        header.textContent = category;
+    }
 }
 </script>
 
