@@ -1,7 +1,6 @@
 name: Deploy AI Tools Radar
 
 on:
-  # push 到 main 分支时自动部署（监听 site/ 目录）
   push:
     branches: [main]
     paths: ['site/**']
@@ -10,7 +9,6 @@ on:
   schedule:
     - cron: '0 0 * * *'
   
-  # 手动触发（方便测试）
   workflow_dispatch:
 
 permissions:
@@ -19,13 +17,43 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  collect-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 定时触发 或 手动触发时：运行采集流水线
+      - name: Setup Python
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          pip install httpx google-generativeai
+
+      - name: Run collection pipeline
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          cd ${{ github.workspace }}
+          python scripts/pipeline.py
+
+      - name: Commit new data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ site/
+          git diff --staged --quiet || git commit -m "Daily update: $(date -u +%Y-%m-%d)"
+          git push
+
+      # 所有触发方式都部署
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

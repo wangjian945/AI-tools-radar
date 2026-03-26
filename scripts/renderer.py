@@ -10,6 +10,20 @@ import glob
 from datetime import datetime
 
 
+def load_news(data_dir="data"):
+    """加载最新的新闻数据"""
+    pattern = os.path.join(data_dir, "news_*.json")
+    files = sorted(glob.glob(pattern), reverse=True)
+    if not files:
+        return []
+    try:
+        with open(files[0], 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data.get("news", [])
+    except:
+        return []
+
+
 def load_all_tools(data_dir="data"):
     all_tools = {}
     all_dates = set()
@@ -471,6 +485,86 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         .plan-name {{ font-weight: 700; color: var(--primary-dark); font-size: 0.88rem; margin-bottom: 4px; }}
         .plan-desc {{ font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }}
 
+        /* News Brief */
+        .news-brief {{
+            margin-bottom: 32px;
+        }}
+        .news-brief-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }}
+        .news-brief-header h2 {{
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }}
+        .news-brief-header .date-label {{
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-alt);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }}
+        .news-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }}
+        .news-card {{
+            background: white;
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }}
+        .news-card:hover {{
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }}
+        .news-card-source {{
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }}
+        .news-card h4 {{
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }}
+        .news-card p {{
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }}
+        .no-news {{
+            background: white;
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }}
+
         /* Footer */
         .footer {{
             text-align: center;
@@ -514,6 +608,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </aside>
 
     <main class="content">
+        {news_brief_html}
+
         <div class="content-header">
             <h2>⭐ Featured Tools</h2>
             <p>Curated AI-powered research tools for the lab — updated daily</p>
@@ -558,9 +654,54 @@ function filterCat(category, btn) {{
 </html>"""
 
 
+def render_news_brief(news_items, today):
+    """渲染新闻简报板块"""
+    if not news_items:
+        return f"""
+        <div class="news-brief">
+            <div class="news-brief-header">
+                <h2>📰 Today's AI Brief</h2>
+                <span class="date-label">{today}</span>
+            </div>
+            <div class="no-news">🔄 No news collected yet today — auto-updates daily at 08:00 CST</div>
+        </div>"""
+    
+    cards = ""
+    for item in news_items[:9]:  # 最多 9 条
+        title = item.get("title", "")
+        summary = item.get("summary", "")
+        url = item.get("url", "#")
+        source = item.get("source", "")
+        icon = item.get("icon", "📰")
+        stars = item.get("stars", 0)
+        stars_text = f" · ⭐ {stars:,}" if stars else ""
+        
+        cards += f"""
+            <a href="{url}" target="_blank" class="news-card">
+                <div class="news-card-source">{icon} {source}{stars_text}</div>
+                <h4>{title}</h4>
+                <p>{summary}</p>
+            </a>"""
+    
+    return f"""
+        <div class="news-brief">
+            <div class="news-brief-header">
+                <h2>📰 Today's AI Brief</h2>
+                <span class="date-label">{today}</span>
+            </div>
+            <div class="news-grid">
+                {cards}
+            </div>
+        </div>"""
+
+
 def render_page(data_dir="data", output_dir="site"):
     all_tools, all_dates = load_all_tools(data_dir)
+    news_items = load_news(data_dir)
     today = datetime.utcnow().strftime('%Y-%m-%d')
+    
+    # 新闻简报
+    news_brief_html = render_news_brief(news_items, today)
     
     # 分类统计
     categories = {}
@@ -593,6 +734,7 @@ def render_page(data_dir="data", output_dir="site"):
         total_tools=len(all_tools),
         total_dates=len(all_dates) if all_dates else 1,
         category_nav=cat_nav,
+        news_brief_html=news_brief_html,
         tools_html=tools_html,
         show_more_html=show_more_html,
         build_time=datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),

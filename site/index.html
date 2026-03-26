@@ -279,6 +279,86 @@
         .plan-name { font-weight: 700; color: var(--primary-dark); font-size: 0.88rem; margin-bottom: 4px; }
         .plan-desc { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
 
+        /* News Brief */
+        .news-brief {
+            margin-bottom: 32px;
+        }
+        .news-brief-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+        .news-brief-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .news-brief-header .date-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: var(--bg-alt);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .news-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .news-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        .news-card-source {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .news-card h4 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .news-card p {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .no-news {
+            background: white;
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -307,7 +387,7 @@
     <div class="header-inner">
         <h1>🔬 AI Tools Radar</h1>
         <div class="header-meta">
-            📅 2026-03-25 · 📊 2 Tools in Database · 📁 1 Days Tracked
+            📅 2026-03-26 · 📊 2 Tools in Database · 📁 1 Days Tracked
         </div>
     </div>
 </header>
@@ -323,6 +403,62 @@
     </aside>
 
     <main class="content">
+        
+        <div class="news-brief">
+            <div class="news-brief-header">
+                <h2>📰 Today's AI Brief</h2>
+                <span class="date-label">2026-03-26</span>
+            </div>
+            <div class="news-grid">
+                
+            <a href="https://github.com/alvinunreal/awesome-opensource-ai" target="_blank" class="news-card">
+                <div class="news-card-source">🐙 GitHub · ⭐ 73</div>
+                <h4>alvinunreal/awesome-opensource-ai</h4>
+                <p>Curated list of the best truly open-source AI projects, models, tools, and infrastructure.</p>
+            </a>
+            <a href="https://github.com/pharaongayd/Album-Formula-Ai-2026-Update" target="_blank" class="news-card">
+                <div class="news-card-source">🐙 GitHub · ⭐ 41</div>
+                <h4>pharaongayd/Album-Formula-Ai-2026-Update</h4>
+                <p>Album | Formula | Ai | Photo | Artivicial Intelligence | Creative | Tools | Generation |</p>
+            </a>
+            <a href="https://github.com/deansorib70deer/ai-shorts-gen" target="_blank" class="news-card">
+                <div class="news-card-source">🐙 GitHub · ⭐ 39</div>
+                <h4>deansorib70deer/ai-shorts-gen</h4>
+                <p>AI | YouTube | Shorts | Video | AI-Generator | Shorts-Generator | 2026</p>
+            </a>
+            <a href="https://github.com/hanshiyingbing/numcraft" target="_blank" class="news-card">
+                <div class="news-card-source">🐙 GitHub · ⭐ 21</div>
+                <h4>hanshiyingbing/numcraft</h4>
+                <p>NumCraft - Multi-Agent Collaborative System for Intelligent G-Code Generation</p>
+            </a>
+            <a href="https://github.com/groovy-web/awesome-ai-agents" target="_blank" class="news-card">
+                <div class="news-card-source">🐙 GitHub · ⭐ 15</div>
+                <h4>groovy-web/awesome-ai-agents</h4>
+                <p>A curated list of AI agent frameworks, tools, platforms, and resources</p>
+            </a>
+            <a href="http://arxiv.org/abs/2603.23501v1" target="_blank" class="news-card">
+                <div class="news-card-source">📄 arXiv</div>
+                <h4>MedObvious: Exposing the Medical Moravec's Paradox in VLMs via Clinical Triage</h4>
+                <p>Vision Language Models (VLMs) are increasingly used for tasks like medical report generation and visual question answering. However, fluent diagnostic text does not guarantee safe visual understanding...</p>
+            </a>
+            <a href="http://arxiv.org/abs/2603.23496v1" target="_blank" class="news-card">
+                <div class="news-card-source">📄 arXiv</div>
+                <h4>Estimating Flow Velocity and Vehicle Angle-of-Attack from Non-invasive Piezoelectric Structural Measurements Using Deep Learning</h4>
+                <p>Accurate estimation of aerodynamic state variables such as freestream velocity and angle of attack (AoA) is important for aerodynamic load prediction, flight control, and model validation. This work p...</p>
+            </a>
+            <a href="http://arxiv.org/abs/2603.23495v1" target="_blank" class="news-card">
+                <div class="news-card-source">📄 arXiv</div>
+                <h4>VISion On Request: Enhanced VLLM efficiency with sparse, dynamically selected, vision-language interactions</h4>
+                <p>Existing approaches for improving the efficiency of Large Vision-Language Models (LVLMs) are largely based on the concept of visual token reduction. This approach, however, creates an information bott...</p>
+            </a>
+            <a href="http://arxiv.org/abs/2603.23485v1" target="_blank" class="news-card">
+                <div class="news-card-source">📄 arXiv</div>
+                <h4>Failure of contextual invariance in gender inference with large language models</h4>
+                <p>Standard evaluation practices assume that large language model (LLM) outputs are stable under contextually equivalent formulations of a task. Here, we test this assumption in the setting of gender inf...</p>
+            </a>
+            </div>
+        </div>
+
         <div class="content-header">
             <h2>⭐ Featured Tools</h2>
             <p>Curated AI-powered research tools for the lab — updated daily</p>
@@ -540,7 +676,7 @@
 <footer class="footer">
     <p>Built with Jian for the Lab · Auto-updated daily · 
     <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
-    <p style="margin-top:8px">Last build: 2026-03-25 14:03 UTC</p>
+    <p style="margin-top:8px">Last build: 2026-03-26 00:44 UTC</p>
 </footer>
 
 <script>
