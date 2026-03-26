@@ -488,81 +488,102 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         /* News Brief */
         .news-brief {{
             margin-bottom: 32px;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px 32px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
         }}
         .news-brief-header {{
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border);
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-light);
         }}
         .news-brief-header h2 {{
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-dark);
+            margin: 0;
         }}
-        .news-brief-header .date-label {{
+        .date-label {{
             font-size: 0.8rem;
             color: var(--text-secondary);
             background: var(--bg-alt);
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 12px;
+            font-weight: 500;
         }}
-        .news-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 14px;
+        
+        /* Twitter-style Feed */
+        .news-feed {{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }}
-        .news-card {{
-            background: white;
-            border-radius: var(--radius);
-            padding: 18px;
-            border: 1px solid var(--border);
-            transition: all 0.2s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+        .news-item {{
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
         }}
-        .news-card:hover {{
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-            transform: translateY(-2px);
+        .news-icon {{
+            font-size: 1.4rem;
+            line-height: 1;
+            flex-shrink: 0;
+            background: var(--bg-alt);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }}
-        .news-card-source {{
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 6px;
+        .news-content {{
+            flex: 1;
         }}
-        .news-card h4 {{
-            font-size: 0.92rem;
+        .news-title {{
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--text);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }}
-        .news-card p {{
-            font-size: 0.78rem;
+        .news-title a {{
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }}
+        .news-title a:hover {{
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }}
+        .news-summary {{
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            line-height: 1.6;
         }}
+        .news-meta {{
+            font-size: 0.75rem;
+            color: #9CA3AF;
+            margin-top: 6px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }}
+        .news-source {{
+            font-weight: 500;
+            color: var(--text-secondary);
+        }}
+        
         .no-news {{
-            background: white;
-            border-radius: var(--radius);
-            padding: 24px;
             text-align: center;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            border: 1px solid var(--border);
+            padding: 20px;
+            font-style: italic;
         }}
 
         /* Footer */
@@ -655,43 +676,50 @@ function filterCat(category, btn) {{
 
 
 def render_news_brief(news_items, today):
-    """渲染新闻简报板块"""
-    if not news_items:
-        return f"""
-        <div class="news-brief">
-            <div class="news-brief-header">
-                <h2>📰 Today's AI Brief</h2>
-                <span class="date-label">{today}</span>
-            </div>
-            <div class="no-news">🔄 No news collected yet today — auto-updates daily at 08:00 CST</div>
+    """渲染 News Feed Brief (Twitter-style, max 5)"""
+    # 筛选：学术/研究相关 (关键词过滤在 news_collector 中做)
+    # 这里只展示前 5 条
+    feed_items = news_items[:5] if news_items else []
+    
+    if not feed_items:
+        feed_html = """
+        <div class="no-news">
+            📭 No significant updates in academic AI tools today.
+            <br>Check back tomorrow for the latest research software news.
         </div>"""
-    
-    cards = ""
-    for item in news_items[:9]:  # 最多 9 条
-        title = item.get("title", "")
-        summary = item.get("summary", "")
-        url = item.get("url", "#")
-        source = item.get("source", "")
-        icon = item.get("icon", "📰")
-        stars = item.get("stars", 0)
-        stars_text = f" · ⭐ {stars:,}" if stars else ""
+    else:
+        items_html = ""
+        for item in feed_items:
+            title = item.get("title", "")
+            summary = item.get("summary", "")
+            url = item.get("url", "#")
+            source = item.get("source", "Web")
+            icon = item.get("icon", "📰")
+            date_str = item.get("date", today)
+            
+            items_html += f"""
+            <div class="news-item">
+                <div class="news-icon">{icon}</div>
+                <div class="news-content">
+                    <div class="news-title">
+                        <a href="{url}" target="_blank">{title}</a>
+                    </div>
+                    <div class="news-summary">{summary}</div>
+                    <div class="news-meta">
+                        <span class="news-source">{source}</span> · {date_str}
+                    </div>
+                </div>
+            </div>"""
         
-        cards += f"""
-            <a href="{url}" target="_blank" class="news-card">
-                <div class="news-card-source">{icon} {source}{stars_text}</div>
-                <h4>{title}</h4>
-                <p>{summary}</p>
-            </a>"""
-    
+        feed_html = f'<div class="news-feed">{items_html}</div>'
+
     return f"""
         <div class="news-brief">
             <div class="news-brief-header">
-                <h2>📰 Today's AI Brief</h2>
+                <h2>📰 Daily Research Brief</h2>
                 <span class="date-label">{today}</span>
             </div>
-            <div class="news-grid">
-                {cards}
-            </div>
+            {feed_html}
         </div>"""
 
 

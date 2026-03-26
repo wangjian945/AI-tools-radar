@@ -145,12 +145,37 @@ def collect_daily_news(data_dir="data"):
     all_news.extend(fetch_arxiv_highlights())
     all_news.extend(fetch_hn_ai_news())
     
-    print(f"  📰 Collected {len(all_news)} news items")
+    print(f"  📰 Collected {len(all_news)} raw news items")
+    
+    # 关键词过滤
+    research_keywords = [
+        'research', 'paper', 'academic', 'citation', 'reference', 'literature', 
+        'thesis', 'dissertation', 'latex', 'bibtex', 'zotero', 'mendeley',
+        'scholar', 'science', 'arxiv', 'pdf', 'summary', 'reading', 'writing'
+    ]
+    
+    filtered_news = []
+    seen_urls = set()
+    
+    for item in all_news:
+        url = item.get('url')
+        if url in seen_urls: continue
+        seen_urls.add(url)
+        
+        text = (item.get('title', '') + ' ' + item.get('summary', '')).lower()
+        if any(kw in text for kw in research_keywords):
+            filtered_news.append(item)
+    
+    # 排序：相关度 > 热度
+    filtered_news.sort(key=lambda x: x.get('stars', 0) if x.get('source')=='GitHub' else 0, reverse=True)
+    
+    final_news = filtered_news[:5]
+    print(f"  ✅ Filtered {len(final_news)} academic-relevant items")
     
     today = datetime.utcnow().strftime("%Y-%m-%d")
     output = {
         "date": today,
-        "news": all_news,
+        "news": final_news,
     }
     
     os.makedirs(data_dir, exist_ok=True)
