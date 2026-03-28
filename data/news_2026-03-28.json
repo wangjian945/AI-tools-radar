@@ -1,0 +1,13 @@
+{
+  "date": "2026-03-28",
+  "news": [
+    {
+      "title": "Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving",
+      "summary": "Human driving behavior is inherently personal, which is shaped by long-term habits and influenced by short-term intentions. Individuals differ in how they accelerate, brake, merge, yield, and overtake...",
+      "url": "http://arxiv.org/abs/2603.25740v1",
+      "source": "arXiv",
+      "icon": "📄",
+      "date": "2026-03-28"
+    }
+  ]
+}
