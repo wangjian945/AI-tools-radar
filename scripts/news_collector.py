@@ -62,42 +62,64 @@ EXCLUDE_KEYWORDS = [
     'a novel', 'a new approach', 'benchmark',
 ]
 
-# 强相关：命中这些词的直接纳入（高优先级）
-HIGH_PRIORITY_KEYWORDS = [
-    'zotero', 'mendeley', 'endnote', 'overleaf', 'latex',
-    'research assistant', 'literature review', 'citation manager',
-    'paper writing', 'academic writing', 'thesis', 'dissertation',
-    'reference manager', 'pdf reader', 'semantic scholar',
-    'connected papers', 'research rabbit', 'elicit', 'consensus',
-    'scite', 'litmaps', 'inciteful',
+# 已知学术工具名单（这些工具如有 AI 相关更新则优先纳入）
+KNOWN_ACADEMIC_TOOLS = [
+    'elicit', 'consensus', 'zotero', 'mendeley', 'overleaf', 'latex',
+    'connected papers', 'research rabbit', 'semantic scholar', 'scite',
+    'litmaps', 'scholarcy', 'scispace', 'typeset', 'notebooklm',
+    'chatpdf', 'jenni', 'quillbot', 'grammarly', 'perplexity',
+    'inciteful', 'researchbuddy', 'scholarai', 'paperdigest',
+    'readcube', 'paperpile', 'endnote', 'refworks', 'cite this for me',
+]
+
+# AI 相关关键词——必须包含其中之一才算 AI 工具更新
+AI_KEYWORDS = [
+    'ai', 'artificial intelligence', 'machine learning', 'deep learning',
+    'llm', 'large language model', 'gpt', 'claude', 'gemini',
+    'neural', 'transformer', 'generative', 'chatbot', 'copilot',
+    'autocomplete', 'embedding', 'rag', 'retrieval', 'semantic',
+    'summarize', 'summarizer', 'intelligent', 'smart', 'automated',
 ]
 
 
-def is_research_tool(title, description=""):
-    """判断是否是学术研究相关工具"""
+def is_ai_academic_tool(title, description=""):
+    """
+    判断是否是 AI 驱动的学术研究工具更新
+    规则：必须同时满足
+    1. 是已知学术工具 OR 具有学术场景词
+    2. 具有 AI 属性词
+    """
     text = (title + " " + description).lower()
-    
-    # 高优先级：直接通过
-    if any(kw in text for kw in HIGH_PRIORITY_KEYWORDS):
-        return True, 3  # score=3
-    
+
     # 排除词：直接过滤
     if any(kw in text for kw in EXCLUDE_KEYWORDS):
         return False, 0
-    
-    # 工具词命中数
+
+    has_ai = any(kw in text for kw in AI_KEYWORDS)
+    if not has_ai:
+        return False, 0  # 没有 AI 属性的工具不纳入
+
+    # 已知学术工具直接通过
+    if any(tool in text for tool in KNOWN_ACADEMIC_TOOLS):
+        return True, 5
+
+    # 工具词 + 学术场景词双命中
     tool_score = sum(1 for kw in TOOL_KEYWORDS if kw in text)
-    
-    # 必须同时有"研究/学术"语境 AND "工具"语境
     research_context = any(kw in text for kw in [
         'research', 'academic', 'scholar', 'paper', 'literature',
-        'writing', 'citation', 'pdf', 'thesis', 'journal', 'review'
+        'writing', 'citation', 'pdf', 'thesis', 'journal', 'review',
+        'reference', 'bibliography', 'manuscript', 'publication'
     ])
-    
+
     if research_context and tool_score >= 2:
         return True, tool_score
-    
+
     return False, 0
+
+
+# 保留旧名称兼容性
+def is_research_tool(title, description=""):
+    return is_ai_academic_tool(title, description)
 
 
 # ============================================================
