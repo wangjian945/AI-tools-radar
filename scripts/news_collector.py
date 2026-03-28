@@ -1,186 +1,313 @@
 """
-AI News Brief Collector
-采集最新 AI 新闻，生成简短图文简报
-数据源：GitHub Trending, arXiv, Hacker News
+Academic AI Tools News Collector
+专门采集学术研究/论文写作相关的 AI 工具新闻
+数据源：Product Hunt (Atom) + HN Show HN + GitHub
+筛选原则：只保留工具/软件/平台，过滤掉纯论文/新闻
 """
 
 import json
 import os
 import re
+import html
 from datetime import datetime
 
 try:
     import httpx
-    def http_get(url, headers=None, params=None, timeout=30):
+    def http_get_text(url, headers=None, timeout=20):
         with httpx.Client(timeout=timeout, follow_redirects=True) as client:
-            resp = client.get(url, headers=headers, params=params)
+            resp = client.get(url, headers=headers or {})
             resp.raise_for_status()
-            return resp.json() if 'json' in resp.headers.get('content-type', '') else resp.text
+            return resp.text
+    def http_get_json(url, headers=None, timeout=20):
+        with httpx.Client(timeout=timeout, follow_redirects=True) as client:
+            resp = client.get(url, headers=headers or {})
+            resp.raise_for_status()
+            return resp.json()
 except ImportError:
-    import urllib.request
-    import urllib.parse
-    def http_get(url, headers=None, params=None, timeout=30):
-        if params:
-            url = url + '?' + urllib.parse.urlencode(params)
-        req = urllib.request.Request(url, headers=headers or {})
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = resp.read().decode('utf-8')
-            ct = resp.headers.get('content-type', '')
-            return json.loads(data) if 'json' in ct else data
+    import urllib.request, urllib.parse
+    def http_get_text(url, headers=None, timeout=20):
+        req = urllib.request.Request(url, headers=headers or {"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.read().decode("utf-8", errors="replace")
+    def http_get_json(url, headers=None, timeout=20):
+        return json.loads(http_get_text(url, headers, timeout))
 
 
-def fetch_github_trending():
-    """从 GitHub API 获取今日热门 AI 项目"""
-    news = []
+# ============================================================
+# 关键词定义
+# ============================================================
+
+# 必须命中：工具/平台相关词
+TOOL_KEYWORDS = [
+    'tool', 'platform', 'app', 'software', 'plugin', 'extension', 'api',
+    'assistant', 'agent', 'workflow', 'automation', 'search', 'reader',
+    'writer', 'editor', 'generator', 'analyzer', 'detector', 'tracker',
+    'manager', 'organizer', 'dashboard', 'library', 'framework',
+    'citation', 'reference', 'bibliography', 'zotero', 'mendeley',
+    'latex', 'overleaf', 'grammarly', 'turnitin', 'plagiarism',
+    'summarize', 'summarizer', 'summary', 'abstract', 'review',
+    'literature', 'scholarly', 'academic', 'research', 'paper',
+    'writing', 'editing', 'proofreading', 'translation', 'pdf',
+    'note', 'notes', 'notetaking', 'knowledge base', 'rag', 'retrieval',
+    'semantic search', 'embedding', 'chatbot', 'copilot', 'autocomplete',
+]
+
+# 排除词：如果 title 里有这些词，不是工具（可能是论文/公司/事件）
+EXCLUDE_KEYWORDS = [
+    'autonomous driving', 'self-driving', 'robotics', 'robot', 'drone',
+    'cryptocurrency', 'blockchain', 'nft', 'defi', 'trading',
+    'medical', 'clinical', 'hospital', 'patient', 'drug', 'cancer',
+    'survey', 'framework for', 'approach to', 'method for',
+    'towards', 'learning to', 'revisiting', 'rethinking',
+    'a novel', 'a new approach', 'benchmark',
+]
+
+# 强相关：命中这些词的直接纳入（高优先级）
+HIGH_PRIORITY_KEYWORDS = [
+    'zotero', 'mendeley', 'endnote', 'overleaf', 'latex',
+    'research assistant', 'literature review', 'citation manager',
+    'paper writing', 'academic writing', 'thesis', 'dissertation',
+    'reference manager', 'pdf reader', 'semantic scholar',
+    'connected papers', 'research rabbit', 'elicit', 'consensus',
+    'scite', 'litmaps', 'inciteful',
+]
+
+
+def is_research_tool(title, description=""):
+    """判断是否是学术研究相关工具"""
+    text = (title + " " + description).lower()
+    
+    # 高优先级：直接通过
+    if any(kw in text for kw in HIGH_PRIORITY_KEYWORDS):
+        return True, 3  # score=3
+    
+    # 排除词：直接过滤
+    if any(kw in text for kw in EXCLUDE_KEYWORDS):
+        return False, 0
+    
+    # 工具词命中数
+    tool_score = sum(1 for kw in TOOL_KEYWORDS if kw in text)
+    
+    # 必须同时有"研究/学术"语境 AND "工具"语境
+    research_context = any(kw in text for kw in [
+        'research', 'academic', 'scholar', 'paper', 'literature',
+        'writing', 'citation', 'pdf', 'thesis', 'journal', 'review'
+    ])
+    
+    if research_context and tool_score >= 2:
+        return True, tool_score
+    
+    return False, 0
+
+
+# ============================================================
+# 数据源 1：Product Hunt（Atom RSS）
+# ============================================================
+
+def fetch_product_hunt():
+    """从 Product Hunt RSS 获取最新工具"""
+    results = []
     try:
-        url = "https://api.github.com/search/repositories"
-        params = {
-            "q": "topic:artificial-intelligence created:>2026-03-20",
-            "sort": "stars",
-            "order": "desc",
-            "per_page": 5
-        }
-        data = http_get(url, params=params, headers={"Accept": "application/vnd.github.v3+json"})
-        if isinstance(data, str):
-            data = json.loads(data)
+        xml = http_get_text(
+            "https://www.producthunt.com/feed",
+            headers={"User-Agent": "Mozilla/5.0 (compatible; AcademicRadar/1.0)"}
+        )
         
-        for repo in data.get("items", [])[:5]:
-            news.append({
-                "title": repo.get("full_name", ""),
-                "summary": repo.get("description", "")[:200] if repo.get("description") else "",
-                "url": repo.get("html_url", ""),
-                "source": "GitHub",
-                "icon": "🐙",
-                "stars": repo.get("stargazers_count", 0),
-                "date": datetime.utcnow().strftime("%Y-%m-%d"),
-            })
-    except Exception as e:
-        print(f"  [WARN] GitHub trending failed: {e}")
-    return news
-
-
-def fetch_arxiv_highlights():
-    """从 arXiv API 获取最新 AI 论文亮点"""
-    news = []
-    try:
-        url = "http://export.arxiv.org/api/query"
-        params = {
-            "search_query": "cat:cs.AI OR cat:cs.CL OR cat:cs.LG",
-            "sortBy": "submittedDate",
-            "sortOrder": "descending",
-            "max_results": "5"
-        }
-        xml_text = http_get(url, params=params)
+        entries = re.findall(r'<entry>(.*?)</entry>', xml, re.DOTALL)
         
-        # 简单解析 XML
-        entries = re.findall(r'<entry>(.*?)</entry>', xml_text, re.DOTALL)
-        for entry in entries[:5]:
-            title_match = re.search(r'<title>(.*?)</title>', entry, re.DOTALL)
-            summary_match = re.search(r'<summary>(.*?)</summary>', entry, re.DOTALL)
-            link_match = re.search(r'<id>(.*?)</id>', entry)
+        for entry in entries:
+            title_m = re.search(r'<title>(.*?)</title>', entry, re.DOTALL)
+            content_m = re.search(r'<content[^>]*>(.*?)</content>', entry, re.DOTALL)
+            link_m = re.search(r'<link[^/].*?href="(.*?)"', entry)
+            date_m = re.search(r'<published>(.*?)</published>', entry)
             
-            title = title_match.group(1).strip().replace('\n', ' ') if title_match else ""
-            summary = summary_match.group(1).strip().replace('\n', ' ')[:200] if summary_match else ""
-            url = link_match.group(1).strip() if link_match else ""
+            title = html.unescape(title_m.group(1).strip()) if title_m else ""
+            content_raw = content_m.group(1) if content_m else ""
+            desc = html.unescape(re.sub(r'&lt;.*?&gt;|<.*?>', '', content_raw)).strip()[:300]
+            url = link_m.group(1) if link_m else ""
+            date_str = date_m.group(1)[:10] if date_m else ""
             
-            if title:
-                news.append({
+            if not title or not url:
+                continue
+            
+            ok, score = is_research_tool(title, desc)
+            if ok:
+                results.append({
                     "title": title,
-                    "summary": summary + "...",
+                    "summary": desc[:200] if desc else f"New tool on Product Hunt: {title}",
                     "url": url,
-                    "source": "arXiv",
-                    "icon": "📄",
-                    "date": datetime.utcnow().strftime("%Y-%m-%d"),
+                    "source": "Product Hunt",
+                    "icon": "🚀",
+                    "date": date_str,
+                    "score": score,
                 })
-    except Exception as e:
-        print(f"  [WARN] arXiv highlights failed: {e}")
-    return news
-
-
-def fetch_hn_ai_news():
-    """从 Hacker News API 获取 AI 相关热门"""
-    news = []
-    try:
-        top_ids = http_get("https://hacker-news.firebaseio.com/v0/topstories.json")
-        if isinstance(top_ids, str):
-            top_ids = json.loads(top_ids)
         
-        ai_keywords = ['ai', 'llm', 'gpt', 'claude', 'gemini', 'openai', 'anthropic', 
-                       'machine learning', 'deep learning', 'neural', 'transformer',
-                       'research', 'paper', 'model']
+        print(f"  Product Hunt: {len(results)} academic tools found")
+    except Exception as e:
+        print(f"  [WARN] Product Hunt failed: {e}")
+    
+    return results
+
+
+# ============================================================
+# 数据源 2：Hacker News Show HN
+# ============================================================
+
+def fetch_hn_show():
+    """从 HN Show HN 获取新工具展示"""
+    results = []
+    try:
+        story_ids = http_get_json(
+            "https://hacker-news.firebaseio.com/v0/showstories.json",
+            headers={"User-Agent": "Mozilla/5.0"}
+        )
         
         count = 0
-        for story_id in top_ids[:50]:
-            if count >= 3:
+        for sid in story_ids[:80]:  # 多检查前 80 条
+            if count >= 5:
                 break
             try:
-                story = http_get(f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json")
-                if isinstance(story, str):
-                    story = json.loads(story)
+                story = http_get_json(
+                    f"https://hacker-news.firebaseio.com/v0/item/{sid}.json",
+                    headers={"User-Agent": "Mozilla/5.0"}
+                )
+                title = story.get("title", "")
+                text = story.get("text", "")
+                url = story.get("url", f"https://news.ycombinator.com/item?id={sid}")
                 
-                title = story.get("title", "").lower()
-                if any(kw in title for kw in ai_keywords):
-                    news.append({
-                        "title": story.get("title", ""),
-                        "summary": f"Score: {story.get('score', 0)} · {story.get('descendants', 0)} comments",
-                        "url": story.get("url", f"https://news.ycombinator.com/item?id={story_id}"),
+                # Show HN 去掉前缀
+                clean_title = re.sub(r'^Show HN:\s*', '', title, flags=re.IGNORECASE)
+                
+                ok, score = is_research_tool(clean_title, text)
+                if ok:
+                    results.append({
+                        "title": clean_title,
+                        "summary": f"Shared on Hacker News Show HN. {re.sub('<.*?>', '', text)[:180].strip() if text else ''}",
+                        "url": url,
                         "source": "Hacker News",
                         "icon": "🔶",
-                        "date": datetime.utcnow().strftime("%Y-%m-%d"),
+                        "date": datetime.utcfromtimestamp(story.get("time", 0)).strftime("%Y-%m-%d"),
+                        "score": score,
                     })
                     count += 1
             except:
                 continue
+        
+        print(f"  HN Show HN: {len(results)} academic tools found")
     except Exception as e:
-        print(f"  [WARN] HN news failed: {e}")
-    return news
+        print(f"  [WARN] HN Show HN failed: {e}")
+    
+    return results
 
+
+# ============================================================
+# 数据源 3：GitHub（专门搜索学术工具 repo）
+# ============================================================
+
+def fetch_github_academic():
+    """从 GitHub 搜索最近新建的学术工具"""
+    results = []
+    try:
+        from datetime import timedelta
+        cutoff = (datetime.utcnow() - timedelta(days=7)).strftime("%Y-%m-%d")
+        
+        queries = [
+            f"topic:research-tools created:>{cutoff}",
+            f"topic:academic created:>{cutoff}",
+            f"topic:citation-manager created:>{cutoff}",
+            f"pdf research assistant created:>{cutoff}",
+            f"literature review tool created:>{cutoff}",
+        ]
+        
+        seen = set()
+        for query in queries:
+            if len(results) >= 5:
+                break
+            try:
+                data = http_get_json(
+                    "https://api.github.com/search/repositories",
+                    headers={
+                        "Accept": "application/vnd.github.v3+json",
+                        "User-Agent": "AcademicRadar/1.0",
+                    }
+                )
+                # 实际请求需要带参数，这里修正：
+                import urllib.parse
+                url_with_params = (
+                    "https://api.github.com/search/repositories?"
+                    + urllib.parse.urlencode({"q": query, "sort": "stars", "order": "desc", "per_page": "5"})
+                )
+                data = http_get_json(url_with_params, headers={
+                    "Accept": "application/vnd.github.v3+json",
+                    "User-Agent": "AcademicRadar/1.0",
+                })
+                
+                for repo in data.get("items", [])[:3]:
+                    repo_url = repo.get("html_url", "")
+                    if repo_url in seen:
+                        continue
+                    seen.add(repo_url)
+                    
+                    name = repo.get("full_name", "")
+                    desc = repo.get("description", "") or ""
+                    stars = repo.get("stargazers_count", 0)
+                    
+                    ok, score = is_research_tool(name + " " + desc, "")
+                    if ok:
+                        results.append({
+                            "title": repo.get("name", name),
+                            "summary": desc[:200] if desc else f"New GitHub project: {name}",
+                            "url": repo_url,
+                            "source": "GitHub",
+                            "icon": "🐙",
+                            "date": datetime.utcnow().strftime("%Y-%m-%d"),
+                            "score": score + (1 if stars > 100 else 0),
+                            "stars": stars,
+                        })
+            except Exception as e:
+                print(f"    [WARN] GitHub query failed: {e}")
+                continue
+        
+        print(f"  GitHub: {len(results)} academic tools found")
+    except Exception as e:
+        print(f"  [WARN] GitHub academic fetch failed: {e}")
+    
+    return results
+
+
+# ============================================================
+# 主函数
+# ============================================================
 
 def collect_daily_news(data_dir="data"):
-    """采集今日 AI 新闻并保存"""
-    print("📰 Collecting AI news...")
+    print("📰 Collecting academic AI tool news...")
     
-    all_news = []
-    all_news.extend(fetch_github_trending())
-    all_news.extend(fetch_arxiv_highlights())
-    all_news.extend(fetch_hn_ai_news())
+    all_results = []
+    all_results.extend(fetch_product_hunt())
+    all_results.extend(fetch_hn_show())
+    all_results.extend(fetch_github_academic())
     
-    print(f"  📰 Collected {len(all_news)} raw news items")
-    
-    # 关键词过滤
-    research_keywords = [
-        'research', 'paper', 'academic', 'citation', 'reference', 'literature', 
-        'thesis', 'dissertation', 'latex', 'bibtex', 'zotero', 'mendeley',
-        'scholar', 'science', 'arxiv', 'pdf', 'summary', 'reading', 'writing'
-    ]
-    
-    filtered_news = []
+    # 去重（按 URL）
     seen_urls = set()
+    unique = []
+    for item in all_results:
+        url = item.get("url", "")
+        if url and url not in seen_urls:
+            seen_urls.add(url)
+            unique.append(item)
     
-    for item in all_news:
-        url = item.get('url')
-        if url in seen_urls: continue
-        seen_urls.add(url)
-        
-        text = (item.get('title', '') + ' ' + item.get('summary', '')).lower()
-        if any(kw in text for kw in research_keywords):
-            filtered_news.append(item)
+    # 按分数排序，取前 5
+    unique.sort(key=lambda x: x.get("score", 0), reverse=True)
+    final = unique[:5]
     
-    # 排序：相关度 > 热度
-    filtered_news.sort(key=lambda x: x.get('stars', 0) if x.get('source')=='GitHub' else 0, reverse=True)
-    
-    final_news = filtered_news[:5]
-    print(f"  ✅ Filtered {len(final_news)} academic-relevant items")
+    print(f"  ✅ Final: {len(final)} items selected for today's brief")
     
     today = datetime.utcnow().strftime("%Y-%m-%d")
-    output = {
-        "date": today,
-        "news": final_news,
-    }
+    output = {"date": today, "news": final}
     
     os.makedirs(data_dir, exist_ok=True)
     filepath = os.path.join(data_dir, f"news_{today}.json")
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
     
     print(f"  💾 Saved: {filepath}")
