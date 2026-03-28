@@ -1,4 +1,13 @@
 {
   "date": "2026-03-26",
-  "news": []
+  "news": [
+    {
+      "title": "False claims in a widely-cited paper",
+      "summary": "Score: 215 · 70 comments",
+      "url": "https://statmodeling.stat.columbia.edu/2026/03/24/false-claims-in-a-published-no-corrections-no-consequences-welcome-to-the-business-school/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-26"
+    }
+  ]
 }
