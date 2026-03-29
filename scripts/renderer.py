@@ -261,6 +261,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 32px;
+            position: relative;
         }}
         .header h1 {{ font-size: 2rem; font-weight: 800; margin-bottom: 6px; }}
         .header-slogan {{
@@ -271,6 +272,27 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             margin-bottom: 12px;
         }}
         .header-meta {{ opacity: 0.85; font-size: 0.85rem; }}
+        
+        /* Monash Logo in Header */
+        .header-monash {{
+            position: absolute;
+            top: 0;
+            right: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0.9;
+        }}
+        .header-monash img {{
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1); /* Make white */
+        }}
+        .header-monash span {{
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.9);
+        }}
 
         /* Layout: Sidebar + Content */
         .page-layout {{
@@ -644,6 +666,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             .tool-body {{ padding: 0 20px 20px; }}
             .features-grid {{ grid-template-columns: 1fr; }}
             .pricing-grid {{ grid-template-columns: 1fr; }}
+            .header-monash {{
+                position: static;
+                margin-top: 16px;
+                justify-content: flex-end;
+            }}
         }}
     </style>
 </head>
@@ -655,6 +682,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <p class="header-slogan">Your Daily Intelligence Hub for AI-Powered Research Tools</p>
         <div class="header-meta">
             📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
+        </div>
+        <div class="header-monash">
+            <img src="https://upload.wikimedia.org/wikipedia/en/2/27/Monash_University_logo.svg" alt="Monash University" onerror="this.style.display='none'">
+            <span>Monash University Malaysia</span>
         </div>
     </div>
 </header>
@@ -683,9 +714,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </div>
 
 <footer class="footer">
-    <p>Built with Jian for the Lab · Auto-updated daily · 
+    <p>Built with Jian for the Lab · 
     <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
-    <p style="margin-top:8px">Last build: {build_time}</p>
+    <p style="margin-top:8px">Monash University Malaysia · Last build: {build_time}</p>
 </footer>
 
 <script>
