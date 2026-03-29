@@ -33,7 +33,7 @@
       "stars": 0,
       "collected_date": "2026-03-25",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=elicit.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=elicit.com&sz=256"
     },
     {
       "name": "Consensus",
@@ -62,7 +62,7 @@
       "stars": 0,
       "collected_date": "2026-03-25",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=consensus.app&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=consensus.app&sz=256"
     },
     {
       "name": "Connected Papers",
@@ -89,7 +89,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=www.connectedpapers.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.connectedpapers.com&sz=256"
     },
     {
       "name": "ResearchRabbit",
@@ -116,7 +116,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=256"
     },
     {
       "name": "Semantic Scholar",
@@ -143,7 +143,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.semanticscholar.org&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.semanticscholar.org&sz=256"
     },
     {
       "name": "Scite",
@@ -171,7 +171,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=scite.ai&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=scite.ai&sz=256"
     },
     {
       "name": "NotebookLM",
@@ -199,7 +199,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=256"
     },
     {
       "name": "ChatPDF",
@@ -227,7 +227,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.chatpdf.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.chatpdf.com&sz=256"
     },
     {
       "name": "SciSpace (formerly Typeset)",
@@ -255,7 +255,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=typeset.io&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=typeset.io&sz=256"
     },
     {
       "name": "Zotero",
@@ -283,7 +283,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.zotero.org&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.zotero.org&sz=256"
     },
     {
       "name": "Mendeley",
@@ -311,7 +311,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.mendeley.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.mendeley.com&sz=256"
     },
     {
       "name": "Perplexity AI",
@@ -339,7 +339,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": true,
-      "logo": "https://www.google.com/s2/favicons?domain=www.perplexity.ai&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.perplexity.ai&sz=256"
     },
     {
       "name": "Research Rabbit",
@@ -366,7 +366,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=256"
     },
     {
       "name": "Jenni AI",
@@ -394,7 +394,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=jenni.ai&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=jenni.ai&sz=256"
     },
     {
       "name": "Grammarly",
@@ -423,7 +423,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.grammarly.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.grammarly.com&sz=256"
     },
     {
       "name": "Overleaf",
@@ -452,7 +452,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.overleaf.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.overleaf.com&sz=256"
     },
     {
       "name": "Litmaps",
@@ -480,7 +480,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.litmaps.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.litmaps.com&sz=256"
     },
     {
       "name": "Scholarcy",
@@ -508,7 +508,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=www.scholarcy.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=www.scholarcy.com&sz=256"
     },
     {
       "name": "Research Buddy",
@@ -536,7 +536,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=researchbuddy.app&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=researchbuddy.app&sz=256"
     },
     {
       "name": "QuillBot",
@@ -564,7 +564,7 @@
       "stars": 0,
       "collected_date": "2026-03-28",
       "featured": false,
-      "logo": "https://www.google.com/s2/favicons?domain=quillbot.com&sz=128"
+      "logo": "https://www.google.com/s2/favicons?domain=quillbot.com&sz=256"
     }
   ]
 }
