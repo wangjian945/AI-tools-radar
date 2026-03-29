@@ -138,8 +138,17 @@ def render_detail_card(tool):
     else:
         pricing_badge = f'<span class="badge badge-freemium">{pricing}</span>'
     
-    logo_url = tool.get("logo", "")
-    logo_html = f'<div class="tool-logo"><img src="{logo_url}" alt="{name} logo" onerror="this.style.display=\'none\'"></div>' if logo_url else ''
+    # 多源 fallback logo
+    logos = tool.get("logos", [])
+    if not logos and tool.get("logo"):
+        logos = [tool["logo"]]
+    
+    if logos:
+        # 生成 fallback 链：第一个失败用第二个，依此类推
+        fallback_js = "this.onerror=null; this.src='" + "; this.onerror=null; this.src='".join(logos[1:]) + "'"
+        logo_html = f'<div class="tool-logo"><img src="{logos[0]}" alt="{name} logo" onerror="{fallback_js}"></div>'
+    else:
+        logo_html = ''
     
     html = f"""
     <div class="tool-detail-card" data-category="{category}" id="tool-{name.lower().replace(' ', '-')}">
