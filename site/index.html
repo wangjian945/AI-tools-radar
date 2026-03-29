@@ -34,9 +34,9 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: #004B87; /* Official Monash Blue */
             color: white;
-            padding: 40px 0 32px;
+            padding: 24px 0 20px;
         }
         .header-inner {
             max-width: 1200px;
@@ -64,10 +64,15 @@
             gap: 12px;
             opacity: 0.9;
         }
-        .monash-shield {
-            height: 45px;
+        .monash-logo-img {
+            height: 60px;
             width: auto;
-            filter: brightness(0) invert(1); /* Make white for blue header */
+        }
+        .header-monash {
+            position: absolute;
+            top: 50%;
+            right: 32px;
+            transform: translateY(-50%);
         }
         .header-monash span {
             font-size: 0.85rem;
@@ -449,8 +454,13 @@
             .pricing-grid { grid-template-columns: 1fr; }
             .header-monash {
                 position: static;
-                margin-top: 16px;
+                transform: none;
+                margin-top: 20px;
+                display: flex;
                 justify-content: flex-end;
+            }
+            .monash-logo-img {
+                height: 50px;
             }
         }
     </style>
@@ -465,17 +475,7 @@
             📅 2026-03-29 · 📊 19 Tools in Database · 📁 1 Days Tracked
         </div>
         <div class="header-monash">
-            <svg class="monash-shield" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="monashGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <path d="M50 5 L90 25 L90 70 L50 110 L10 70 L10 25 Z" fill="url(#monashGold)" stroke="#FFF" stroke-width="3"/>
-                <text x="50" y="75" font-size="50" font-weight="bold" text-anchor="middle" fill="#006DAE">M</text>
-            </svg>
-            <span>Monash University Malaysia</span>
+            <img class="monash-logo-img" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSIjRkZGRkZGIj4KICAgIDwhLS0g5b6L55qE5biC5L2TIC0tPgogICAgPHBhdGggZD0iTTUwIDIwIEwxNTAgMjAgTDE1MCA5MCBMNTAgMTQwIEw1MCAyMCBaIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgogICAgPCEtLSDmlrnlnLwgLS0+CiAgICA8cGF0aCBkPSJNNzAgNDAgTDkwIDQwIEw5MCA1NSBMNzAgNTUgWiIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPGxpbmUgeDE9IjgwIiB5MT0iNDAiIHgyPSI4MCIgeTI9IjU1IiBzdHJva2U9IiMwMDRCODciIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPCEtLSDmrb/ml6Ag5oiQ54K55a6cIC0tPgogICAgPGNpcmNsZSBjeD0iMTE1IiBjeT0iNDciIHI9IjgiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgICA8bGluZSB4MT0iMTE1IiB5MT0iNDIiIHgyPSIxMTUiIHkyPSI1MiIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDwhLS0g5ri4572R5a6f5YqbIC0tPgogICAgPHBvbHlnb24gcG9pbnRzPSI4NSwxMDAgODgsMTA2IDk1LDEwNiA5MCwxMTEgOTIsMTE4IDg1LDExNCA3OCwxMTggODAsMTExIDc1LDEwNiA4MiwxMDYiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDwhLS0g5paH5YyWIC0tPgogICAgPHRleHQgeD0iMTcwIiB5PSI3NSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjU1IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRkZGRkYiPk1PTkFTSDwvdGV4dD4KICAgIDx0ZXh0IHg9IjE3MCIgeT0iMTE1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzIiIGZpbGw9IiNGRkZGRkYiPlVuaXZlcnNpdHk8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Monash University">
         </div>
     </div>
 </header>
@@ -1495,7 +1495,7 @@
 <footer class="footer">
     <p>Built with Jian for the Lab · 
     <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
-    <p style="margin-top:8px">Monash University Malaysia · Last build: 2026-03-29 07:06 UTC</p>
+    <p style="margin-top:8px">Monash University Malaysia · Last build: 2026-03-29 07:33 UTC</p>
 </footer>
 
 <script>
