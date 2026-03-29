@@ -43,8 +43,15 @@
             margin: 0 auto;
             padding: 0 32px;
         }
-        .header h1 { font-size: 2rem; font-weight: 800; }
-        .header-meta { margin-top: 12px; opacity: 0.9; font-size: 0.88rem; }
+        .header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 6px; }
+        .header-slogan {
+            font-size: 1.05rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-bottom: 12px;
+        }
+        .header-meta { opacity: 0.85; font-size: 0.85rem; }
 
         /* Layout: Sidebar + Content */
         .page-layout {
@@ -147,14 +154,33 @@
         
         .tool-header {
             background: linear-gradient(135deg, #E8F4FD, #D4E8F7);
-            padding: 28px 32px;
+            padding: 24px 28px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 20px;
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(0,109,174,0.1);
         }
-        .tool-name { font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }
+        .tool-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .tool-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .tool-header-info { flex: 1; min-width: 0; }
+        .tool-name { font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }
         .tool-name a { color: inherit; text-decoration: none; }
         .tool-name a:hover { color: var(--primary); }
         .tool-tagline { font-size: 0.95rem; color: var(--text-secondary); max-width: 650px; }
@@ -407,8 +433,9 @@
 <header class="header">
     <div class="header-inner">
         <h1>🔬 AI Tools Radar</h1>
+        <p class="header-slogan">Your Daily Intelligence Hub for AI-Powered Research Tools</p>
         <div class="header-meta">
-            📅 2026-03-28 · 📊 19 Tools in Database · 📁 2 Days Tracked
+            📅 2026-03-29 · 📊 19 Tools in Database · 📁 2 Days Tracked
         </div>
     </div>
 </header>
@@ -433,7 +460,7 @@
         <div class="news-brief">
             <div class="news-brief-header">
                 <h2>📰 Daily Research Brief</h2>
-                <span class="date-label">2026-03-28</span>
+                <span class="date-label">2026-03-29</span>
             </div>
             
         <div class="no-news">
@@ -450,6 +477,7 @@
         
     <div class="tool-detail-card" data-category="Literature Review" id="tool-elicit">
         <div class="tool-header">
+            
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://elicit.com" target="_blank">Elicit</a></h2>
                 <p class="tool-tagline">AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.</p>
@@ -554,6 +582,7 @@
 
     <div class="tool-detail-card" data-category="Literature Search & Review" id="tool-connected-papers">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=www.connectedpapers.com&sz=128" alt="Connected Papers logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://www.connectedpapers.com" target="_blank">Connected Papers</a></h2>
                 <p class="tool-tagline">Visual tool to explore and discover academic papers through an interactive graph of related works.</p>
@@ -646,6 +675,7 @@
 
     <div class="tool-detail-card" data-category="Literature Review" id="tool-consensus">
         <div class="tool-header">
+            
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://consensus.app" target="_blank">Consensus</a></h2>
                 <p class="tool-tagline">AI-powered search engine that finds answers in scientific papers with evidence-based consensus scores.</p>
@@ -746,6 +776,7 @@
 
     <div class="tool-detail-card" data-category="Reading & Note-Taking" id="tool-notebooklm">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=128" alt="NotebookLM logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://notebooklm.google.com" target="_blank">NotebookLM</a></h2>
                 <p class="tool-tagline">Google's AI notebook that lets you upload research documents and chat with them to extract insights.</p>
@@ -842,6 +873,7 @@
 
     <div class="tool-detail-card" data-category="Academic Writing" id="tool-overleaf">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=www.overleaf.com&sz=128" alt="Overleaf logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://www.overleaf.com" target="_blank">Overleaf</a></h2>
                 <p class="tool-tagline">Cloud-based LaTeX editor with real-time collaboration — the standard platform for scientific manuscript writing.</p>
@@ -942,6 +974,7 @@
 
     <div class="tool-detail-card" data-category="AI Search & Discovery" id="tool-perplexity-ai">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=www.perplexity.ai&sz=128" alt="Perplexity AI logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://www.perplexity.ai" target="_blank">Perplexity AI</a></h2>
                 <p class="tool-tagline">AI-powered answer engine with real-time web search, academic mode, and cited responses.</p>
@@ -1038,6 +1071,7 @@
 
     <div class="tool-detail-card" data-category="Literature Search & Review" id="tool-researchrabbit">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=128" alt="ResearchRabbit logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://www.researchrabbit.ai" target="_blank">ResearchRabbit</a></h2>
                 <p class="tool-tagline">Free AI-powered tool to discover, organize, and visualize academic literature with personalized recommendations.</p>
@@ -1130,6 +1164,7 @@
 
     <div class="tool-detail-card" data-category="Reading & Note-Taking" id="tool-scispace-(formerly-typeset)">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=typeset.io&sz=128" alt="SciSpace (formerly Typeset) logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://typeset.io" target="_blank">SciSpace (formerly Typeset)</a></h2>
                 <p class="tool-tagline">AI copilot for reading research papers — explains complex concepts, math, and tables in plain language.</p>
@@ -1226,6 +1261,7 @@
 
     <div class="tool-detail-card" data-category="Literature Search & Review" id="tool-semantic-scholar">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=www.semanticscholar.org&sz=128" alt="Semantic Scholar logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://www.semanticscholar.org" target="_blank">Semantic Scholar</a></h2>
                 <p class="tool-tagline">Free AI-powered research tool from Allen Institute for AI — searches 214M papers with semantic understanding.</p>
@@ -1318,6 +1354,7 @@
 
     <div class="tool-detail-card" data-category="Reference Management" id="tool-zotero">
         <div class="tool-header">
+            <div class="tool-logo"><img src="https://www.google.com/s2/favicons?domain=www.zotero.org&sz=128" alt="Zotero logo" onerror="this.style.display='none'"></div>
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="https://www.zotero.org" target="_blank">Zotero</a></h2>
                 <p class="tool-tagline">Free, open-source reference manager with powerful AI plugins for summarization and smart organization.</p>
@@ -1419,7 +1456,7 @@
 <footer class="footer">
     <p>Built with Jian for the Lab · Auto-updated daily · 
     <a href="https://github.com/wangjian945/AI-tools-radar">View Source</a></p>
-    <p style="margin-top:8px">Last build: 2026-03-28 15:36 UTC</p>
+    <p style="margin-top:8px">Last build: 2026-03-29 01:51 UTC</p>
 </footer>
 
 <script>

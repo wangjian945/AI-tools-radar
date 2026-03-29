@@ -138,9 +138,13 @@ def render_detail_card(tool):
     else:
         pricing_badge = f'<span class="badge badge-freemium">{pricing}</span>'
     
+    logo_url = tool.get("logo", "")
+    logo_html = f'<div class="tool-logo"><img src="{logo_url}" alt="{name} logo" onerror="this.style.display=\'none\'"></div>' if logo_url else ''
+    
     html = f"""
     <div class="tool-detail-card" data-category="{category}" id="tool-{name.lower().replace(' ', '-')}">
         <div class="tool-header">
+            {logo_html}
             <div class="tool-header-info">
                 <h2 class="tool-name"><a href="{url}" target="_blank">{name}</a></h2>
                 <p class="tool-tagline">{one_liner}</p>
@@ -249,8 +253,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             margin: 0 auto;
             padding: 0 32px;
         }}
-        .header h1 {{ font-size: 2rem; font-weight: 800; }}
-        .header-meta {{ margin-top: 12px; opacity: 0.9; font-size: 0.88rem; }}
+        .header h1 {{ font-size: 2rem; font-weight: 800; margin-bottom: 6px; }}
+        .header-slogan {{
+            font-size: 1.05rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-bottom: 12px;
+        }}
+        .header-meta {{ opacity: 0.85; font-size: 0.85rem; }}
 
         /* Layout: Sidebar + Content */
         .page-layout {{
@@ -353,14 +364,33 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         .tool-header {{
             background: linear-gradient(135deg, #E8F4FD, #D4E8F7);
-            padding: 28px 32px;
+            padding: 24px 28px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 20px;
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(0,109,174,0.1);
         }}
-        .tool-name {{ font-size: 1.6rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }}
+        .tool-logo {{
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }}
+        .tool-logo img {{
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }}
+        .tool-header-info {{ flex: 1; min-width: 0; }}
+        .tool-name {{ font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 6px; }}
         .tool-name a {{ color: inherit; text-decoration: none; }}
         .tool-name a:hover {{ color: var(--primary); }}
         .tool-tagline {{ font-size: 0.95rem; color: var(--text-secondary); max-width: 650px; }}
@@ -613,6 +643,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <header class="header">
     <div class="header-inner">
         <h1>🔬 AI Tools Radar</h1>
+        <p class="header-slogan">Your Daily Intelligence Hub for AI-Powered Research Tools</p>
         <div class="header-meta">
             📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
         </div>

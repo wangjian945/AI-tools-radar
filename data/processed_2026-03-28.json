@@ -32,7 +32,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-25",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=elicit.com&sz=128"
     },
     {
       "name": "Consensus",
@@ -60,7 +61,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-25",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=consensus.app&sz=128"
     },
     {
       "name": "Connected Papers",
@@ -86,7 +88,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.connectedpapers.com&sz=128"
     },
     {
       "name": "ResearchRabbit",
@@ -112,7 +115,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=128"
     },
     {
       "name": "Semantic Scholar",
@@ -138,7 +142,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.semanticscholar.org&sz=128"
     },
     {
       "name": "Scite",
@@ -165,7 +170,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=scite.ai&sz=128"
     },
     {
       "name": "NotebookLM",
@@ -192,7 +198,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=128"
     },
     {
       "name": "ChatPDF",
@@ -219,7 +226,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.chatpdf.com&sz=128"
     },
     {
       "name": "SciSpace (formerly Typeset)",
@@ -246,7 +254,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=typeset.io&sz=128"
     },
     {
       "name": "Zotero",
@@ -273,7 +282,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.zotero.org&sz=128"
     },
     {
       "name": "Mendeley",
@@ -300,7 +310,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.mendeley.com&sz=128"
     },
     {
       "name": "Perplexity AI",
@@ -327,7 +338,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": true
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.perplexity.ai&sz=128"
     },
     {
       "name": "Research Rabbit",
@@ -353,7 +365,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=128"
     },
     {
       "name": "Jenni AI",
@@ -380,7 +393,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=jenni.ai&sz=128"
     },
     {
       "name": "Grammarly",
@@ -408,7 +422,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.grammarly.com&sz=128"
     },
     {
       "name": "Overleaf",
@@ -436,7 +451,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.overleaf.com&sz=128"
     },
     {
       "name": "Litmaps",
@@ -463,7 +479,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.litmaps.com&sz=128"
     },
     {
       "name": "Scholarcy",
@@ -490,7 +507,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.scholarcy.com&sz=128"
     },
     {
       "name": "Research Buddy",
@@ -517,7 +535,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=researchbuddy.app&sz=128"
     },
     {
       "name": "QuillBot",
@@ -544,7 +563,8 @@
       "source": "Manual",
       "stars": 0,
       "collected_date": "2026-03-28",
-      "featured": false
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=quillbot.com&sz=128"
     }
   ]
 }
