@@ -10,6 +10,17 @@ import glob
 from datetime import datetime
 
 
+def load_monash_logo():
+    """加载嵌入的 Monash logo（base64）"""
+    logo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "monash_logo_data.json")
+    try:
+        with open(logo_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data.get("logo", "")
+    except:
+        return ""
+
+
 def load_news(data_dir="data"):
     """加载最新的新闻数据"""
     pattern = os.path.join(data_dir, "news_*.json")
@@ -694,7 +705,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
         </div>
         <div class="header-monash">
-            <img class="monash-logo-img" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBmaWxsPSIjRkZGRkZGIj4KICAgIDwhLS0g5b6L55qE5biC5L2TIC0tPgogICAgPHBhdGggZD0iTTUwIDIwIEwxNTAgMjAgTDE1MCA5MCBMNTAgMTQwIEw1MCAyMCBaIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgogICAgPCEtLSDmlrnlnLwgLS0+CiAgICA8cGF0aCBkPSJNNzAgNDAgTDkwIDQwIEw5MCA1NSBMNzAgNTUgWiIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPGxpbmUgeDE9IjgwIiB5MT0iNDAiIHgyPSI4MCIgeTI9IjU1IiBzdHJva2U9IiMwMDRCODciIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPCEtLSDmrb/ml6Ag5oiQ54K55a6cIC0tPgogICAgPGNpcmNsZSBjeD0iMTE1IiBjeT0iNDciIHI9IjgiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgICA8bGluZSB4MT0iMTE1IiB5MT0iNDIiIHgyPSIxMTUiIHkyPSI1MiIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDwhLS0g5ri4572R5a6f5YqbIC0tPgogICAgPHBvbHlnb24gcG9pbnRzPSI4NSwxMDAgODgsMTA2IDk1LDEwNiA5MCwxMTEgOTIsMTE4IDg1LDExNCA3OCwxMTggODAsMTExIDc1LDEwNiA4MiwxMDYiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDwhLS0g5paH5YyWIC0tPgogICAgPHRleHQgeD0iMTcwIiB5PSI3NSIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjU1IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0ZGRkZGRkYiPk1PTkFTSDwvdGV4dD4KICAgIDx0ZXh0IHg9IjE3MCIgeT0iMTE1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzIiIGZpbGw9IiNGRkZGRkYiPlVuaXZlcnNpdHk8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="Monash University">
+            <img class="monash-logo-img" src="{monash_logo}" alt="Monash University">
         </div>
     </div>
 </header>
@@ -806,6 +817,7 @@ def render_news_brief(news_items, today):
 def render_page(data_dir="data", output_dir="site"):
     all_tools, all_dates = load_all_tools(data_dir)
     news_items = load_news(data_dir)
+    monash_logo = load_monash_logo()
     today = datetime.utcnow().strftime('%Y-%m-%d')
     
     # 新闻简报
@@ -845,6 +857,7 @@ def render_page(data_dir="data", output_dir="site"):
         news_brief_html=news_brief_html,
         tools_html=tools_html,
         show_more_html=show_more_html,
+        monash_logo=monash_logo,
         build_time=datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC'),
     )
     
