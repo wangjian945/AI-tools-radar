@@ -35,8 +35,9 @@
       "featured": true,
       "logo": "https://www.google.com/s2/favicons?domain=elicit.com&sz=256",
       "logos": [
-        "https://elicit.com/favicon.ico",
-        "https://logo.clearbit.com/elicit.com"
+        "https://www.google.com/s2/favicons?domain=elicit.com&sz=256",
+        "https://elicit.com/apple-touch-icon.png",
+        "https://elicit.com/favicon.ico"
       ]
     },
     {
@@ -68,8 +69,9 @@
       "featured": true,
       "logo": "https://www.google.com/s2/favicons?domain=consensus.app&sz=256",
       "logos": [
-        "https://consensus.app/favicon.ico",
-        "https://logo.clearbit.com/consensus.app"
+        "https://www.google.com/s2/favicons?domain=consensus.app&sz=256",
+        "https://consensus.app/apple-touch-icon.png",
+        "https://consensus.app/favicon.ico"
       ]
     },
     {

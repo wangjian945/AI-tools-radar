@@ -684,7 +684,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
         </div>
         <div class="header-monash">
-            <img src="https://upload.wikimedia.org/wikipedia/en/2/27/Monash_University_logo.svg" alt="Monash University" onerror="this.style.display='none'">
+            <img src="https://www.monash.edu/__data/assets/git_bridge/0007/2889379/monash-logo-primary-reversed.svg" alt="Monash University" onerror="this.style.display='none'">
             <span>Monash University Malaysia</span>
         </div>
     </div>
