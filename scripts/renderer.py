@@ -284,9 +284,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             opacity: 0.9;
         }}
         .header-monash img {{
-            height: 40px;
+            height: 45px;
             width: auto;
-            filter: brightness(0) invert(1); /* Make white */
+            filter: brightness(0) invert(1); /* Make white for blue header */
         }}
         .header-monash span {{
             font-size: 0.85rem;
@@ -684,7 +684,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
         </div>
         <div class="header-monash">
-            <img src="https://www.monash.edu/__data/assets/git_bridge/0007/2889379/monash-logo-primary-reversed.svg" alt="Monash University" onerror="this.style.display='none'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Monash_University_logo.svg/320px-Monash_University_logo.svg.png" alt="Monash University" onerror="this.style.display='none'">
             <span>Monash University Malaysia</span>
         </div>
     </div>
