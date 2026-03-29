@@ -283,7 +283,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             gap: 12px;
             opacity: 0.9;
         }}
-        .header-monash img {{
+        .monash-shield {{
             height: 45px;
             width: auto;
             filter: brightness(0) invert(1); /* Make white for blue header */
@@ -684,7 +684,16 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             📅 {date} · 📊 {total_tools} Tools in Database · 📁 {total_dates} Days Tracked
         </div>
         <div class="header-monash">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Monash_University_logo.svg/320px-Monash_University_logo.svg.png" alt="Monash University" onerror="this.style.display='none'">
+            <svg class="monash-shield" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="monashGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M50 5 L90 25 L90 70 L50 110 L10 70 L10 25 Z" fill="url(#monashGold)" stroke="#FFF" stroke-width="3"/>
+                <text x="50" y="75" font-size="50" font-weight="bold" text-anchor="middle" fill="#006DAE">M</text>
+            </svg>
             <span>Monash University Malaysia</span>
         </div>
     </div>
