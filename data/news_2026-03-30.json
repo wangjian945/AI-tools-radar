@@ -1,0 +1,50 @@
+{
+  "date": "2026-03-30",
+  "news": [
+    {
+      "title": "Agent Orchestrator, a local-first Harness Engineering control plane",
+      "summary": "Shared on Hacker News Show HN. I have spent a long time working in an XP&#x2F;TDD style, so when AI coding tools became useful enough for real work, I adopted them quickly. The first bottleneck I hit was not cod",
+      "url": "https://news.ycombinator.com/item?id=47562440",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 5
+    },
+    {
+      "title": "We built a multi-agent research hub. The waitlist is a reverse-CAPTCHA",
+      "summary": "Shared on Hacker News Show HN. Hey HN,Automated research is the next big step in AI, with companies like OpenAI aiming to debut a fully automated researcher by 2028 (https:&#x2F;&#x2F;www.technologyreview.com&#x",
+      "url": "https://enlidea.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-28",
+      "score": 5
+    },
+    {
+      "title": "/slot-machine development (CC vs. Codex; CE vs. superpowers)",
+      "summary": "Shared on Hacker News Show HN. I built an opensource skill that runs N implementations in parallel, has each one reviewed blind by a separate agent, then a judge picks the winner or synthesizes the best parts of",
+      "url": "https://github.com/pejmanjohn/slot-machine",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 4
+    },
+    {
+      "title": "I made a free list of 100 places to promote your SaaS",
+      "summary": "Shared on Hacker News Show HN. It’s a curated list of directories and launch platforms where you can submit your product and actually get traffic, backlinks, and early usersI included useful data for each one so",
+      "url": "https://launchdirectories.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 3
+    },
+    {
+      "title": "Optio – Orchestrate AI coding agents in K8s to go from ticket to PR",
+      "summary": "Shared on Hacker News Show HN. I think like many of you, I&#x27;ve been jumping between many claude code&#x2F;codex sessions at a time, managing multiple lines of work and worktrees in multiple repos. I wanted a",
+      "url": "https://github.com/jonwiggins/optio",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-25",
+      "score": 3
+    }
+  ]
+}
