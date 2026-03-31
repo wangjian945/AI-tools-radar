@@ -1,0 +1,50 @@
+{
+  "date": "2026-03-31",
+  "news": [
+    {
+      "title": "AI Spotlight for Your Computer (natural language search for files)",
+      "summary": "Shared on Hacker News Show HN. Hi HN,I built SEARCH WIZARD — a tool that lets you search your computer using natural language.Traditional file search only works if you remember the filename.But most of the time",
+      "url": "https://news.ycombinator.com/item?id=47575353",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 7
+    },
+    {
+      "title": "Memv – Memory for AI Agents",
+      "summary": "Shared on Hacker News Show HN. memv is an open-source Python library that gives AI agents persistent memory. Feed it conversations; it extracts knowledge.The extraction mechanism is predict-calibrate (Nemori pap",
+      "url": "https://github.com/vstorm-co/memv",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 6
+    },
+    {
+      "title": "Paseo, an open source environment for coding agents",
+      "summary": "Shared on Hacker News Show HN. Hey HN, I&#x27;m Mo. I&#x27;ve been building Paseo, an open source environment for running Claude Code, Codex, and OpenCode across desktop, mobile, web, and CLI.It started last Sep",
+      "url": "https://github.com/getpaseo/paseo",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 5
+    },
+    {
+      "title": "Agent Orchestrator, a local-first Harness Engineering control plane",
+      "summary": "Shared on Hacker News Show HN. I have spent a long time working in an XP&#x2F;TDD style, so when AI coding tools became useful enough for real work, I adopted them quickly. The first bottleneck I hit was not cod",
+      "url": "https://news.ycombinator.com/item?id=47562440",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 5
+    },
+    {
+      "title": "I made a free list of 100 places to promote your SaaS",
+      "summary": "Shared on Hacker News Show HN. It’s a curated list of directories and launch platforms where you can submit your product and actually get traffic, backlinks, and early usersI included useful data for each one so",
+      "url": "https://launchdirectories.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 3
+    }
+  ]
+}
