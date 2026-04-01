@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-01",
+  "news": [
+    {
+      "title": "Memv – Memory for AI Agents",
+      "summary": "Shared on Hacker News Show HN. memv is an open-source Python library that gives AI agents persistent memory. Feed it conversations; it extracts knowledge.The extraction mechanism is predict-calibrate (Nemori pap",
+      "url": "https://github.com/vstorm-co/memv",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 6
+    },
+    {
+      "title": "We built a multi-agent research hub. The waitlist is a reverse-CAPTCHA",
+      "summary": "Shared on Hacker News Show HN. Hey HN,Automated research is the next big step in AI, with companies like OpenAI aiming to debut a fully automated researcher by 2028 (https:&#x2F;&#x2F;www.technologyreview.com&#x",
+      "url": "https://enlidea.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-28",
+      "score": 5
+    },
+    {
+      "title": "Agent Orchestrator, a local-first Harness Engineering control plane",
+      "summary": "Shared on Hacker News Show HN. I have spent a long time working in an XP&#x2F;TDD style, so when AI coding tools became useful enough for real work, I adopted them quickly. The first bottleneck I hit was not cod",
+      "url": "https://news.ycombinator.com/item?id=47562440",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 5
+    },
+    {
+      "title": "Paseo, an open source environment for coding agents",
+      "summary": "Shared on Hacker News Show HN. Hey HN, I&#x27;m Mo. I&#x27;ve been building Paseo, an open source environment for running Claude Code, Codex, and OpenCode across desktop, mobile, web, and CLI.It started last Sep",
+      "url": "https://github.com/getpaseo/paseo",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 5
+    },
+    {
+      "title": "I made a free list of 100 places to promote your SaaS",
+      "summary": "Shared on Hacker News Show HN. It’s a curated list of directories and launch platforms where you can submit your product and actually get traffic, backlinks, and early usersI included useful data for each one so",
+      "url": "https://launchdirectories.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-29",
+      "score": 3
+    }
+  ]
+}
