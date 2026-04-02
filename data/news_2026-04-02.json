@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-02",
+  "news": [
+    {
+      "title": "Mkdnsite – Markdown-native web server for humans (HTML) and agents (md)",
+      "summary": "Shared on Hacker News Show HN. # What?Introducing mkdnsite (&quot;markdown site&quot;) - an open source Markdown-native web server that serves HTML to humans and raw Markdown to agents. No build step required. R",
+      "url": "https://github.com/mkdnsite/mkdnsite",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-01",
+      "score": 6
+    },
+    {
+      "title": "Semantic atlas of 188 constitutions in 3D (30k articles, embeddings)",
+      "summary": "Shared on Hacker News Show HN. I built this after noticing that existing tools for comparing constitutional law either have steep learning curves or only support keyword search. By combining Gemini embeddings wi",
+      "url": "https://constitutionalmap.ai/en",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 4
+    },
+    {
+      "title": "CLI to order groceries via reverse-engineered REWE API (Haskell)",
+      "summary": "Shared on Hacker News Show HN. I just had the best time learning about the REWE (German supermarket chain) API, how they use mTLS and what the workflows are. Also `mitmproxy2swagger`[1] is a great tool to create",
+      "url": "https://github.com/yannick-cw/korb",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 4
+    },
+    {
+      "title": "Modern AI assisted goals and performance management",
+      "summary": "Shared on Hacker News Show HN. Hey heyI&#x27;m launching this on product hunt and I did a show many months back but prfrm is way better nowprfrm - by ArchitectFWD, is a performance management platform. It is a p",
+      "url": "https://prfrm.architectfwd.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-01",
+      "score": 4
+    },
+    {
+      "title": "We open-sourced our content writing workflow as a Claude Code skill",
+      "summary": "Shared on Hacker News Show HN. ",
+      "url": "https://www.npmjs.com/package/claude-content-writer",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 2
+    }
+  ]
+}
