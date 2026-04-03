@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-03",
+  "news": [
+    {
+      "title": "CLI to order groceries via reverse-engineered REWE API (Haskell)",
+      "summary": "Shared on Hacker News Show HN. I just had the best time learning about the REWE (German supermarket chain) API, how they use mTLS and what the workflows are. Also `mitmproxy2swagger`[1] is a great tool to create",
+      "url": "https://github.com/yannick-cw/korb",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-03-30",
+      "score": 4
+    },
+    {
+      "title": "Semantic atlas of 188 constitutions in 3D (30k articles, embeddings)",
+      "summary": "Shared on Hacker News Show HN. I built this after noticing that existing tools for comparing constitutional law either have steep learning curves or only support keyword search. By combining Gemini embeddings wi",
+      "url": "https://constitutionalmap.ai/en",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 4
+    },
+    {
+      "title": "Quillium, the non-linear writing app",
+      "summary": "Shared on Hacker News Show HN. Public beta lauunch!I built a SvelteKit + Tauri writing app that treats revision as a first-class concept. You can fork any sentence or passage into branches, switch between versio",
+      "url": "https://quillium.bryanhu.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 4
+    },
+    {
+      "title": "A P2P messenger with dual network modes (Fast and Tor)",
+      "summary": "Shared on Hacker News Show HN. Hello HN,I have been working on a desktop P2P messenger called Kiyeovo for the last ~8 months, and I just published its beta version.Quick backstory: It started out as a CLI applic",
+      "url": "https://github.com/Realman78/Kiyeovo/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 3
+    },
+    {
+      "title": "We open-sourced our content writing workflow as a Claude Code skill",
+      "summary": "Shared on Hacker News Show HN. ",
+      "url": "https://www.npmjs.com/package/claude-content-writer",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 2
+    }
+  ]
+}
