@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-04",
+  "news": [
+    {
+      "title": "Matrix OS, like Lovable, but for personal apps",
+      "summary": "Shared on Hacker News Show HN. hey hn, i built matrix os, a personal ai operating system that generates custom software from natural language.you get your own cloud instance at matrix-os.com. you describe what y",
+      "url": "https://matrix-os.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-03",
+      "score": 5
+    },
+    {
+      "title": "Travel Hacking Toolkit – Points search and trip planning with AI",
+      "summary": "Shared on Hacker News Show HN. I use points and miles for most of my travel. Every booking comes down to the same decision: use points or pay cash? To answer that, you need award availability across multiple pro",
+      "url": "https://github.com/borski/travel-hacking-toolkit",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-04",
+      "score": 4
+    },
+    {
+      "title": "A P2P messenger with dual network modes (Fast and Tor)",
+      "summary": "Shared on Hacker News Show HN. Hello HN,I have been working on a desktop P2P messenger called Kiyeovo for the last ~8 months, and I just published its beta version.Quick backstory: It started out as a CLI applic",
+      "url": "https://github.com/Realman78/Kiyeovo/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-02",
+      "score": 3
+    },
+    {
+      "title": "I built a frontpage for personal blogs",
+      "summary": "Shared on Hacker News Show HN. With social media and now AI, its important to keep the indie web alive. There are many people who write frequently. Blogosphere tries to highlight them by fetching the recent post",
+      "url": "https://text.blogosphere.app/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-03",
+      "score": 2
+    },
+    {
+      "title": "Mtproto.zig – High-performance Telegram proxy with DPI evasion",
+      "summary": "Shared on Hacker News Show HN. Hey everyone. I built an MTProto proxy for Telegram aimed at bypassing active DPI censorship like the Russian TSPU. I chose Zig because it&#x27;s perfect for writing fast network d",
+      "url": "https://github.com/sleep3r/mtproto.zig",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-03",
+      "score": 2
+    }
+  ]
+}
