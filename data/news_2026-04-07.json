@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-07",
+  "news": [
+    {
+      "title": "Splice CAD – Wiring and cable assembly CAD with an agentic assist",
+      "summary": "Shared on Hacker News Show HN. Still working on Splice CAD.  The two most significant updates focus on handling design complexity and automating using agentic workflows. Previous Show HN here:https:&#x2F;&#x2F;n",
+      "url": "https://splice-cad.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-06",
+      "score": 7
+    },
+    {
+      "title": "CacheZero – Karpathy's LLM wiki idea as one NPM install",
+      "summary": "Shared on Hacker News Show HN. Karpathy&#x27;s recent tweet about LLM knowledge bases went viral (17M views). He described a system where you dump raw content into a folder, an LLM compiles it into an interconne",
+      "url": "https://news.ycombinator.com/item?id=47667723",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-06",
+      "score": 5
+    },
+    {
+      "title": "Yapit – PDF and webpage reader with TTS that doesn't suck",
+      "summary": "Shared on Hacker News Show HN. Yapit converts PDFs and web pages to audio, with a vision-LLM pipeline that handles math and complex layout instead of garbling them. I built it because I read a lot of papers and",
+      "url": "https://github.com/yapit-tts/yapit",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-06",
+      "score": 5
+    },
+    {
+      "title": "I built a frontpage for personal blogs",
+      "summary": "Shared on Hacker News Show HN. With social media and now AI, its important to keep the indie web alive. There are many people who write frequently. Blogosphere tries to highlight them by fetching the recent post",
+      "url": "https://text.blogosphere.app/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-03",
+      "score": 2
+    },
+    {
+      "title": "I made open source, zero power PCB hackathon badges",
+      "summary": "Shared on Hacker News Show HN. I love getting cool swag from hackathons and I also love designing PCB&#x27;s, so when my friend asked me if I would design hackathon badges for a large game jam in singapore, I wa",
+      "url": "https://github.com/KaiPereira/Overglade-Badges",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-04",
+      "score": 2
+    }
+  ]
+}
