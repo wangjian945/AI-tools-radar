@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-10",
+  "news": [
+    {
+      "title": "I built a Cargo-like build tool for C/C++",
+      "summary": "Shared on Hacker News Show HN. I love C and C++, but setting up projects can sometimes be a pain.Every time I wanted to start something new I&#x27;d spend the first hour writing CMakeLists.txt, figuring out find",
+      "url": "https://github.com/randerson112/craft",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-09",
+      "score": 6
+    },
+    {
+      "title": "I made an app to live longer (free, open source, no tracking)",
+      "summary": "Shared on Hacker News Show HN. I made it for me, nothing fancy, but feel free to use it as well.It&#x27;s free, no account needed (no server, all data stays on your phone), no tracking, open sourced (https:&#x2F",
+      "url": "https://apps.apple.com/us/app/illll-live-longer/id6760903742",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-09",
+      "score": 5
+    },
+    {
+      "title": "Control your X/Twitter feed using a small on-device LLM",
+      "summary": "Shared on Hacker News Show HN. We built a Chrome extension and iOS app that filters Twitter&#x27;s feed using Qwen3.5-4B for contextual matching. You describe what you don&#x27;t want in plain language—it remove",
+      "url": "https://imbue.com/product/bouncer/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-09",
+      "score": 5
+    },
+    {
+      "title": "Instant Thumbnail for File Url",
+      "summary": "Shared on Hacker News Show HN. Generating thumbnails from PDFs, DOCs, and other files is surprisingly painful — slow, clunky, or requires APIs.We built a simple solution internally for The Drive AI: just prepend",
+      "url": "https://preview.thedrive.ai",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-09",
+      "score": 3
+    },
+    {
+      "title": "Rubber Duck",
+      "summary": "Cross-model reviews in GitHub Copilot CLI\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/github-copilot",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-08",
+      "score": 2
+    }
+  ]
+}
