@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-11",
+  "news": [
+    {
+      "title": "A WYSIWYG word processor in Python",
+      "summary": "Shared on Hacker News Show HN. Hi all,Finding a good data structure for a word processor is a difficult problem. My notebook diaries on the problem go back 25 years when I was frustrated with using Word for my d",
+      "url": "https://codeberg.org/chrisecker/miniword",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-10",
+      "score": 8
+    },
+    {
+      "title": "HyperFlow – A self-improving agent framework built on LangGraph",
+      "summary": "Shared on Hacker News Show HN. Hi HN, I am Umer. I recently built an experimental framework called HyperFlow to explore the idea of self-improving AI agents.Usually, when an agent fails a task, we developers ste",
+      "url": "https://news.ycombinator.com/item?id=47727255",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-11",
+      "score": 7
+    },
+    {
+      "title": "Eve – Managed OpenClaw for work",
+      "summary": "Shared on Hacker News Show HN. Eve is an AI agent harness that runs in an isolated Linux sandbox (2 vCPUs, 4GB RAM, 10GB disk) with a real filesystem, headless Chromium, code execution, and connectors to 1000+ s",
+      "url": "https://eve.new/login",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-10",
+      "score": 6
+    },
+    {
+      "title": "I built a Cargo-like build tool for C/C++",
+      "summary": "Shared on Hacker News Show HN. I love C and C++, but setting up projects can sometimes be a pain.Every time I wanted to start something new I&#x27;d spend the first hour writing CMakeLists.txt, figuring out find",
+      "url": "https://github.com/randerson112/craft",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-09",
+      "score": 6
+    },
+    {
+      "title": "Perplexity Finance",
+      "summary": "See your full financial life, bank to brokerage in one place\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/perplexity-ai",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-09",
+      "score": 5
+    }
+  ]
+}
