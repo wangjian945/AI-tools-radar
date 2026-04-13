@@ -332,7 +332,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             opacity: 0.9;
         }}
         .monash-logo-img {{
-            height: 60px;
+            height: 120px;
             width: auto;
         }}
         .header-monash {{
@@ -912,7 +912,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 justify-content: flex-end;
             }}
             .monash-logo-img {{
-                height: 50px;
+                height: 100px;
             }}
         }}
     </style>
