@@ -402,6 +402,82 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             flex-shrink: 0;
         }}
 
+        /* Sidebar Notice (University Impact) */
+        .sidebar-notice {{
+            background: linear-gradient(135deg, #004B87, #006DAE);
+            color: white;
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255,255,255,0.2);
+        }}
+        .notice-header {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }}
+        .notice-icon {{
+            font-size: 1.2rem;
+        }}
+        .notice-title {{
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+        .notice-content {{
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 12px;
+        }}
+        .notice-stat {{
+            text-align: center;
+        }}
+        .stat-value {{
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }}
+        .stat-label {{
+            display: block;
+            font-size: 0.65rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }}
+        .notice-message {{
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 12px;
+        }}
+        .notice-message p {{
+            font-size: 0.75rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }}
+        .notice-footer {{
+            text-align: center;
+        }}
+        .notice-link {{
+            display: inline-block;
+            font-size: 0.75rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }}
+        .notice-link:hover {{
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.5);
+        }}
+
         /* Content */
         .content {{ min-width: 0; }}
         
@@ -859,6 +935,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <div class="page-layout">
     <aside class="sidebar">
         <div class="sidebar-title">Categories</div>
+        {sidebar_notice_html}
         <button class="cat-link active" onclick="filterCat('all', this)">
             📋 All Tools <span class="cat-count">{total_tools}</span>
         </button>
@@ -867,8 +944,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <main class="content">
         {news_brief_html}
-
-        {impact_html}
 
         <div class="content-header">
             <h2>⭐ Featured Tools</h2>
@@ -962,73 +1037,33 @@ def render_news_brief(news_items, today):
         </div>"""
 
 
-def render_impact_section():
-    """Render University Impact & Value Proposition section for stakeholders"""
+def render_sidebar_notice():
+    """Render University Impact notice for left sidebar (compact notification style)"""
     return """
-        <div class="impact-section">
-            <div class="impact-header">
-                <h2>🎯 University Research Excellence Initiative</h2>
-                <p class="impact-subtitle">Accelerating Discovery Through AI-Powered Research Tools</p>
+        <div class="sidebar-notice">
+            <div class="notice-header">
+                <div class="notice-icon">🎯</div>
+                <div class="notice-title">University Impact</div>
             </div>
-            
-            <div class="impact-metrics">
-                <div class="metric-card">
-                    <div class="metric-value">28+</div>
-                    <div class="metric-label">Curated AI Research Tools</div>
-                    <div class="metric-detail">Vetted for academic rigor</div>
+            <div class="notice-content">
+                <div class="notice-stat">
+                    <span class="stat-value">28+</span>
+                    <span class="stat-label">AI Tools</span>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">40%</div>
-                    <div class="metric-label">Time Savings</div>
-                    <div class="metric-detail">In literature review & synthesis</div>
+                <div class="notice-stat">
+                    <span class="stat-value">40%</span>
+                    <span class="stat-label">Time Saved</span>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">100%</div>
-                    <div class="metric-label">Equitable Access</div>
-                    <div class="metric-detail">All researchers, equal opportunity</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">5+</div>
-                    <div class="metric-label">Research Categories</div>
-                    <div class="metric-detail">Comprehensive coverage</div>
+                <div class="notice-stat">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">Free Access</span>
                 </div>
             </div>
-            
-            <div class="impact-benefits">
-                <div class="benefit-column">
-                    <h3>📈 Research Quality</h3>
-                    <ul>
-                        <li>Systematic literature reviews with AI assistance</li>
-                        <li>Evidence-based citation analysis (Scite.ai integration)</li>
-                        <li>Reduced publication bias through comprehensive search</li>
-                        <li>Enhanced reproducibility with documented tool workflows</li>
-                    </ul>
-                </div>
-                <div class="benefit-column">
-                    <h3>⚡ Efficiency Gains</h3>
-                    <ul>
-                        <li>Automated data extraction from papers</li>
-                        <li>AI-powered paper summarization & synthesis</li>
-                        <li>Smart citation mapping & discovery</li>
-                        <li>Writing assistance trained on STM literature</li>
-                    </ul>
-                </div>
-                <div class="benefit-column">
-                    <h3>🌍 Strategic Alignment</h3>
-                    <ul>
-                        <li>Supports University Research Intensification</li>
-                        <li>Enables cross-disciplinary collaboration</li>
-                        <li>Reduces tool discovery friction for early-career researchers</li>
-                        <li>Scalable infrastructure for future expansion</li>
-                    </ul>
-                </div>
+            <div class="notice-message">
+                <p>Research excellence infrastructure · Zero budget · Ready for faculty-wide deployment</p>
             </div>
-            
-            <div class="impact-cta">
-                <div class="cta-box">
-                    <h4>💡 For University Leadership</h4>
-                    <p>This platform demonstrates commitment to research excellence through practical infrastructure investment. No additional budget required — leveraging existing AI tools with curated guidance. Ready for faculty-wide deployment.</p>
-                </div>
+            <div class="notice-footer">
+                <a href="impact.html" target="_blank" class="notice-link">View Full Impact Report →</a>
             </div>
         </div>
     """
@@ -1044,8 +1079,8 @@ def render_page(data_dir="data", output_dir="site"):
     # 新闻简报
     news_brief_html = render_news_brief(news_items, today)
     
-    # Impact section for stakeholders
-    impact_html = render_impact_section()
+    # Sidebar notice for stakeholders
+    sidebar_notice_html = render_sidebar_notice()
     
     # 分类统计
     categories = {}
@@ -1079,7 +1114,7 @@ def render_page(data_dir="data", output_dir="site"):
         total_dates=len(all_dates) if all_dates else 1,
         category_nav=cat_nav,
         news_brief_html=news_brief_html,
-        impact_html=impact_html,
+        sidebar_notice_html=sidebar_notice_html,
         tools_html=tools_html,
         show_more_html=show_more_html,
         monash_logo=monash_logo,
