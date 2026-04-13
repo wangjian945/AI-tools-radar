@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2932 1396">
+  <!-- Transparent background -->
+  <rect width="2932" height="1396" fill="none"/>
+  
+  <!-- Shield/Crest (simplified version in lighter blue) -->
+  <g transform="translate(100, 100) scale(0.4)">
+    <path d="M0,0 L600,0 L600,400 C600,800 300,1000 300,1000 C300,1000 0,800 0,400 Z" 
+          fill="#4A90D9" stroke="white" stroke-width="15"/>
+    
+    <!-- Open book (white) -->
+    <path d="M100,150 L250,150 L250,200 L100,200 Z" fill="white"/>
+    <path d="M100,150 L100,200 M175,150 L175,200 M250,150 L250,200" 
+          stroke="#4A90D9" stroke-width="3"/>
+    
+    <!-- Sword and laurel (white) -->
+    <path d="M450,175 L450,250" stroke="white" stroke-width="15"/>
+    <path d="M420,200 Q450,180 480,200" stroke="white" stroke-width="8" fill="none"/>
+    <path d="M420,230 Q450,250 480,230" stroke="white" stroke-width="8" fill="none"/>
+    
+    <!-- Chevron (white) -->
+    <path d="M150,500 L450,500 L300,650 Z" fill="white"/>
+    
+    <!-- Stars (white) -->
+    <circle cx="250" cy="750" r="25" fill="white"/>
+    <circle cx="350" cy="750" r="25" fill="white"/>
+    <circle cx="300" cy="800" r="25" fill="white"/>
+    <circle cx="250" cy="850" r="25" fill="white"/>
+    <circle cx="350" cy="850" r="25" fill="white"/>
+    <circle cx="300" cy="900" r="25" fill="white"/>
+    
+    <!-- Banner with motto (white outline) -->
+    <path d="M50,950 L550,950 L550,1050 L50,1050 Z" fill="none" stroke="white" stroke-width="10"/>
+    <text x="300" y="1015" font-family="serif" font-size="60" fill="white" text-anchor="middle">ANCORA IMPARO</text>
+  </g>
+  
+  <!-- "MONASH" text in white -->
+  <text x="750" y="500" font-family="serif" font-size="400" fill="white" font-weight="bold">MONASH</text>
+  
+  <!-- "University" text in white -->
+  <text x="750" y="900" font-family="serif" font-size="300" fill="white" font-weight="300">University</text>
+</svg>

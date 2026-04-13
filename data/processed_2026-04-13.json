@@ -1,0 +1,920 @@
+{
+  "date": "2026-04-13",
+  "processed_at": "2026-04-13T10:54:11.964104",
+  "total_collected": 29,
+  "total_processed": 29,
+  "total_qualified": 29,
+  "tools": [
+    {
+      "name": "Elicit",
+      "category": "Literature Search & Review",
+      "one_liner": "AI research assistant that automates paper discovery, data extraction, and literature synthesis across 138M+ papers and 545K clinical trials.",
+      "key_features": [
+        "Search 138M+ papers with natural language queries",
+        "Auto-extract structured data into comparison tables",
+        "Generate research reports with sentence-level citations",
+        "Systematic review: screen up to 5,000 papers automatically",
+        "Real-time research alerts for new publications",
+        "Chat with full-text papers via AI"
+      ],
+      "use_case": "Systematic reviews, evidence matrices, synthesizing findings across dozens of papers. Weeks of work reduced to hours.",
+      "how_to_use": "1. Enter a research question. 2. Review AI-ranked results. 3. Extract structured data into columns. 4. Generate a research report. 5. Export to RIS/CSV/BIB/PDF.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Basic (Free)": "2 reports/month, unlimited search & summaries",
+        "Plus ($7/month)": "4 reports/month, export to RIS/CSV/BIB/PDF/DOCX",
+        "Pro ($29/month)": "Systematic review workflow, 12 reports/month, API access",
+        "Scale ($49/month)": "Team collaboration, figure extraction, 20 reports/month"
+      },
+      "quality_score": 10,
+      "is_research_relevant": true,
+      "url": "https://elicit.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-25",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=elicit.com&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=elicit.com&sz=256",
+        "https://elicit.com/apple-touch-icon.png",
+        "https://elicit.com/favicon.ico"
+      ]
+    },
+    {
+      "name": "Consensus",
+      "category": "Literature Search & Review",
+      "one_liner": "AI-powered search engine for scientific papers with evidence-based consensus scores and inline citations.",
+      "key_features": [
+        "Search 200M+ scientific papers with natural language",
+        "Consensus Meter shows agreement/disagreement across studies",
+        "AI-generated summaries with inline citations",
+        "Filter by study type (RCT, meta-analysis, etc.)",
+        "Extract key findings, methods, and outcomes",
+        "Save and organize papers in personal library"
+      ],
+      "use_case": "Quick evidence-based answers to yes/no questions (e.g., 'Does X cause Y?') and understanding scientific consensus on a topic.",
+      "how_to_use": "1. Ask a comparative or yes/no question. 2. View Consensus Meter. 3. Read AI summary with citations. 4. Explore individual papers. 5. Save to library.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Basic (Free)": "Unlimited search, 5 Consensus answers/month",
+        "Pro ($15/month)": "Unlimited answers, advanced filters, citations export",
+        "Team (Custom)": "Collaborative workspace, API access"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://consensus.app",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-25",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=consensus.app&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=consensus.app&sz=256",
+        "https://consensus.app/apple-touch-icon.png",
+        "https://consensus.app/favicon.ico"
+      ]
+    },
+    {
+      "name": "Connected Papers",
+      "category": "Literature Search & Review",
+      "one_liner": "Visual tool to explore and discover academic papers through an interactive graph of related works.",
+      "key_features": [
+        "Visual graph showing relationships between papers",
+        "Discover prior and derivative works from a seed paper",
+        "See citation connections at a glance",
+        "Build a literature map for any research topic",
+        "Integration with Semantic Scholar database"
+      ],
+      "use_case": "Discovering related papers you didn't know to search for; building a complete picture of a research field from one key paper.",
+      "how_to_use": "1. Enter a key paper title or DOI. 2. Explore the visual graph. 3. Click nodes to read abstracts. 4. Build your reading list. 5. Export references.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "5 graphs/month",
+        "Pro ($3/month)": "Unlimited graphs, priority processing"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.connectedpapers.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.connectedpapers.com&sz=256",
+      "logos": [
+        "https://www.connectedpapers.com/favicon.ico",
+        "https://logo.clearbit.com/connectedpapers.com"
+      ]
+    },
+    {
+      "name": "ResearchRabbit",
+      "category": "Literature Search & Review",
+      "one_liner": "Free AI-powered tool to discover, organize, and visualize academic literature with personalized recommendations.",
+      "key_features": [
+        "AI-powered paper recommendations based on your library",
+        "Interactive citation network visualization",
+        "Personalized email digests of new papers",
+        "Zotero integration for seamless reference management",
+        "Collaborative collections with teammates",
+        "100% free for researchers"
+      ],
+      "use_case": "Building a comprehensive literature collection; staying updated on new publications in your field; collaborative literature reviews.",
+      "how_to_use": "1. Sign up for free. 2. Add seed papers to a collection. 3. Explore AI recommendations. 4. Visualize the citation network. 5. Sync with Zotero.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free (Always)": "Unlimited collections, recommendations, Zotero sync"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.researchrabbit.ai",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=256",
+      "logos": [
+        "https://www.researchrabbit.ai/favicon.ico",
+        "https://logo.clearbit.com/researchrabbit.ai"
+      ]
+    },
+    {
+      "name": "Semantic Scholar",
+      "category": "Literature Search & Review",
+      "one_liner": "Free AI-powered research tool from Allen Institute for AI — searches 214M papers with semantic understanding.",
+      "key_features": [
+        "214M+ academic papers across all fields",
+        "AI-generated TLDRs (Too Long Didn't Read) for papers",
+        "Semantic search beyond keyword matching",
+        "Citation graphs and influential citations",
+        "Research feeds and personalized alerts",
+        "Open API for developers"
+      ],
+      "use_case": "Deep literature discovery; finding influential papers; getting quick TLDRs of papers before reading in full.",
+      "how_to_use": "1. Search by topic, title, or author. 2. Read AI-generated TLDR. 3. Explore citation context. 4. Set up research alerts. 5. Use API for advanced workflows.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free (Always)": "Full access to all features and API"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.semanticscholar.org",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.semanticscholar.org&sz=256",
+      "logos": [
+        "https://www.semanticscholar.org/favicon.ico",
+        "https://logo.clearbit.com/semanticscholar.org"
+      ]
+    },
+    {
+      "name": "Scite",
+      "category": "Literature Search & Review",
+      "one_liner": "Smart citation assistant that shows how papers have been cited — supporting, contrasting, or mentioning.",
+      "key_features": [
+        "Smart citations: see if a paper is supported or contradicted",
+        "Citation context extraction from full text",
+        "Search within citation contexts",
+        "Visualize citation relationships",
+        "Reference checker for manuscripts",
+        "Browser extension for instant citation info"
+      ],
+      "use_case": "Verifying the reliability of a paper before citing it; checking if key claims have been supported or challenged by subsequent research.",
+      "how_to_use": "1. Search for a paper or claim. 2. See supporting vs contrasting citations. 3. Read citation context. 4. Use browser extension on any publisher site. 5. Export to reference manager.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "Limited searches/month",
+        "Premium ($20/month)": "Unlimited searches, reference checker, API"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://scite.ai",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=scite.ai&sz=256",
+      "logos": [
+        "https://scite.ai/favicon.ico",
+        "https://logo.clearbit.com/scite.ai"
+      ]
+    },
+    {
+      "name": "NotebookLM",
+      "category": "Reading & Note-Taking",
+      "one_liner": "Google's AI notebook that lets you upload research documents and chat with them to extract insights.",
+      "key_features": [
+        "Upload PDFs, docs, and web pages as sources",
+        "AI answers grounded strictly in your uploaded sources",
+        "Generate summaries, study guides, and briefing docs",
+        "Audio Overview: converts notes to podcast-style discussion",
+        "Inline citations linking answers to source passages",
+        "Collaborative notebooks"
+      ],
+      "use_case": "Deep reading of multiple papers simultaneously; preparing for presentations; generating study materials from a pile of documents.",
+      "how_to_use": "1. Create a notebook. 2. Upload PDFs or paste URLs. 3. Ask questions about the sources. 4. Generate structured notes. 5. Share notebook with collaborators.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free": "Full access, up to 50 sources per notebook",
+        "NotebookLM Plus (via Google One)": "5x usage limits, customization"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://notebooklm.google.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=256",
+      "logos": [
+        "https://notebooklm.google.com/favicon.ico",
+        "https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=256"
+      ]
+    },
+    {
+      "name": "ChatPDF",
+      "category": "Reading & Note-Taking",
+      "one_liner": "Chat with any PDF instantly — ask questions, get summaries, and extract key information from research papers.",
+      "key_features": [
+        "Instant Q&A with any PDF document",
+        "Automatic paper summary on upload",
+        "Multi-PDF chat (compare multiple papers)",
+        "Highlights and annotations",
+        "Export chat history",
+        "No account required for basic use"
+      ],
+      "use_case": "Quickly extracting key points from long papers; comparing methodologies across multiple PDFs; preparing for paper reviews.",
+      "how_to_use": "1. Upload a PDF or paste a URL. 2. Read the auto-generated summary. 3. Ask specific questions. 4. Download chat transcript. 5. No sign-up needed.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "3 PDFs/day, 50 questions/day",
+        "Plus ($5/month)": "Unlimited PDFs, 1000 questions/day, larger files"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://www.chatpdf.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.chatpdf.com&sz=256",
+      "logos": [
+        "https://www.chatpdf.com/favicon.ico",
+        "https://logo.clearbit.com/chatpdf.com"
+      ]
+    },
+    {
+      "name": "SciSpace (formerly Typeset)",
+      "category": "Reading & Note-Taking",
+      "one_liner": "AI copilot for reading research papers — explains complex concepts, math, and tables in plain language.",
+      "key_features": [
+        "AI explanations of complex text, equations, and tables",
+        "Highlight any text to get instant AI explanation",
+        "Search 270M+ papers with semantic understanding",
+        "Generate literature review summaries",
+        "Chrome extension works on any research website",
+        "Multi-paper chat and comparison"
+      ],
+      "use_case": "Understanding difficult papers outside your expertise; quickly extracting methods and results; building lit reviews with minimal manual effort.",
+      "how_to_use": "1. Open a paper on SciSpace or use the Chrome extension. 2. Highlight any confusing text. 3. Get instant AI explanation. 4. Ask follow-up questions. 5. Export notes.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "20 AI questions/month",
+        "Premium ($12/month)": "Unlimited questions, literature review generation"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://typeset.io",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=typeset.io&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=typeset.io&sz=256"
+      ]
+    },
+    {
+      "name": "Zotero",
+      "category": "Reference Management",
+      "one_liner": "Free, open-source reference manager with powerful AI plugins for summarization and smart organization.",
+      "key_features": [
+        "One-click save from any browser (journals, Google Scholar, etc.)",
+        "AI-powered PDF summarization via ZoteroGPT plugin",
+        "Smart full-text search across your library",
+        "Automatic citation style formatting (9,000+ styles)",
+        "Group libraries for team collaboration",
+        "Free unlimited storage for references"
+      ],
+      "use_case": "The backbone of any research workflow — collecting, organizing, and citing papers. AI plugins add summarization on top of the classic tool.",
+      "how_to_use": "1. Install Zotero + browser extension. 2. Click extension to save papers. 3. Install ZoteroGPT for AI summaries. 4. Generate bibliography in any citation style. 5. Sync across devices.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free": "Unlimited references, 300MB file storage",
+        "Storage plans ($20-120/year)": "6GB to unlimited file storage"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.zotero.org",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.zotero.org&sz=256",
+      "logos": [
+        "https://www.zotero.org/favicon.ico",
+        "https://logo.clearbit.com/zotero.org"
+      ]
+    },
+    {
+      "name": "Mendeley",
+      "category": "Reference Management",
+      "one_liner": "Elsevier's reference manager with AI-assisted paper discovery and academic social network features.",
+      "key_features": [
+        "AI-powered paper recommendations",
+        "Academic social network — follow researchers",
+        "PDF annotation and highlighting",
+        "Automatic metadata extraction from PDFs",
+        "MS Word plugin for in-text citations",
+        "2GB free cloud storage"
+      ],
+      "use_case": "Managing references while also discovering new papers and connecting with researchers in your field.",
+      "how_to_use": "1. Import PDFs or search Mendeley catalog. 2. Organize into folders. 3. Annotate PDFs. 4. Use Word plugin to cite while writing. 5. Discover new papers via AI suggestions.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free": "2GB storage, full reference management",
+        "Institutional": "Often free via university subscriptions"
+      },
+      "quality_score": 7,
+      "is_research_relevant": true,
+      "url": "https://www.mendeley.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.mendeley.com&sz=256",
+      "logos": [
+        "https://www.mendeley.com/favicon.ico",
+        "https://logo.clearbit.com/mendeley.com"
+      ]
+    },
+    {
+      "name": "Perplexity AI",
+      "category": "AI Search & Discovery",
+      "one_liner": "AI-powered answer engine with real-time web search, academic mode, and cited responses.",
+      "key_features": [
+        "Real-time web search with cited sources",
+        "Academic mode focuses on scholarly sources",
+        "Deep Research: 30-min automated deep dives",
+        "Follow-up questions to drill into topics",
+        "File and image upload for analysis",
+        "Spaces for organizing research threads"
+      ],
+      "use_case": "Getting a quick, cited overview of any topic; preliminary research before diving into full papers; fact-checking claims with sources.",
+      "how_to_use": "1. Type your research question. 2. Switch to Academic focus. 3. Read cited answer. 4. Click sources to verify. 5. Use Deep Research for comprehensive reports.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "Unlimited basic searches, 5 Pro searches/day",
+        "Pro ($20/month)": "Unlimited Pro searches, Deep Research, file uploads"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.perplexity.ai",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.perplexity.ai&sz=256",
+      "logos": [
+        "https://www.perplexity.ai/favicon.ico",
+        "https://logo.clearbit.com/perplexity.ai"
+      ]
+    },
+    {
+      "name": "Research Rabbit",
+      "category": "Literature Search & Review",
+      "one_liner": "Spotify for research papers — free AI tool that maps citation networks and delivers personalized paper recommendations.",
+      "key_features": [
+        "AI maps connections between papers visually",
+        "Daily email digest of newly published relevant papers",
+        "Free Zotero two-way sync",
+        "Team collections for shared research projects",
+        "Author network exploration",
+        "100% free — no paywalls"
+      ],
+      "use_case": "Staying up-to-date with new publications; discovering key prior works you might have missed; collaborative literature management with a team.",
+      "how_to_use": "1. Add papers to a collection. 2. Let AI suggest related papers. 3. Explore the network graph. 4. Set up daily email digest. 5. Invite collaborators.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free (Always)": "All features, unlimited use, Zotero sync"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://www.researchrabbit.ai",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=www.researchrabbit.ai&sz=256"
+      ]
+    },
+    {
+      "name": "Jenni AI",
+      "category": "Academic Writing",
+      "one_liner": "AI writing assistant built specifically for academic writing — generates, paraphrases, and cites in real time.",
+      "key_features": [
+        "AI autocomplete trained on academic writing style",
+        "In-text citations from 200M+ papers (APA, MLA, etc.)",
+        "Paraphrase and rewrite selected text",
+        "PDF and document chat for reference",
+        "Plagiarism-conscious writing suggestions",
+        "LaTeX export for journal submission"
+      ],
+      "use_case": "Overcoming writer's block in academic papers; getting AI-generated first drafts with proper citations; paraphrasing without plagiarism concerns.",
+      "how_to_use": "1. Start a document in Jenni. 2. Type your ideas — AI completes sentences. 3. Add citations via search. 4. Paraphrase selected text. 5. Export to Word or LaTeX.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "200 AI words/day",
+        "Unlimited ($30/month)": "Unlimited AI writing, citations, paraphrase"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://jenni.ai",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=jenni.ai&sz=256",
+      "logos": [
+        "https://jenni.ai/favicon.ico",
+        "https://logo.clearbit.com/jenni.ai"
+      ]
+    },
+    {
+      "name": "Grammarly",
+      "category": "Academic Writing",
+      "one_liner": "AI writing assistant for grammar, clarity, tone, and style — now with generative AI for academic rewriting.",
+      "key_features": [
+        "Real-time grammar and spelling correction",
+        "Clarity and conciseness suggestions",
+        "Tone adjustment for academic writing",
+        "Plagiarism detection (Premium)",
+        "AI rewrite and paraphrase suggestions",
+        "Works in browser, Word, and Google Docs"
+      ],
+      "use_case": "Polishing academic manuscripts for clarity and correctness; catching subtle errors before submission; non-native English speakers improving writing quality.",
+      "how_to_use": "1. Install browser extension or desktop app. 2. Write or paste your text. 3. Review suggestions in real-time. 4. Accept or reject changes. 5. Check for plagiarism (Premium).",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "Grammar and spelling checks",
+        "Premium ($30/month)": "Clarity, tone, plagiarism, AI rewrite",
+        "Enterprise": "Team dashboards, style guides"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://www.grammarly.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.grammarly.com&sz=256",
+      "logos": [
+        "https://www.grammarly.com/favicon.ico",
+        "https://logo.clearbit.com/grammarly.com"
+      ]
+    },
+    {
+      "name": "Overleaf",
+      "category": "Academic Writing",
+      "one_liner": "Cloud-based LaTeX editor with real-time collaboration — the standard platform for scientific manuscript writing.",
+      "key_features": [
+        "Real-time collaborative LaTeX editing",
+        "10,000+ academic templates (IEEE, APA, Nature, etc.)",
+        "AI writing assistant (grammar, rewrite)",
+        "Git integration for version control",
+        "Direct journal submission (many publishers)",
+        "Compile and preview PDF instantly"
+      ],
+      "use_case": "Writing conference papers, journal articles, and theses collaboratively; managing complex LaTeX documents for STEM publications.",
+      "how_to_use": "1. Choose a template for your target journal. 2. Write in LaTeX editor. 3. Real-time preview on the right. 4. Invite co-authors. 5. Submit directly to journal.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "Unlimited projects, basic collaboration (1 collaborator)",
+        "Standard ($21/month)": "Unlimited collaborators, Dropbox sync, track changes",
+        "Professional ($42/month)": "Priority compile, advanced reference search"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.overleaf.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.overleaf.com&sz=256",
+      "logos": [
+        "https://www.overleaf.com/favicon.ico",
+        "https://logo.clearbit.com/overleaf.com"
+      ]
+    },
+    {
+      "name": "Litmaps",
+      "category": "Literature Search & Review",
+      "one_liner": "AI-powered citation map tool that discovers related papers and tracks new publications automatically.",
+      "key_features": [
+        "Seed map: build citation network from one paper",
+        "Discover mode: finds papers you probably missed",
+        "Alert system for new papers in your map",
+        "Chronological view of research evolution",
+        "Export to Zotero, Mendeley, or CSV",
+        "Visual exploration of literature landscape"
+      ],
+      "use_case": "Comprehensive literature mapping; tracking how a research field has evolved; ensuring systematic coverage for literature reviews.",
+      "how_to_use": "1. Enter a seed paper. 2. Explore generated map. 3. Enable alerts for new papers. 4. Add more seed papers to expand map. 5. Export selected references.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "2 maps, basic features",
+        "Pro ($10/month)": "Unlimited maps, alerts, advanced discovery"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://www.litmaps.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.litmaps.com&sz=256",
+      "logos": [
+        "https://www.litmaps.com/favicon.ico",
+        "https://logo.clearbit.com/litmaps.com"
+      ]
+    },
+    {
+      "name": "Scholarcy",
+      "category": "Reading & Note-Taking",
+      "one_liner": "AI flashcard generator that summarizes research papers, extracts key claims, and builds reference libraries.",
+      "key_features": [
+        "Auto-generate article summaries and flashcards",
+        "Extract key concepts, contributions, and limitations",
+        "Identify and link all cited references",
+        "Convert papers to structured summary tables",
+        "Browser extension for instant summarization",
+        "Build a searchable personal summary library"
+      ],
+      "use_case": "Rapidly screening large numbers of papers; extracting structured data from papers; building a quick-reference library of research summaries.",
+      "how_to_use": "1. Upload PDF or use browser extension. 2. AI generates structured flashcard. 3. Review extracted claims. 4. Save to personal library. 5. Export to Zotero/Mendeley.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "5 articles/month",
+        "Personal ($9.99/month)": "Unlimited summaries, library, Zotero integration"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://www.scholarcy.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=www.scholarcy.com&sz=256",
+      "logos": [
+        "https://www.scholarcy.com/favicon.ico",
+        "https://logo.clearbit.com/scholarcy.com"
+      ]
+    },
+    {
+      "name": "Research Buddy",
+      "category": "AI Search & Discovery",
+      "one_liner": "AI assistant for academic research that finds, summarizes, and explains papers from across the web.",
+      "key_features": [
+        "Real-time paper search across multiple databases",
+        "One-click AI summaries of any paper",
+        "Generates literature review outlines",
+        "Explanation of jargon in plain language",
+        "Citation list auto-generation",
+        "Works with Google Scholar, PubMed, and more"
+      ],
+      "use_case": "Getting up to speed quickly on an unfamiliar research area; generating a first draft literature review outline.",
+      "how_to_use": "1. Type your research topic. 2. Browse AI-curated paper list. 3. Click any paper for instant summary. 4. Generate a lit review outline. 5. Export references.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "Basic searches and summaries",
+        "Pro ($15/month)": "Unlimited summaries, literature review generation"
+      },
+      "quality_score": 7,
+      "is_research_relevant": true,
+      "url": "https://researchbuddy.app",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=researchbuddy.app&sz=256",
+      "logos": [
+        "https://researchbuddy.app/favicon.ico",
+        "https://logo.clearbit.com/researchbuddy.app"
+      ]
+    },
+    {
+      "name": "QuillBot",
+      "category": "Academic Writing",
+      "one_liner": "AI paraphrasing and summarization tool widely used by academics to improve writing clarity and avoid plagiarism.",
+      "key_features": [
+        "7 paraphrasing modes (Standard, Academic, Fluency, etc.)",
+        "Summarizer: condense long papers into key points",
+        "Grammar checker and proofreader",
+        "AI co-writer for draft generation",
+        "Citation generator (APA, MLA, Chicago)",
+        "Plagiarism checker"
+      ],
+      "use_case": "Paraphrasing source material for academic use; summarizing reference papers; improving clarity and flow of academic prose.",
+      "how_to_use": "1. Paste text into QuillBot. 2. Choose paraphrase mode (Academic recommended). 3. Review and accept suggestions. 4. Use Summarizer for long papers. 5. Generate citations.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Free": "125 words per paraphrase, basic modes",
+        "Premium ($9.95/month)": "Unlimited paraphrase, all modes, plagiarism checker"
+      },
+      "quality_score": 8,
+      "is_research_relevant": true,
+      "url": "https://quillbot.com",
+      "source": "Manual",
+      "stars": 0,
+      "collected_date": "2026-03-28",
+      "featured": false,
+      "logo": "https://www.google.com/s2/favicons?domain=quillbot.com&sz=256",
+      "logos": [
+        "https://quillbot.com/favicon.ico",
+        "https://logo.clearbit.com/quillbot.com"
+      ]
+    },
+    {
+      "name": "Scite.ai",
+      "category": "Literature Search & Review",
+      "one_liner": "Smart citations - shows how papers cite each other with supporting/contrasting evidence",
+      "key_features": [
+        "Smart Citations showing supporting/contrasting mentions",
+        "Citation context analysis",
+        "Assess credibility of claims",
+        "Find papers that support your hypothesis",
+        "Integration with reference managers",
+        "Browser extension for any journal site"
+      ],
+      "use_case": "Validating claims, finding evidence for/against hypotheses, assessing paper reliability",
+      "how_to_use": "Search for a topic or paper. View Smart Citations breakdown. Filter by supporting/contrasting mentions. Export citation reports.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Freemium": "Free: Limited searches; Plus: $9/month unlimited; Student: $5/month"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://scite.ai/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=scite.ai&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=scite.ai&sz=256"
+      ]
+    },
+    {
+      "name": "Paperpal",
+      "category": "Academic Writing",
+      "one_liner": "AI writing assistant trained on 23+ years of STM research articles",
+      "key_features": [
+        "Academic language enhancement",
+        "Journal-specific formatting checks",
+        "Grammar and style corrections",
+        "Paraphrasing tool",
+        "Plagiarism detection",
+        "Integration with Word, Overleaf"
+      ],
+      "use_case": "Polishing manuscripts, ensuring journal readiness, improving academic writing quality",
+      "how_to_use": "Install browser extension or desktop app. Write or paste your text. Get real-time suggestions. Check journal requirements. Export polished manuscript.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Freemium": "Free: Basic checks; Premium: $19/month; Paperpal Write: $15/month"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://paperpal.com/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=paperpal.com&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=paperpal.com&sz=256"
+      ]
+    },
+    {
+      "name": "Writefull",
+      "category": "Academic Writing",
+      "one_liner": "AI feedback on academic writing trained on scholarly language patterns",
+      "key_features": [
+        "Language quality checks",
+        "Paraphraser for academic text",
+        "Title/Abstract Generator",
+        "Sentence palette (common phrases)",
+        "Integration with Overleaf, Word",
+        "Citation suggestions"
+      ],
+      "use_case": "Improving academic writing style, generating titles/abstracts, finding appropriate phrases",
+      "how_to_use": "Install Overleaf plugin or Word add-in. Write your manuscript. Get AI suggestions for improvements. Use sentence palette for common phrases. Generate title/abstract from content.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Freemium": "Free: Limited; Premium: $12/month; Institutional: Custom"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://writefull.com/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=writefull.com&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=writefull.com&sz=256"
+      ]
+    },
+    {
+      "name": "Inciteful",
+      "category": "Literature Search & Review",
+      "one_liner": "Paper discovery tool using citation networks to build reading lists from seed papers",
+      "key_features": [
+        "Build reading lists from seed papers",
+        "Citation network visualization",
+        "Discover important papers",
+        "Filter by year, journal, author",
+        "Export to BibTeX, RIS",
+        "No account required"
+      ],
+      "use_case": "Building comprehensive reading lists, finding seminal papers in a field, systematic searching",
+      "how_to_use": "Enter a seed paper DOI or title. View citation network. Filter and sort results. Add papers to reading list. Export bibliography.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free": "100% free for researchers"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://inciteful.xyz/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=inciteful.xyz&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=inciteful.xyz&sz=256"
+      ]
+    },
+    {
+      "name": "ZAIA",
+      "category": "AI Search & Discovery",
+      "one_liner": "AI research assistant from Zendy for Q&A and literature exploration",
+      "key_features": [
+        "AI-powered research Q&A",
+        "Access to millions of papers",
+        "Literature review generation",
+        "Citation extraction",
+        "Multi-file analysis",
+        "Affordable premium access"
+      ],
+      "use_case": "Exploring large research databases, getting AI answers with citations, literature reviews",
+      "how_to_use": "Ask a research question. Get AI answer with citations. Explore recommended papers. Generate literature review. Export references.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Freemium": "Free: Basic access; Premium: $9.99/month with full database access"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://zendy.io/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=zendy.io&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=zendy.io&sz=256"
+      ]
+    },
+    {
+      "name": "R Discovery",
+      "category": "AI Search & Discovery",
+      "one_liner": "Research discovery app with personalized feeds and AI-powered paper recommendations",
+      "key_features": [
+        "Personalized research feed",
+        "Audio versions of papers",
+        "AI-powered recommendations",
+        "Reading lists and collections",
+        "Integration with reference managers",
+        "Mobile app available"
+      ],
+      "use_case": "Staying updated with latest research, listening to papers on-the-go, discovering relevant work",
+      "how_to_use": "Set your research interests. Get personalized paper feed. Listen to audio summaries. Save to reading lists. Share with collaborators.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Freemium": "Free: Basic features; Premium: $11.99/month advanced features"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://rdiscovery.app/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=rdiscovery.app&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=rdiscovery.app&sz=256"
+      ]
+    },
+    {
+      "name": "Scopus AI",
+      "category": "Literature Search & Review",
+      "one_liner": "AI-powered research assistant from Elsevier with access to Scopus database",
+      "key_features": [
+        "Access to 80M+ papers in Scopus",
+        "AI-generated summaries",
+        "Topic exploration",
+        "Citation analysis",
+        "Author and institution search",
+        "Integration with Scopus features"
+      ],
+      "use_case": "Comprehensive literature searches, institutional research analysis, citation tracking",
+      "how_to_use": "Access via institutional login. Enter research topic. Get AI summary with citations. Explore related research. Export to reference manager.",
+      "pricing": "Institutional",
+      "pricing_details": {
+        "Institutional": "Available through institutional Scopus subscription"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.scopus.com/ai",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.scopus.com&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=www.scopus.com&sz=256"
+      ]
+    },
+    {
+      "name": "Bohrium",
+      "category": "AI Search & Discovery",
+      "one_liner": "AI-assisted search engine for academic papers with free access",
+      "key_features": [
+        "AI-powered paper search",
+        "Paper summarization",
+        "Citation extraction",
+        "PDF management",
+        "Collaborative features",
+        "Free access to papers"
+      ],
+      "use_case": "Finding and reading papers, managing PDF library, collaborative research",
+      "how_to_use": "Search for research topic. Get AI summaries of results. Read and annotate PDFs. Organize in collections. Share with team.",
+      "pricing": "Free",
+      "pricing_details": {
+        "Free": "Free for researchers"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://www.bohrium.com/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=www.bohrium.com&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=www.bohrium.com&sz=256"
+      ]
+    },
+    {
+      "name": "Gamma AI",
+      "category": "Academic Writing",
+      "one_liner": "AI-powered presentation creation tool for research presentations and posters",
+      "key_features": [
+        "AI-generated presentations from text",
+        "Research poster templates",
+        "Auto-formatting and design",
+        "Export to PPTX, PDF",
+        "Collaborative editing",
+        "Embed charts and data"
+      ],
+      "use_case": "Creating conference presentations, research posters, thesis defenses quickly",
+      "how_to_use": "Paste your research content. AI generates slide deck. Customize design and layout. Add charts and figures. Export or present online.",
+      "pricing": "Freemium",
+      "pricing_details": {
+        "Freemium": "Free: 400 AI credits; Plus: $20/month unlimited"
+      },
+      "quality_score": 9,
+      "is_research_relevant": true,
+      "url": "https://gamma.app/",
+      "source": "Discovery_2026-04-13",
+      "stars": 0,
+      "collected_date": "2026-04-13",
+      "featured": true,
+      "logo": "https://www.google.com/s2/favicons?domain=gamma.app&sz=256",
+      "logos": [
+        "https://www.google.com/s2/favicons?domain=gamma.app&sz=256"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Data
+data/raw_*.json
+# data/processed_*.json  <-- Keep processed data in repo for history
+data/temp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Baidu Cloud Sync
+*.baiduyun.uploading.cfg
+*.baiduyun.downloading.cfg

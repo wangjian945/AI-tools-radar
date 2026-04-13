@@ -1,0 +1,327 @@
+{
+  "tools": [
+    {
+      "name": "Scite.ai",
+      "tagline": "Smart citations - shows how papers cite each other with supporting/contrasting evidence",
+      "url": "https://scite.ai/",
+      "category": "Literature Search & Review",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: Limited searches; Plus: $9/month unlimited; Student: $5/month",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Smart Citations showing supporting/contrasting mentions",
+        "Citation context analysis",
+        "Assess credibility of claims",
+        "Find papers that support your hypothesis",
+        "Integration with reference managers",
+        "Browser extension for any journal site"
+      ],
+      "useCase": "Validating claims, finding evidence for/against hypotheses, assessing paper reliability",
+      "howToUse": [
+        "Search for a topic or paper",
+        "View Smart Citations breakdown",
+        "Filter by supporting/contrasting mentions",
+        "Export citation reports"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Scholarcy",
+      "tagline": "AI-powered summary flashcards that break down research papers into key findings",
+      "url": "https://www.scholarcy.com/",
+      "category": "Reading & Note-Taking",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: 3 articles/month; Plus: $9.99/month unlimited; Team: Custom",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Automatic summary flashcards from papers",
+        "Extract key findings, methods, participants",
+        "Highlight important claims",
+        "Compare multiple papers side-by-side",
+        "Integration with Zotero, Mendeley",
+        "Custom library organization"
+      ],
+      "useCase": "Rapidly screening papers, extracting key information, building literature summaries",
+      "howToUse": [
+        "Upload PDF or paste URL",
+        "Get instant summary flashcard",
+        "Review key sections highlighted",
+        "Add to library with tags",
+        "Export summaries to reference manager"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Paperpal",
+      "tagline": "AI writing assistant trained on 23+ years of STM research articles",
+      "url": "https://paperpal.com/",
+      "category": "Academic Writing",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: Basic checks; Premium: $19/month; Paperpal Write: $15/month",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Academic language enhancement",
+        "Journal-specific formatting checks",
+        "Grammar and style corrections",
+        "Paraphrasing tool",
+        "Plagiarism detection",
+        "Integration with Word, Overleaf"
+      ],
+      "useCase": "Polishing manuscripts, ensuring journal readiness, improving academic writing quality",
+      "howToUse": [
+        "Install browser extension or desktop app",
+        "Write or paste your text",
+        "Get real-time suggestions",
+        "Check journal requirements",
+        "Export polished manuscript"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Writefull",
+      "tagline": "AI feedback on academic writing trained on scholarly language patterns",
+      "url": "https://writefull.com/",
+      "category": "Academic Writing",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: Limited; Premium: $12/month; Institutional: Custom",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Language quality checks",
+        "Paraphraser for academic text",
+        "Title/Abstract Generator",
+        "Sentence palette (common phrases)",
+        "Integration with Overleaf, Word",
+        "Citation suggestions"
+      ],
+      "useCase": "Improving academic writing style, generating titles/abstracts, finding appropriate phrases",
+      "howToUse": [
+        "Install Overleaf plugin or Word add-in",
+        "Write your manuscript",
+        "Get AI suggestions for improvements",
+        "Use sentence palette for common phrases",
+        "Generate title/abstract from content"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Jenni AI",
+      "tagline": "AI writing assistant with autocomplete and citation suggestions for academic papers",
+      "url": "https://jenni.ai/",
+      "category": "Academic Writing",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: 250 words/day; Pro: $20/month unlimited; Student: $12/month",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "AI autocomplete for academic writing",
+        "Citation suggestions from database",
+        "PDF chat and analysis",
+        "Paraphrasing tool",
+        "Multi-file upload",
+        "Export to Word, LaTeX"
+      ],
+      "useCase": "Overcoming writer's block, finding relevant citations while writing, drafting papers faster",
+      "howToUse": [
+        "Upload relevant PDFs",
+        "Start writing your paper",
+        "Get AI autocomplete suggestions",
+        "Add citations from suggestions",
+        "Export finished draft"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Litmaps",
+      "tagline": "Visual literature mapping tool that creates interactive citation network maps",
+      "url": "https://www.litmaps.com/",
+      "category": "Literature Search & Review",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: 10 maps, 100 papers; Pro: $12/month unlimited",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Visual citation network maps",
+        "Discover related papers visually",
+        "Track literature over time",
+        "Seed paper expansion",
+        "Integration with Zotero",
+        "Collaborative maps"
+      ],
+      "useCase": "Building comprehensive literature maps, visualizing research fields, discovering connections",
+      "howToUse": [
+        "Add seed papers to a map",
+        "View visual citation network",
+        "Explore related papers",
+        "Add relevant papers to collection",
+        "Export to reference manager"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Inciteful",
+      "tagline": "Paper discovery tool using citation networks to build reading lists from seed papers",
+      "url": "https://inciteful.xyz/",
+      "category": "Literature Search & Review",
+      "pricing": "Free",
+      "pricingDetails": "100% free for researchers",
+      "isFree": true,
+      "isResearchRelevant": true,
+      "features": [
+        "Build reading lists from seed papers",
+        "Citation network visualization",
+        "Discover important papers",
+        "Filter by year, journal, author",
+        "Export to BibTeX, RIS",
+        "No account required"
+      ],
+      "useCase": "Building comprehensive reading lists, finding seminal papers in a field, systematic searching",
+      "howToUse": [
+        "Enter a seed paper DOI or title",
+        "View citation network",
+        "Filter and sort results",
+        "Add papers to reading list",
+        "Export bibliography"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "ZAIA",
+      "tagline": "AI research assistant from Zendy for Q&A and literature exploration",
+      "url": "https://zendy.io/",
+      "category": "AI Search & Discovery",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: Basic access; Premium: $9.99/month with full database access",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "AI-powered research Q&A",
+        "Access to millions of papers",
+        "Literature review generation",
+        "Citation extraction",
+        "Multi-file analysis",
+        "Affordable premium access"
+      ],
+      "useCase": "Exploring large research databases, getting AI answers with citations, literature reviews",
+      "howToUse": [
+        "Ask a research question",
+        "Get AI answer with citations",
+        "Explore recommended papers",
+        "Generate literature review",
+        "Export references"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "R Discovery",
+      "tagline": "Research discovery app with personalized feeds and AI-powered paper recommendations",
+      "url": "https://rdiscovery.app/",
+      "category": "AI Search & Discovery",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: Basic features; Premium: $11.99/month advanced features",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Personalized research feed",
+        "Audio versions of papers",
+        "AI-powered recommendations",
+        "Reading lists and collections",
+        "Integration with reference managers",
+        "Mobile app available"
+      ],
+      "useCase": "Staying updated with latest research, listening to papers on-the-go, discovering relevant work",
+      "howToUse": [
+        "Set your research interests",
+        "Get personalized paper feed",
+        "Listen to audio summaries",
+        "Save to reading lists",
+        "Share with collaborators"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Scopus AI",
+      "tagline": "AI-powered research assistant from Elsevier with access to Scopus database",
+      "url": "https://www.scopus.com/ai",
+      "category": "Literature Search & Review",
+      "pricing": "Institutional",
+      "pricingDetails": "Available through institutional Scopus subscription",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "Access to 80M+ papers in Scopus",
+        "AI-generated summaries",
+        "Topic exploration",
+        "Citation analysis",
+        "Author and institution search",
+        "Integration with Scopus features"
+      ],
+      "useCase": "Comprehensive literature searches, institutional research analysis, citation tracking",
+      "howToUse": [
+        "Access via institutional login",
+        "Enter research topic",
+        "Get AI summary with citations",
+        "Explore related research",
+        "Export to reference manager"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Bohrium",
+      "tagline": "AI-assisted search engine for academic papers with free access",
+      "url": "https://www.bohrium.com/",
+      "category": "AI Search & Discovery",
+      "pricing": "Free",
+      "pricingDetails": "Free for researchers",
+      "isFree": true,
+      "isResearchRelevant": true,
+      "features": [
+        "AI-powered paper search",
+        "Paper summarization",
+        "Citation extraction",
+        "PDF management",
+        "Collaborative features",
+        "Free access to papers"
+      ],
+      "useCase": "Finding and reading papers, managing PDF library, collaborative research",
+      "howToUse": [
+        "Search for research topic",
+        "Get AI summaries of results",
+        "Read and annotate PDFs",
+        "Organize in collections",
+        "Share with team"
+      ],
+      "dateAdded": "2026-04-13"
+    },
+    {
+      "name": "Gamma AI",
+      "tagline": "AI-powered presentation creation tool for research presentations and posters",
+      "url": "https://gamma.app/",
+      "category": "Academic Writing",
+      "pricing": "Freemium",
+      "pricingDetails": "Free: 400 AI credits; Plus: $20/month unlimited",
+      "isFree": false,
+      "isResearchRelevant": true,
+      "features": [
+        "AI-generated presentations from text",
+        "Research poster templates",
+        "Auto-formatting and design",
+        "Export to PPTX, PDF",
+        "Collaborative editing",
+        "Embed charts and data"
+      ],
+      "useCase": "Creating conference presentations, research posters, thesis defenses quickly",
+      "howToUse": [
+        "Paste your research content",
+        "AI generates slide deck",
+        "Customize design and layout",
+        "Add charts and figures",
+        "Export or present online"
+      ],
+      "dateAdded": "2026-04-13"
+    }
+  ]
+}
