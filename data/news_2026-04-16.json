@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-16",
+  "news": [
+    {
+      "title": "LangAlpha – what if Claude Code was built for Wall Street?",
+      "summary": "Shared on Hacker News Show HN. Some technical context on what we ran into building this.MCP tools don&#x27;t really work for financial data at scale. One tool call for five years of daily prices dumps tens of th",
+      "url": "https://github.com/ginlix-ai/langalpha",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-14",
+      "score": 8
+    },
+    {
+      "title": "SmallDocs - Markdown without the frustrations",
+      "summary": "Shared on Hacker News Show HN. Hi HN, I’d like to introduce you to SmallDocs (https:&#x2F;&#x2F;sdocs.dev). SDocs is a CLI + webapp to instantly and 100% privately elegantly preview and share markdown files. (Co",
+      "url": "https://news.ycombinator.com/item?id=47777633",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-15",
+      "score": 5
+    },
+    {
+      "title": "Claudraband – Claude Code for the Power User",
+      "summary": "Shared on Hacker News Show HN. Hello everyone.Claudraband wraps a Claude Code TUI in a controlled terminal to enable extended workflows. It uses tmux for visible controlled sessions or xterm.js for headless sess",
+      "url": "https://github.com/halfwhey/claudraband",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-12",
+      "score": 5
+    },
+    {
+      "title": "Kelet – Root Cause Analysis agent for your LLM apps",
+      "summary": "Shared on Hacker News Show HN. I&#x27;ve spent the past few years building 50+ AI agents in prod (some reached 1M+ sessions&#x2F;day), and the hardest part was never building them — it was figuring out why they",
+      "url": "https://kelet.ai/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-14",
+      "score": 3
+    },
+    {
+      "title": "boringBar – a taskbar-style dock replacement for macOS",
+      "summary": "Shared on Hacker News Show HN. Hi HN!I recently switched from a Fedora&#x2F;GNOME laptop to a MacBook Air. My old setup served me well as a portable workstation, but I’ve started traveling more while working rem",
+      "url": "https://boringbar.app/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-12",
+      "score": 3
+    }
+  ]
+}
