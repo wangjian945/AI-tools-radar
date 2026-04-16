@@ -2,7 +2,7 @@ name: Deploy AI Tools Radar
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths: ['site/**']
   
   # 每天 UTC 0:00（北京时间 08:00）自动采集 + 部署
