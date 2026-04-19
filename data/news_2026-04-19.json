@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-19",
+  "news": [
+    {
+      "title": "LangAlpha – what if Claude Code was built for Wall Street?",
+      "summary": "Shared on Hacker News Show HN. Some technical context on what we ran into building this.MCP tools don&#x27;t really work for financial data at scale. One tool call for five years of daily prices dumps tens of th",
+      "url": "https://github.com/ginlix-ai/langalpha",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-14",
+      "score": 8
+    },
+    {
+      "title": "Stage – Putting humans back in control of code review",
+      "summary": "Shared on Hacker News Show HN. Hey HN! We&#x27;re Charles and Dean, and we&#x27;re building Stage: a code review tool that guides you through reading a PR step by step, instead of piecing together a giant diff.H",
+      "url": "https://stagereview.app/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-16",
+      "score": 7
+    },
+    {
+      "title": "SmallDocs – Markdown without the frustrations",
+      "summary": "Shared on Hacker News Show HN. Hi HN, I’d like to introduce you to SmallDocs (https:&#x2F;&#x2F;sdocs.dev). SDocs is a CLI + webapp to instantly and 100% privately elegantly preview and share markdown files. (Co",
+      "url": "https://news.ycombinator.com/item?id=47777633",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-15",
+      "score": 5
+    },
+    {
+      "title": "MacMind – A transformer neural network in HyperCard on a 1989 Macintosh",
+      "summary": "Shared on Hacker News Show HN. I trained a transformer in HyperCard.  1,216 parameters.  1989 Macintosh.  And yes, it took a while.MacMind is a complete transformer neural network, embeddings, positional encodin",
+      "url": "https://github.com/SeanFDZ/macmind",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-16",
+      "score": 4
+    },
+    {
+      "title": "Marky – A lightweight Markdown viewer for agentic coding",
+      "summary": "Shared on Hacker News Show HN. Hey HN,In this age of agentic coding I&#x27;ve found myself spending a lot of time reviewing markdown files. Whether it&#x27;s plans or documentation that I&#x27;ve asked my agent",
+      "url": "https://github.com/GRVYDEV/marky",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-16",
+      "score": 4
+    }
+  ]
+}
