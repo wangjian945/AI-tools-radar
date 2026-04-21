@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-21",
+  "news": [
+    {
+      "title": "CyberWriter – a .md editor built on Apple's (barely-used) on-device AI",
+      "summary": "Shared on Hacker News Show HN. Apple has quietly shipped a pretty complete on-device AI stack into macOS, with these features first getting API access in MacOS 26. There are multiple components in the foundation",
+      "url": "https://cyberwriter.app",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-20",
+      "score": 18
+    },
+    {
+      "title": "Palmier – bridge your AI agents and your phone",
+      "summary": "Shared on Hacker News Show HN. Hi HN — I built Palmier.Palmier bridges your AI agents and your phone.It does two things:1. It lets you use your phone to directly control AI agents running on your computer, from",
+      "url": "https://github.com/caihongxu/palmier",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-21",
+      "score": 5
+    },
+    {
+      "title": "Mediator.ai – Using Nash bargaining and LLMs to systematize fairness",
+      "summary": "Shared on Hacker News Show HN. Eight years ago, my then-fiancée and I decided to get a prenup, so we hired a local mediator. The meetings were useful, but I felt there was no systematic process to produce a fina",
+      "url": "https://mediator.ai/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-20",
+      "score": 4
+    },
+    {
+      "title": "MacMind – A transformer neural network in HyperCard on a 1989 Macintosh",
+      "summary": "Shared on Hacker News Show HN. I trained a transformer in HyperCard.  1,216 parameters.  1989 Macintosh.  And yes, it took a while.MacMind is a complete transformer neural network, embeddings, positional encodin",
+      "url": "https://github.com/SeanFDZ/macmind",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-16",
+      "score": 4
+    },
+    {
+      "title": "Claro - Research Agents",
+      "summary": "Claro runs the AI agents that operate on your data\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/getclaro",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-15",
+      "score": 3
+    }
+  ]
+}
