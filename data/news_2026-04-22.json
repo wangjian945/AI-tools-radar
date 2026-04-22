@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-22",
+  "news": [
+    {
+      "title": "Palmier – bridge your AI agents and your phone",
+      "summary": "Shared on Hacker News Show HN. Hi HN — I built Palmier.Palmier bridges your AI agents and your phone.It does two things:1. It lets you use your phone to directly control AI agents running on your computer, from",
+      "url": "https://github.com/caihongxu/palmier",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-21",
+      "score": 5
+    },
+    {
+      "title": "Almanac MCP, turn Claude Code into a Deep Research agent",
+      "summary": "Shared on Hacker News Show HN. I am Rohan, and I have grown really frustrated with CC&#x27;s search and read tools. They use Haiku to summarise all the search results, so it is really slow and often ends up bein",
+      "url": "https://www.openalmanac.org/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-21",
+      "score": 4
+    },
+    {
+      "title": "Mediator.ai – Using Nash bargaining and LLMs to systematize fairness",
+      "summary": "Shared on Hacker News Show HN. Eight years ago, my then-fiancée and I decided to get a prenup, so we hired a local mediator. The meetings were useful, but I felt there was no systematic process to produce a fina",
+      "url": "https://mediator.ai/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-20",
+      "score": 4
+    },
+    {
+      "title": "Gemini Plugin for Claude Code",
+      "summary": "Shared on Hacker News Show HN. I built a plugin that lets Claude Code delegate work to Gemini CLI.I started this after finding myself reaching for Gemini more often on long context repo work. I have been especia",
+      "url": "https://github.com/m-ghalib/gemini-plugin-cc",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-22",
+      "score": 3
+    },
+    {
+      "title": "Agent Brain Trust, customisable expert panels for AI agents",
+      "summary": "Shared on Hacker News Show HN. Agent Brain Trust lets you summon a panel of real, named experts to critique your architecture, review your writing, pressure your product strategy, or debate your design patterns.",
+      "url": "https://github.com/bahulneel/agent-brain-trust",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-21",
+      "score": 3
+    }
+  ]
+}
