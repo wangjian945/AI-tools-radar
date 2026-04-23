@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-23",
+  "news": [
+    {
+      "title": "Broccoli, one shot coding agent on the cloud",
+      "summary": "Shared on Hacker News Show HN. Hi HN — we built Broccoli, an open-source harness for taking coding tasks from Linear, running them in isolated cloud sandboxes, and opening PRs for a human to review.We’re a small",
+      "url": "https://github.com/besimple-oss/broccoli",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-22",
+      "score": 4
+    },
+    {
+      "title": "Mediator.ai – Using Nash bargaining and LLMs to systematize fairness",
+      "summary": "Shared on Hacker News Show HN. Eight years ago, my then-fiancée and I decided to get a prenup, so we hired a local mediator. The meetings were useful, but I felt there was no systematic process to produce a fina",
+      "url": "https://mediator.ai/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-20",
+      "score": 4
+    },
+    {
+      "title": "Almanac MCP, turn Claude Code into a Deep Research agent",
+      "summary": "Shared on Hacker News Show HN. I am Rohan, and I have grown really frustrated with CC&#x27;s search and read tools. They use Haiku to summarise all the search results, so it is really slow and often ends up bein",
+      "url": "https://www.openalmanac.org/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-21",
+      "score": 4
+    },
+    {
+      "title": "ShellTalk brings deterministic text-to-bash",
+      "summary": "Shared on Hacker News Show HN. Hi HN! I built a CLI tool called ShellTalk for macOS, Linux, and web (WebAssembly) that maps English text to the corresponding Bash commands.ShellTalk is written in Swift and avail",
+      "url": "https://barrasso.me/posts/2026-04-22-text-to-bash-with-shell-talk/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-22",
+      "score": 3
+    },
+    {
+      "title": "Gemini Plugin for Claude Code",
+      "summary": "Shared on Hacker News Show HN. I built a plugin that lets Claude Code delegate work to Gemini CLI.I started this after finding myself reaching for Gemini more often on long context repo work. I have been especia",
+      "url": "https://github.com/m-ghalib/gemini-plugin-cc",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-22",
+      "score": 3
+    }
+  ]
+}
