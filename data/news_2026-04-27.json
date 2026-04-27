@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-27",
+  "news": [
+    {
+      "title": "Lilo – a self-hosted, open-source intelligent personal OS",
+      "summary": "Shared on Hacker News Show HN. Hey everyone, I’ve been working on Lilo for the last few months. In short, it’s an intelligent personal OS. Lilo = your apps + your AI assistant + your files + your memories.For a",
+      "url": "https://github.com/abi/lilo",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-24",
+      "score": 9
+    },
+    {
+      "title": "Xtrace – Unix-Style macOS Profiling for Instruments (CPU/GPU/Memory)",
+      "summary": "Shared on Hacker News Show HN. I built this because I wanted a terminal-first profiling workflow on macOS, without constantly switching into the Instruments GUI.What it does today:- CPU analysis: summary, timeli",
+      "url": "https://github.com/Kr1sso/xtrace-skill",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-25",
+      "score": 8
+    },
+    {
+      "title": "Agent MCP Studio – build multi-agent MCP systems in a browser tab",
+      "summary": "Shared on Hacker News Show HN. I built a browser-only studio for designing and orchestrating MCP agent systems for development and experimental purposes. The whole stack — tool authoring, multi-agent orchestrati",
+      "url": "https://www.agentmcp.studio",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-25",
+      "score": 6
+    },
+    {
+      "title": "Broccoli, one shot coding agent on the cloud",
+      "summary": "Shared on Hacker News Show HN. Hi HN — we built Broccoli, an open-source harness for taking coding tasks from Linear, running them in isolated cloud sandboxes, and opening PRs for a human to review.We’re a small",
+      "url": "https://github.com/besimple-oss/broccoli",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-22",
+      "score": 4
+    },
+    {
+      "title": "Time Pin – a Geo Guessr style game but history themed",
+      "summary": "Shared on Hacker News Show HN. Hi! Any history nerds here? I made Time Pin, a little game inspired by Geo Guessr but history-themed. You can play it here(it works on both desktop and mobile). Any feedback is app",
+      "url": "https://www.crazygames.com/game/time-pin",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-26",
+      "score": 3
+    }
+  ]
+}
