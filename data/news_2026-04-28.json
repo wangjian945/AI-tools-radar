@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-28",
+  "news": [
+    {
+      "title": "A terminal spreadsheet editor with Vim keybindings",
+      "summary": "Shared on Hacker News Show HN. While speccing out this spreadsheet tool, I realized that I never had to think about the keybindings. It all just came naturally from Vim. Normal&#x2F;insert&#x2F;visual modes, hjk",
+      "url": "https://github.com/garritfra/cell",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 6
+    },
+    {
+      "title": "2 weeks of coding, 3 months of OpenAI review, my ChatGPT App is live",
+      "summary": "Shared on Hacker News Show HN. I run Tredict, an endurance sports training platform I&#x27;ve been building since 2020. OpenAI opened the ChatGPT App Directory to third-party submissions in December, and the off",
+      "url": "https://news.ycombinator.com/item?id=47923382",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 5
+    },
+    {
+      "title": "Broccoli, one shot coding agent on the cloud",
+      "summary": "Shared on Hacker News Show HN. Hi HN — we built Broccoli, an open-source harness for taking coding tasks from Linear, running them in isolated cloud sandboxes, and opening PRs for a human to review.We’re a small",
+      "url": "https://github.com/besimple-oss/broccoli",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-22",
+      "score": 4
+    },
+    {
+      "title": "Vouch API",
+      "summary": "AI equity research that proves it isn't lying\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/vouch-api",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-26",
+      "score": 3
+    },
+    {
+      "title": "OSS Agent I built topped the TerminalBench on Gemini-3-flash-preview",
+      "summary": "Shared on Hacker News Show HN. Scored 65.2% vs google&#x27;s official 47.8%, and the existing top closed source model Junie CLI&#x27;s 64.3%.Since there are a lot of reports of deliberate cheating on TerminalBen",
+      "url": "https://github.com/dirac-run/dirac",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 3
+    }
+  ]
+}
