@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-29",
+  "news": [
+    {
+      "title": "Drive any macOS app in the background without stealing the cursor",
+      "summary": "Shared on Hacker News Show HN. Hi HN, Francesco from Cua here.\nI hacked this project together last weekend, inspired by the Codex Computer-Use release and lessons learned from deploying GUI-operating agents for",
+      "url": "https://github.com/trycua/cua",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-28",
+      "score": 9
+    },
+    {
+      "title": "Ragnerock, an AI data analysis tool",
+      "summary": "Shared on Hacker News Show HN. Hi HN, I’m Matt Mahowald, and together with my cofounder John, we’re launching the public beta of Ragnerock today.As a data scientist, you spend the majority of your time wrangling",
+      "url": "https://www.ragnerock.com",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-28",
+      "score": 7
+    },
+    {
+      "title": "A terminal spreadsheet editor with Vim keybindings",
+      "summary": "Shared on Hacker News Show HN. While speccing out this spreadsheet tool, I realized that I never had to think about the keybindings. It all just came naturally from Vim. Normal&#x2F;insert&#x2F;visual modes, hjk",
+      "url": "https://github.com/garritfra/cell",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 6
+    },
+    {
+      "title": "OSS Agent I built topped the TerminalBench on Gemini-3-flash-preview",
+      "summary": "Shared on Hacker News Show HN. Scored 65.2% vs google&#x27;s official 47.8%, and the existing top closed source model Junie CLI&#x27;s 64.3%.Since there are a lot of reports of deliberate cheating on TerminalBen",
+      "url": "https://github.com/dirac-run/dirac",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 3
+    },
+    {
+      "title": "Implementing Patio11's \"Dangerous Professional\" as a Claude Code Plugin",
+      "summary": "Shared on Hacker News Show HN. Howdy HN! My recent dive into home ownership has brought me a whole new world to navigate w.r.t contractors, insurance claims, etc.  I&#x27;ve been leaning heavily on the Dangerous",
+      "url": "https://playground.tetraresearch.io/p/implementing-patio11s-dangerous-professional",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-28",
+      "score": 3
+    }
+  ]
+}
