@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-30",
+  "news": [
+    {
+      "title": "Drive any macOS app in the background without stealing the cursor",
+      "summary": "Shared on Hacker News Show HN. Hi HN, Francesco from Cua here.\nI hacked this project together last weekend, inspired by the Codex Computer-Use release and lessons learned from deploying GUI-operating agents for",
+      "url": "https://github.com/trycua/cua",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-28",
+      "score": 9
+    },
+    {
+      "title": "A terminal spreadsheet editor with Vim keybindings",
+      "summary": "Shared on Hacker News Show HN. While speccing out this spreadsheet tool, I realized that I never had to think about the keybindings. It all just came naturally from Vim. Normal&#x2F;insert&#x2F;visual modes, hjk",
+      "url": "https://github.com/garritfra/cell",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 6
+    },
+    {
+      "title": "Stream iOS Simulators to a Browser Window",
+      "summary": "Shared on Hacker News Show HN. Agent tools seemingly know how to work with browsers better than with iPhone simulators, so I built this tool to capture the simulator XPC stream and render it in a webpage. This m",
+      "url": "https://github.com/EvanBacon/serve-sim",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-29",
+      "score": 4
+    },
+    {
+      "title": "AgentPort – Open-source Security Gateway For Agents",
+      "summary": "Shared on Hacker News Show HN. Hey HN!I&#x27;ve been wanting to use something like OpenClaw for a while but couldn&#x27;t get myself to give it access to anything important due to all the risks involved. Prompt",
+      "url": "https://agentport.sh/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-29",
+      "score": 4
+    },
+    {
+      "title": "OSS Agent I built topped the TerminalBench on Gemini-3-flash-preview",
+      "summary": "Shared on Hacker News Show HN. Scored 65.2% vs google&#x27;s official 47.8%, and the existing top closed source model Junie CLI&#x27;s 64.3%.Since there are a lot of reports of deliberate cheating on TerminalBen",
+      "url": "https://github.com/dirac-run/dirac",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 3
+    }
+  ]
+}
