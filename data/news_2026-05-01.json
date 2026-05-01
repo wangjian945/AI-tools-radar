@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-01",
+  "news": [
+    {
+      "title": "Drive any macOS app in the background without stealing the cursor",
+      "summary": "Shared on Hacker News Show HN. Hi HN, Francesco from Cua here.\nI hacked this project together last weekend, inspired by the Codex Computer-Use release and lessons learned from deploying GUI-operating agents for",
+      "url": "https://github.com/trycua/cua",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-28",
+      "score": 9
+    },
+    {
+      "title": "A terminal spreadsheet editor with Vim keybindings",
+      "summary": "Shared on Hacker News Show HN. While speccing out this spreadsheet tool, I realized that I never had to think about the keybindings. It all just came naturally from Vim. Normal&#x2F;insert&#x2F;visual modes, hjk",
+      "url": "https://github.com/garritfra/cell",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-27",
+      "score": 6
+    },
+    {
+      "title": "Pu.sh – a full coding-agent harness in 400 lines of shell",
+      "summary": "Shared on Hacker News Show HN. I originally was just messing with pi-autoresearch. Gave it a sample task to build the most portable coding agent.First cut was 6 KB of shell. Great for one-shots, unusable interac",
+      "url": "https://pu.dev/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-30",
+      "score": 5
+    },
+    {
+      "title": "Agent that refuses to run commands without human approval",
+      "summary": "Shared on Hacker News Show HN. In light of recent news about an agent deleting a production database, I thought now would be a good time to share this.As the use of AI tools in production is becoming more common",
+      "url": "https://github.com/few-sh/fewshell",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-30",
+      "score": 5
+    },
+    {
+      "title": "Gemini Deep Research Agent",
+      "summary": "Web and MCP research agents, now in Gemini API\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/gemini-deep-research",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-21",
+      "score": 4
+    }
+  ]
+}
