@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-02",
+  "news": [
+    {
+      "title": "Drive any macOS app in the background without stealing the cursor",
+      "summary": "Shared on Hacker News Show HN. Hi HN, Francesco from Cua here.\nI hacked this project together last weekend, inspired by the Codex Computer-Use release and lessons learned from deploying GUI-operating agents for",
+      "url": "https://github.com/trycua/cua",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-28",
+      "score": 9
+    },
+    {
+      "title": "Pu.sh – a full coding-agent harness in 400 lines of shell",
+      "summary": "Shared on Hacker News Show HN. I originally was just messing with pi-autoresearch. Gave it a sample task to build the most portable coding agent.First cut was 6 KB of shell. Great for one-shots, unusable interac",
+      "url": "https://pu.dev/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-04-30",
+      "score": 5
+    },
+    {
+      "title": "Gemini Deep Research Agent",
+      "summary": "Web and MCP research agents, now in Gemini API\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/gemini-deep-research",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-21",
+      "score": 4
+    },
+    {
+      "title": "Loopsy, a way for terminals and AI agents on different machines to talk",
+      "summary": "Shared on Hacker News Show HN. I&#x27;ve always had the urge to have my two macbooks communicate. Having one idle while working on the other felt like underutilization of resources. So I built Loopsy. Initially",
+      "url": "https://github.com/leox255/loopsy",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-01",
+      "score": 3
+    },
+    {
+      "title": "Building a smartphone powered by nuclear decay: the power engineering",
+      "summary": "Shared on Hacker News Show HN. Every smartphone built in the last twenty years assumes the same thing: the battery will be charged once a day. Before I get to the math, sit with this for a moment: what would act",
+      "url": "https://news.ycombinator.com/item?id=47979705",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-01",
+      "score": 3
+    }
+  ]
+}
