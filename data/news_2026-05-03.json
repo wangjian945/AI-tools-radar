@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-03",
+  "news": [
+    {
+      "title": "Filling PDF forms with AI using client-side tool calling",
+      "summary": "Shared on Hacker News Show HN. Hey HN!I built SimplePDF Copilot: an AI assistant that can interact with the PDF editor. It fills fields, answers questions, focuses on a specific field, adds fields, deletes pages",
+      "url": "https://copilot.simplepdf.com/?share=a7d00ad073c75a75d493228e6ff7b11eb3f2d945b6175913e87898ec96ca8076&form=w9&lang=en",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 7
+    },
+    {
+      "title": "Large Scale Article Extract of Newspapers 1730s-1960s",
+      "summary": "Shared on Hacker News Show HN. Hello HN, over the past 7 months I&#x27;ve spent nearly 3,000 hours on building SNEWPAPERS, the first historical newpaper archive with full-text extractions, nearly perfect OCR, a",
+      "url": "https://snewpapers.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 7
+    },
+    {
+      "title": "Gemini Deep Research Agent",
+      "summary": "Web and MCP research agents, now in Gemini API\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/gemini-deep-research",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-21",
+      "score": 4
+    },
+    {
+      "title": "Piruetas – A self-hosted diary app I built for my girlfriend",
+      "summary": "Shared on Hacker News Show HN. I searched for a simple, self-hosted journal app for my girlfriend and everything I found was either too\ncomplex, too feature-heavy, too feature-less for what I needed or required",
+      "url": "https://piruet.app",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 4
+    },
+    {
+      "title": "Loopsy, a way for terminals and AI agents on different machines to talk",
+      "summary": "Shared on Hacker News Show HN. I&#x27;ve always had the urge to have my two macbooks communicate. Having one idle while working on the other felt like underutilization of resources. So I built Loopsy. Initially",
+      "url": "https://github.com/leox255/loopsy",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-01",
+      "score": 3
+    }
+  ]
+}
