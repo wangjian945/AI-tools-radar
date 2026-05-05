@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-05",
+  "news": [
+    {
+      "title": "Filling PDF forms with AI using client-side tool calling",
+      "summary": "Shared on Hacker News Show HN. Hey HN!I built SimplePDF Copilot: an AI assistant that can interact with the PDF editor. It fills fields, answers questions, focuses on a specific field, adds fields, deletes pages",
+      "url": "https://copilot.simplepdf.com/?share=a7d00ad073c75a75d493228e6ff7b11eb3f2d945b6175913e87898ec96ca8076&form=w9&lang=en",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 7
+    },
+    {
+      "title": "I indexed 8,643 BSides talks across 227 chapters and 6 continents",
+      "summary": "Shared on Hacker News Show HN. Hi HN,I&#x27;m Roland, and for the past few weeks, I&#x27;ve been building AllBSides — a directory of every BSides conference talk uploaded to YouTube. As of today, 8,643 talks fro",
+      "url": "https://allbsides.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-04",
+      "score": 6
+    },
+    {
+      "title": "Software Engineer to Novelist: Writing a Book Like Coding",
+      "summary": "Shared on Hacker News Show HN. I just published my first book, Means and Motive.  ( https:&#x2F;&#x2F;www.amazon.com&#x2F;dp&#x2F;B0GYCZJVGX )As a software engineer, I approached writing like a software project.",
+      "url": "https://frequal.com/forwriters/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-03",
+      "score": 5
+    },
+    {
+      "title": "Gemini Deep Research Agent",
+      "summary": "Web and MCP research agents, now in Gemini API\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/gemini-deep-research",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-04-21",
+      "score": 4
+    },
+    {
+      "title": "Piruetas – A self-hosted diary app I built for my girlfriend",
+      "summary": "Shared on Hacker News Show HN. I searched for a simple, self-hosted journal app for my girlfriend and everything I found was either too\ncomplex, too feature-heavy, too feature-less for what I needed or required",
+      "url": "https://piruet.app",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 4
+    }
+  ]
+}
