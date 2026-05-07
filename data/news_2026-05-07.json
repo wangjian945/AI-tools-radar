@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-07",
+  "news": [
+    {
+      "title": "Filling PDF forms with AI using client-side tool calling",
+      "summary": "Shared on Hacker News Show HN. Hey HN!I built SimplePDF Copilot: an AI assistant that can interact with the PDF editor. It fills fields, answers questions, focuses on a specific field, adds fields, deletes pages",
+      "url": "https://copilot.simplepdf.com/?share=a7d00ad073c75a75d493228e6ff7b11eb3f2d945b6175913e87898ec96ca8076&form=w9&lang=en",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 7
+    },
+    {
+      "title": "I indexed 8,643 BSides talks across 227 chapters and 6 continents",
+      "summary": "Shared on Hacker News Show HN. Hi HN,I&#x27;m Roland, and for the past few weeks, I&#x27;ve been building AllBSides — a directory of every BSides conference talk uploaded to YouTube. As of today, 8,643 talks fro",
+      "url": "https://allbsides.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-04",
+      "score": 6
+    },
+    {
+      "title": "Knowly 1.0",
+      "summary": "LLM Wiki + NotebookLM, in one closed-loop Proactive AI\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/knowly-ai",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-05-05",
+      "score": 5
+    },
+    {
+      "title": "Prospero Is Superpowers for Writing",
+      "summary": "Shared on Hacker News Show HN. Hey HN! I enjoy writing, but find the act of driving a piece to completion taxing and occasionally paralyzing, and I&#x27;m unsatisfied with the quality of work that LLMs produce a",
+      "url": "https://brianguthrie.com/p/prospero/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-06",
+      "score": 5
+    },
+    {
+      "title": "DoodleMate: Animate Your Child's Hand Drawings Without Generative AI",
+      "summary": "Shared on Hacker News Show HN. Hi HN!I made an app that takes a photo of a paper drawing and, in a handful of seconds, creates a fully rigged character that can be used in an animation or little story. It doesn’",
+      "url": "https://doodlemate.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-06",
+      "score": 4
+    }
+  ]
+}
