@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-08",
+  "news": [
+    {
+      "title": "Dreamwork – a job search site I made after Indeed fired my pregnant wif",
+      "summary": "Shared on Hacker News Show HN. Hey, I’m Colin and I have a fun story for you.My 7 month pregnant wife was laid off from Indeed (she was a PM there) back in December. This pissed me off quite a bit, as she was su",
+      "url": "https://www.dreamworkhq.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-07",
+      "score": 6
+    },
+    {
+      "title": "I indexed 8,643 BSides talks across 227 chapters and 6 continents",
+      "summary": "Shared on Hacker News Show HN. Hi HN,I&#x27;m Roland, and for the past few weeks, I&#x27;ve been building AllBSides — a directory of every BSides conference talk uploaded to YouTube. As of today, 8,643 talks fro",
+      "url": "https://allbsides.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-04",
+      "score": 6
+    },
+    {
+      "title": "Stage CLI – An easier way of reading your AI generated changes locally",
+      "summary": "Shared on Hacker News Show HN. Hey HN! We&#x27;re Charles and Dean. A few weeks ago we posted about Stage, a code review tool that guides you through reading a PR step by step - https:&#x2F;&#x2F;news.ycombinato",
+      "url": "https://github.com/ReviewStage/stage-cli",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-07",
+      "score": 4
+    },
+    {
+      "title": "Naval Strike – simultaneous turn-based fleet combat in the browser",
+      "summary": "Shared on Hacker News Show HN. A few weeks ago there was a thread about using AI to finish abandoned projects, and a comment from avereveard  https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=47905088 on build",
+      "url": "https://navalstrike.app",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-06",
+      "score": 3
+    },
+    {
+      "title": "Granite Switch - compose multiple LoRA adapters to one deployable model",
+      "summary": "Shared on Hacker News Show HN. Granite Switch is an open-source IBM Research project for composing several task-specific LoRA adapters into a single deployable Granite model checkpoint.The idea is to get the acc",
+      "url": "https://github.com/generative-computing/granite-switch",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-06",
+      "score": 3
+    }
+  ]
+}
