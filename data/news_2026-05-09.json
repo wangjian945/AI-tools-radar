@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-09",
+  "news": [
+    {
+      "title": "I indexed 8,643 BSides talks across 227 chapters and 6 continents",
+      "summary": "Shared on Hacker News Show HN. Hi HN,I&#x27;m Roland, and for the past few weeks, I&#x27;ve been building AllBSides — a directory of every BSides conference talk uploaded to YouTube. As of today, 8,643 talks fro",
+      "url": "https://allbsides.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-04",
+      "score": 6
+    },
+    {
+      "title": "GETadb.com – every GET request creates a DB",
+      "summary": "Shared on Hacker News Show HN. Hey HN! We made GETadb.com, so it&#x27;s easier to get agents to build you full stack apps. You don&#x27;t need to give them any credentials. Just by loading a GET request, they ge",
+      "url": "https://www.getadb.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-08",
+      "score": 4
+    },
+    {
+      "title": "Stage CLI – An easier way of reading your AI generated changes locally",
+      "summary": "Shared on Hacker News Show HN. Hey HN! We&#x27;re Charles and Dean. A few weeks ago we posted about Stage, a code review tool that guides you through reading a PR step by step - https:&#x2F;&#x2F;news.ycombinato",
+      "url": "https://github.com/ReviewStage/stage-cli",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-07",
+      "score": 4
+    },
+    {
+      "title": "DoodleMate: Animate Your Child's Hand Drawings Without Generative AI",
+      "summary": "Shared on Hacker News Show HN. Hi HN!I made an app that takes a photo of a paper drawing and, in a handful of seconds, creates a fully rigged character that can be used in an animation or little story. It doesn’",
+      "url": "https://doodlemate.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-06",
+      "score": 4
+    },
+    {
+      "title": "SecureLend Agents",
+      "summary": "AI underwriting agents for VCs, lenders and insurers\n          \n          \n            Discussion\n            |\n            Link",
+      "url": "https://www.producthunt.com/products/securelend-agents",
+      "source": "Product Hunt",
+      "icon": "🚀",
+      "date": "2026-05-07",
+      "score": 2
+    }
+  ]
+}
