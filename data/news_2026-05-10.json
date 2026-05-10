@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-10",
+  "news": [
+    {
+      "title": "GETadb.com – every GET request creates a DB",
+      "summary": "Shared on Hacker News Show HN. Hey HN! We made GETadb.com, so it&#x27;s easier to get agents to build you full stack apps. You don&#x27;t need to give them any credentials. Just by loading a GET request, they ge",
+      "url": "https://www.getadb.com/",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-08",
+      "score": 4
+    },
+    {
+      "title": "Stage CLI – An easier way of reading your AI generated changes locally",
+      "summary": "Shared on Hacker News Show HN. Hey HN! We&#x27;re Charles and Dean. A few weeks ago we posted about Stage, a code review tool that guides you through reading a PR step by step - https:&#x2F;&#x2F;news.ycombinato",
+      "url": "https://github.com/ReviewStage/stage-cli",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-07",
+      "score": 4
+    },
+    {
+      "title": "Concord – Feature rich TUI for discord",
+      "summary": "Shared on Hacker News Show HN. Concord is TUI client for discord with discord like layout (Servers &#x2F; Channels &#x2F; Messages &#x2F; Members), vim keys, inline image previews via Kitty&#x2F;iTerm2&#x2F;Sixe",
+      "url": "https://github.com/chojs23/concord",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-09",
+      "score": 3
+    },
+    {
+      "title": "I made a Clojure-like language in Go, boots in 7ms",
+      "summary": "Shared on Hacker News Show HN. Let-go is a Clojure-like language (~90% compatible with JVM Clojure) written in pure Go. It ships as a ~10MB static binary and cold boots in ~7ms - that&#x27;s about 50x faster tha",
+      "url": "https://github.com/nooga/let-go",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-09",
+      "score": 2
+    },
+    {
+      "title": "Browser-based light pollution simulator using real photometric data",
+      "summary": "Shared on Hacker News Show HN. Hi HN — author here. iesna.eu is a browser-based ecosystem for working with photometric data: parsing standard luminaire files (LDT&#x2F;EULUMDAT, IES LM-63, Oxytech, ATLA-S001), r",
+      "url": "https://iesna.eu/?wasm=skyglow_demo",
+      "source": "Hacker News",
+      "icon": "🔶",
+      "date": "2026-05-02",
+      "score": 2
+    }
+  ]
+}
