@@ -5,10 +5,7 @@ on:
     branches: [main]
     paths: ['site/**']
   
-  # 每天 UTC 0:00（北京时间 08:00）自动采集 + 部署
-  schedule:
-    - cron: '0 0 * * *'
-  
+  # 自动更新已停用 — 仅保留手动触发
   workflow_dispatch:
 
 permissions:
